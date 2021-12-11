@@ -153,6 +153,17 @@ const Book = (props) => {
                                 rows={"5"}
                             />
                         </div>
+                        <div className="form-group">
+                            <label htmlFor="cnt">보유 수</label>
+                            <input
+                                type="number"
+                                className="form-control"
+                                id="cnt"
+                                name="description"
+                                value={currentBook.description}
+                                onChange={handleInputChange}
+                            />
+                        </div>
                     </form>
                     {/*<div>*/}
                     {/*    <label>*/}

@@ -119,8 +119,8 @@ const BooksList = (props) => {
                             <td></td>
                             <td></td>
                         </tr>
+                        <br/>
                     </tbody>
-                    <br/>
                     ))}
 
                 </table>

@@ -83,6 +83,7 @@ const BooksList = (props) => {
                             </button>
                         </td>
                     </tr>
+                    <br/>
                     </tbody>
                 </table>
                 <table width={"100%"} style={{fontSize: "11px"}}>

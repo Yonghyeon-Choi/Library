@@ -92,7 +92,7 @@ const BooksList = (props) => {
                         <tr>
                             <td width={"15%"}>book cover</td>
                             <td width={"2%"}/>
-                            <td width={"10%"}><b>제목</b></td>
+                            <td width={"10%"} className={"right-align"}><b>제목</b></td>
                             <td width={"1%"}/>
                             <td width={"57%"}>{book.title}</td>
                             <td width={"2%"}/>
@@ -108,7 +108,7 @@ const BooksList = (props) => {
                         <tr>
                             <td></td>
                             <td></td>
-                            <td><b>저자</b></td>
+                            <td className={"right-align"}><b>저자</b></td>
                             <td></td>
                             <td>{book.author}</td>
                             <td></td>
@@ -117,7 +117,7 @@ const BooksList = (props) => {
                         <tr>
                             <td></td>
                             <td></td>
-                            <td><b>출간</b></td>
+                            <td className={"right-align"}><b>출간</b></td>
                             <td></td>
                             <td>{book.publisher} {book.pubdate}</td>
                             <td></td>

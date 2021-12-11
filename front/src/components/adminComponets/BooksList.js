@@ -74,7 +74,7 @@ const BooksList = (props) => {
     return (
         <div>
         {images && adminToken ? (
-                {images[0]}
+                {typeof(images[0])}
                 {/*<img src={images[0]['url']}/>*/}
                 <div className="card">
                     <div style={{width: "100%"}}>{/*className="col-md-8"*/}

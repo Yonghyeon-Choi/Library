@@ -53,10 +53,11 @@ const BooksList = (props) => {
     const onKeyPress = (e) => {
         if(e.key === "Enter") findByTitle();
     };
-
+    
     return (
         <div>
-            {images}
+            {typeof(images)}
+            {typeof(books)}
         {adminToken ? (
                 <div className="card">
                     <div style={{width: "100%"}}>{/*className="col-md-8"*/}

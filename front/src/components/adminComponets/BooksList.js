@@ -109,6 +109,7 @@ const BooksList = (props) => {
                             <table>
                                 <tbody>
                                 <tr>
+                                    <td rowSpan={2}></td>
                                     <td><b>제목</b> {book.title}</td>
                                 </tr>
                                 <tr>

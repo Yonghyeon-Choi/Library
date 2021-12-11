@@ -71,7 +71,7 @@ const BooksList = (props) => {
                     <tbody>
                     <tr>
                         <td width={"88%"}>
-                            <h4>책 목록</h4>
+                            <h5>책 목록</h5>
                         </td>
                         <td width={"12%"}>
                             <button

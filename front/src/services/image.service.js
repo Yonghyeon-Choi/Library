@@ -22,4 +22,4 @@ const imageService = {
     upload,
 };
 
-export default imageService();
+export default imageService;

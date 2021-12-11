@@ -130,7 +130,7 @@ const BooksList = (props) => {
                     <table>
                         <tbody>
                             <tr>
-                                <br/>
+                                <td><br/></td>
                             </tr>
                         </tbody>
                     </table>

@@ -82,10 +82,9 @@ const BooksList = (props) => {
                     </tbody>
                 </table>
 
-                <div width={"100%"} style={{fontSize: "11px"}}>
-
+                <table width={"100%"} style={{fontSize: "11px"}}>
                 {books && books.map((book, index) => (
-                    <div>
+                    <tbody>
                         <tr key={index}>
                             <td width={"15%"}>book cover</td>
                             <td width={"2%"}/>
@@ -120,10 +119,10 @@ const BooksList = (props) => {
                             <td></td>
                             <td></td>
                         </tr>
-                    </div>
+                    </tbody>
                     ))}
 
-                </div>
+                </table>
             </div>
         </div>
     );

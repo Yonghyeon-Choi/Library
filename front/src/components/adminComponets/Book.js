@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { updateBook, deleteBook } from "../../actions/books";
-import BookDataService from "../../services/book.service";
+import bookService from "../../services/book.service";
 import "../GlobalStyles.css";
 
 const Book = (props) => {
@@ -22,7 +20,7 @@ const Book = (props) => {
     const dispatch = useDispatch();
 
     const getTutorial = id => {
-        BookDataService.get(id)
+        bookService.get(id)
             .then(response => {
                 setCurrentBook(response.data);
                 console.log(response.data);
@@ -41,19 +39,18 @@ const Book = (props) => {
         setCurrentBook({ ...currentBook, [name]: value });
     };
 
-    // const updateStatus = status => {
-    //     const data = {
-    //         id: currentBook.id,
-    //         title: currentBook.title,
-    //         description: currentBook.description,
+    // const updatePublished = status => {
+    //     var data = {
+    //         id: currentTutorial.id,
+    //         title: currentTutorial.title,
+    //         description: currentTutorial.description,
+    //         published: status
     //     };
     //
-    //     dispatch(updateBook(currentBook.id, data))
+    //     TutorialDataService.update(currentTutorial.id, data)
     //         .then(response => {
-    //             console.log(response);
-    //
-    //             setCurrentBook({ ...currentBook, published: status });
-    //             setMessage("The status was updated successfully!");
+    //             setCurrentTutorial({ ...currentTutorial, published: status });
+    //             console.log(response.data);
     //         })
     //         .catch(e => {
     //             console.log(e);
@@ -61,11 +58,10 @@ const Book = (props) => {
     // };
 
     const updateContent = () => {
-        dispatch(updateBook(currentBook.id, currentBook))
+        bookService.update(currentTutorial.id, book)
             .then(response => {
-                console.log(response);
-
-                setMessage("The Book was updated successfully.");
+                console.log(response.data);
+                setMessage("The tutorial was updated successfully!");
             })
             .catch(e => {
                 console.log(e);
@@ -73,9 +69,10 @@ const Book = (props) => {
     };
 
     const removeBook = () => {
-        dispatch(deleteBook(currentBook.id))
-            .then(() => {
-                props.history.push("/books");
+        bookService.remove(currentBook.id)
+            .then(response => {
+                console.log(response.data);
+                props.history.push("/admin");
             })
             .catch(e => {
                 console.log(e);

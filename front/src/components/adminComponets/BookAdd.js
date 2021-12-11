@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createBook } from "../../actions/books";
+import bookService from "../../services/book.service";
 import "../GlobalStyles.css";
 
 const BookAdd = () => {
@@ -24,18 +23,20 @@ const BookAdd = () => {
     };
 
     const saveBook = () => {
-        const { title, description } = book;
+        var data = {
+            title: book.title,
+            description: book.description
+        };
 
-        dispatch(createBook(title, description))
-            .then(data => {
+        bookService.create(data)
+            .then(response => {
                 setBook({
-                    id: data.id,
-                    title: data.title,
-                    description: data.description
+                    id: response.data.id,
+                    title: response.data.title,
+                    description: response.data.description
                 });
                 setSubmitted(true);
-
-                console.log(data);
+                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);

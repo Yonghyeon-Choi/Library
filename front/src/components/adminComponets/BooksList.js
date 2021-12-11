@@ -93,10 +93,10 @@ const BooksList = (props) => {
                             <td width={"15%"}>book cover</td>
                             <td width={"2%"}/>
                             <td width={"10%"}><b>제목</b></td>
-                            <td width={"2%"}/>
+                            <td width={"1%"}/>
                             <td width={"57%"}>{book.title}</td>
                             <td width={"2%"}/>
-                            <td width={"12%"}>
+                            <td width={"13%"}>
                                 <button
                                     type="button"
                                     className="editBtnStyle"

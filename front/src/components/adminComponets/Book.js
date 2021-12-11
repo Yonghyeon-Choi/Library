@@ -164,55 +164,18 @@ const Book = (props) => {
                                 onChange={handleInputChange}
                             />
                         </div>
+                        <div className="form-group">
+                            <label htmlFor="brw">대출 중</label>
+                            <input
+                                type="number"
+                                className="form-control"
+                                id="brw"
+                                name="brw"
+                                value={currentBook.brw}
+                                onChange={handleInputChange}
+                            />
+                        </div>
                     </form>
-                    {/*<div>*/}
-                    {/*    <label>*/}
-                    {/*        <strong>제목</strong>*/}
-                    {/*    </label>{" "}*/}
-                    {/*    {currentBook.title}*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <label>*/}
-                    {/*        <strong>ISBN</strong>*/}
-                    {/*    </label>{" "}*/}
-                    {/*    {currentBook.isbn}*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <label>*/}
-                    {/*        <strong>저자</strong>*/}
-                    {/*    </label>{" "}*/}
-                    {/*    {currentBook.author}*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <label>*/}
-                    {/*        <strong>출판사</strong>*/}
-                    {/*    </label>{" "}*/}
-                    {/*    {currentBook.publisher}*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <label>*/}
-                    {/*        <strong>출간일</strong>*/}
-                    {/*    </label>{" "}*/}
-                    {/*    {currentBook.pubdate}*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <label>*/}
-                    {/*        <strong>설명</strong>*/}
-                    {/*    </label>{" "}*/}
-                    {/*    {currentBook.description}*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <label>*/}
-                    {/*        <strong>보유 수</strong>*/}
-                    {/*    </label>{" "}*/}
-                    {/*    {currentBook.cnt}*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <label>*/}
-                    {/*        <strong>대출 중</strong>*/}
-                    {/*    </label>{" "}*/}
-                    {/*    {currentBook.brw}*/}
-                    {/*</div>*/}
 
                     <button className="badge badge-danger mr-2" onClick={removeBook}>
                         Delete

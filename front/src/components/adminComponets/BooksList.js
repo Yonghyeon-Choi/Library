@@ -101,20 +101,20 @@ const BooksList = (props) => {
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td/>
-                            <td><b>저자</b></td>
-                            <td/>
-                            <td>{book.author}</td>
-                            <td/>
-                        </tr>
-                        <tr>
-                            <td/>
-                            <td><b>출간일</b></td>
-                            <td/>
-                            <td>{book.pubdate}</td>
-                            <td/>
-                        </tr>
+                        // <tr>
+                        //     <td/>
+                        //     <td><b>저자</b></td>
+                        //     <td/>
+                        //     <td>{book.author}</td>
+                        //     <td/>
+                        // </tr>
+                        // <tr>
+                        //     <td/>
+                        //     <td><b>출간일</b></td>
+                        //     <td/>
+                        //     <td>{book.pubdate}</td>
+                        //     <td/>
+                        // </tr>
                         ))}
                     </tbody>
                 </table>

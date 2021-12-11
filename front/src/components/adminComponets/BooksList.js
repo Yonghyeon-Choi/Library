@@ -110,9 +110,9 @@ const BooksList = (props) => {
                             <table style={{fontSize: "11px"}}>
                                 <tbody>
                                 <tr>
-                                    <td width={"20%"} rowSpan={2}>book cover</td>
+                                    <td width={"15%"} rowSpan={2}>book cover</td>
                                     <td width={"10%"}><b>제목</b></td>
-                                    <td>{book.title}</td>
+                                    <td width={"75%"}>{book.title}</td>
                                 </tr>
                                 <tr>
                                     <td><b>저자</b></td>

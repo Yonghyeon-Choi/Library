@@ -116,7 +116,7 @@ const BooksList = (props) => {
                         </tbody>
                     </table>
                     <hr/>
-                    {/*{images[0]['url']}*/}
+                    {Object.keys(images)}
                     {books && books.map((book, index) => (
                         <div key={index}>
                             <table width={"100%"} style={{fontSize: "11px"}}>

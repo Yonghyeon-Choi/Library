@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     retrieveBooks,
@@ -9,10 +9,8 @@ import { Link } from "react-router-dom";
 import "../GlobalStyles.css";
 
 const BooksList = (props) => {
-    const [currentBook, setCurrentBook] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
-
+    const booksRef = useRef();
     const books = useSelector(state => state.books);
     const dispatch = useDispatch();
 
@@ -20,35 +18,22 @@ const BooksList = (props) => {
         dispatch(retrieveBooks());
     }, []);
 
+    booksRef.current = books;
+
     const onChangeSearchTitle = e => {
         const searchTitle = e.target.value;
         setSearchTitle(searchTitle);
-    };
-
-    const refreshData = () => {
-        setCurrentBook(null);
-        setCurrentIndex(-1);
-    };
-
-    const setActiveBook = (book, index) => {
-        setCurrentBook(book);
-        setCurrentIndex(index);
     };
 
     const addBook = () => {
         props.history.push("/admin/add");
     };
 
-    // const removeAllBooks = () => {
-    //     dispatch(deleteAllBooks())
-    //         .then(response => {
-    //             console.log(response);
-    //             refreshData();
-    //         })
-    //         .catch(e => {
-    //             console.log(e);
-    //         });
-    // };
+    const openBook = (rowIndex) => {
+        const id = booksRef.current[rowIndex].id;
+
+        props.history.push("/admin/" + id);
+    };
 
     const findByTitle = () => {
         refreshData();
@@ -84,7 +69,7 @@ const BooksList = (props) => {
                         <td width={"88%"}>
                             <h4>Books List</h4>
                         </td>
-                        <td>
+                        <td width={"12%"}>
                             <button
                                 className="btn btn-outline-secondary"
                                 type="button"
@@ -97,127 +82,44 @@ const BooksList = (props) => {
                     </tbody>
                 </table>
 
-                <ul className="list-group">
+                <table width={"100%"} style={{fontSize: "11px"}}>
+                    <tbody>
                     {books &&
                     books.map((book, index) => (
-                        <li
-                            className={
-                                "list-group-item " + (index === currentIndex ? "active" : "")
-                            }
-                            onClick={() => setActiveBook(book, index)}
-                            key={index}
-                        >
-                            <table style={{fontSize: "11px"}}>
-                                <tbody>
-                                <tr>
-                                    <td width={"15%"} rowSpan={3}>book cover</td>
-                                    <td width={"2%"}/>
-                                    <td width={"10%"}><b>제목</b></td>
-                                    <td width={"2%"}/>
-                                    <td width={"57%"}>{book.title}</td>
-                                    <td width={"2%"}/>
-                                    <td width={"12%"}>
-                                        {currentBook ? (
-                                            <Link
-                                                to={"/admin/" + currentBook.id}
-                                                className="badge badge-warning"
-                                            >
-                                                Edit
-                                            </Link>
-                                        ):(
-                                            <div>
-                                                
-                                            </div>
-                                        )}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td/>
-                                    <td><b>저자</b></td>
-                                    <td/>
-                                    <td>{book.author}</td>
-                                    <td/>
-                                </tr>
-                                <tr>
-                                    <td/>
-                                    <td><b>출간일</b></td>
-                                    <td/>
-                                    <td>{book.pubdate}</td>
-                                    <td/>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </li>
-                    ))}
-                </ul>
+                        <tr>
+                            <td width={"15%"} rowSpan={3}>book cover</td>
+                            <td width={"2%"}/>
+                            <td width={"10%"}><b>제목</b></td>
+                            <td width={"2%"}/>
+                            <td width={"57%"}>{book.title}</td>
+                            <td width={"2%"}/>
+                            <td width={"12%"}>
+                                <button
+                                    type="button"
+                                    className="editBtnStyle"
+                                    onClick={() => openBook(index)}>
+                                    관리
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td><b>저자</b></td>
+                            <td/>
+                            <td>{book.author}</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td><b>출간일</b></td>
+                            <td/>
+                            <td>{book.pubdate}</td>
+                            <td/>
+                        </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
-            {/*<div className="col-md-6">*/}
-            {/*    {currentBook ? (*/}
-            {/*        <div>*/}
-            {/*            <h4>Book</h4>*/}
-            {/*            <div>*/}
-            {/*                <label>*/}
-            {/*                    <strong>제목</strong>*/}
-            {/*                </label>{" "}*/}
-            {/*                {currentBook.title}*/}
-            {/*            </div>*/}
-            {/*            <div>*/}
-            {/*                <label>*/}
-            {/*                    <strong>ISBN</strong>*/}
-            {/*                </label>{" "}*/}
-            {/*                {currentBook.isbn}*/}
-            {/*            </div>*/}
-            {/*            <div>*/}
-            {/*                <label>*/}
-            {/*                    <strong>저자</strong>*/}
-            {/*                </label>{" "}*/}
-            {/*                {currentBook.author}*/}
-            {/*            </div>*/}
-            {/*            <div>*/}
-            {/*                <label>*/}
-            {/*                    <strong>출판사</strong>*/}
-            {/*                </label>{" "}*/}
-            {/*                {currentBook.publisher}*/}
-            {/*            </div>*/}
-            {/*            <div>*/}
-            {/*                <label>*/}
-            {/*                    <strong>출간일</strong>*/}
-            {/*                </label>{" "}*/}
-            {/*                {currentBook.pubdate}*/}
-            {/*            </div>*/}
-            {/*            <div>*/}
-            {/*                <label>*/}
-            {/*                    <strong>설명</strong>*/}
-            {/*                </label>{" "}*/}
-            {/*                {currentBook.description}*/}
-            {/*            </div>*/}
-            {/*            <div>*/}
-            {/*                <label>*/}
-            {/*                    <strong>보유 수</strong>*/}
-            {/*                </label>{" "}*/}
-            {/*                {currentBook.cnt}*/}
-            {/*            </div>*/}
-            {/*            <div>*/}
-            {/*                <label>*/}
-            {/*                    <strong>대출 중</strong>*/}
-            {/*                </label>{" "}*/}
-            {/*                {currentBook.brw}*/}
-            {/*            </div>*/}
-            {/*            <hr/>*/}
-            {/*            <Link*/}
-            {/*                to={"/admin/" + currentBook.id}*/}
-            {/*                className="badge badge-warning"*/}
-            {/*            >*/}
-            {/*                Edit*/}
-            {/*            </Link>*/}
-            {/*        </div>*/}
-            {/*    ) : (*/}
-            {/*        <div>*/}
-            {/*            <br />*/}
-            {/*            <p>Please click on a Book</p>*/}
-            {/*        </div>*/}
-            {/*    )}*/}
-            {/*</div>*/}
         </div>
     );
 };

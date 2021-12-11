@@ -9,16 +9,30 @@ const BooksList = (props) => {
     const adminToken = window.localStorage.getItem('adminToken');
 
     const [searchTitle, setSearchTitle] = useState("");
+    const [images, setImages] = useState([]);
     const [books, setBooks] = useState([]);
     const booksRef = useRef();
     booksRef.current = books;
     useEffect(() => {
         retrieveBooks();
+        retrieveIamgess();
     }, []);
+
     const retrieveBooks = () => {
         bookService.getAll()
             .then(response => {
                 setBooks(response.data);
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
+    const retrieveImages = () => {
+        imageService.getFiles()
+            .then(response => {
+                setImages(response.data);
                 console.log(response.data);
             })
             .catch(e => {

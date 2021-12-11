@@ -8,6 +8,9 @@ import {
     findBooksByTitle,
     // deleteAllBooks,
 } from "../../actions/books";
+import {
+    retrieveImages,
+} from "../../actions/images";
 import imageService from "../../services/image.service";
 
 const BooksList = (props) => {
@@ -20,6 +23,7 @@ const BooksList = (props) => {
 
     useEffect(() => {
         dispatch(retrieveBooks());
+        dispatch(retrieveImages());
     }, []);
 
     booksRef.current = books;

@@ -5,9 +5,9 @@ import {
 
 import ImageDataService from "../services/image.service";
 
-export const createBook = (title, description) => async (dispatch) => {
+export const createImage = (title, description) => async (dispatch) => {
     try {
-        const res = await BookDataService.create({ title, description });
+        const res = await ImageDataService.upload({ title, description });
 
         dispatch({
             type: CREATE_IMAGE,
@@ -20,9 +20,9 @@ export const createBook = (title, description) => async (dispatch) => {
     }
 };
 
-export const retrieveBooks = () => async (dispatch) => {
+export const retrieveImages = () => async (dispatch) => {
     try {
-        const res = await BookDataService.getAll();
+        const res = await ImageDataService.getFiles();
 
         dispatch({
             type: RETRIEVE_IMAGES,

@@ -17,17 +17,16 @@ const BooksList = (props) => {
     const adminToken = window.localStorage.getItem('adminToken');
 
     const [searchTitle, setSearchTitle] = useState("");
-    const booksRef = useRef();
     const books = useSelector(state => state.books);
     const images = useSelector(state => state.images);
     const dispatch = useDispatch();
+    const booksRef = useRef();
+    booksRef.current = books;
 
     useEffect(() => {
         dispatch(retrieveBooks());
         dispatch(retrieveImages());
     }, []);
-
-    booksRef.current = books;
 
     const onChangeSearchTitle = e => {
         const searchTitle = e.target.value;
@@ -51,7 +50,7 @@ const BooksList = (props) => {
     const onKeyPress = (e) => {
         if(e.key === "Enter") findByTitle();
     };
-    
+
     return (
         <div>
             {images}

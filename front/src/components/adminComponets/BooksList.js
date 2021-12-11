@@ -36,8 +36,11 @@ const BooksList = (props) => {
     };
 
     const findByTitle = () => {
-        // refreshData();
         dispatch(findBooksByTitle(searchTitle));
+    };
+
+    const onKeyPress = (e) => {
+        if(e.key === "Enter") findByTitle();
     };
 
     return (
@@ -47,9 +50,10 @@ const BooksList = (props) => {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Search by title"
+                        placeholder="제목"
                         value={searchTitle}
                         onChange={onChangeSearchTitle}
+                        onKeyPress={onKeyPress}
                     />
                     <div className="input-group-append">
                         <button
@@ -81,7 +85,6 @@ const BooksList = (props) => {
                     </tr>
                     </tbody>
                 </table>
-
                 <table width={"100%"} style={{fontSize: "11px"}}>
                 {books && books.map((book, index) => (
                     <tbody key={index}>
@@ -122,7 +125,6 @@ const BooksList = (props) => {
                         <br/>
                     </tbody>
                     ))}
-
                 </table>
             </div>
         </div>

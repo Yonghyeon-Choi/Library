@@ -10,14 +10,20 @@ class AuthService {
       .then((response) => {
         if (response.data.accessToken) {
           localStorage.setItem("user", JSON.stringify(response.data));
+          if(response.data.roles[0] === 'ROLE_ADMIN') {
+            sessionStorage.setItem("adminToken", true);
+          } else if(response.data.roles[0] === 'ROLE_USER'){
+            sessionStorage.setItem("userToken", true);
+          }
         }
-
         return response.data;
       });
   }
 
   logout() {
     localStorage.removeItem("user");
+    localStorage.removeItem("adminToken");
+    localStorage.removeItem("userToken");
   }
 
   register(username, email, password) {

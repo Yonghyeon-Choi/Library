@@ -85,7 +85,7 @@ const BooksList = (props) => {
                 <div width={"100%"} style={{fontSize: "11px"}}>
 
                 {books && books.map((book, index) => (
-
+                    <div>book cover</div>
                     <tr key={index}>
                         <td width={"15%"}>book cover</td>
                         <td width={"2%"}/>
@@ -102,22 +102,22 @@ const BooksList = (props) => {
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td><b>저자</b></td>
-                        <td></td>
-                        <td>{book.author}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><b>출간일</b></td>
-                        <td></td>
-                        <td>{book.pubdate}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    // <tr>
+                    //     <td></td>
+                    //     <td><b>저자</b></td>
+                    //     <td></td>
+                    //     <td>{book.author}</td>
+                    //     <td></td>
+                    //     <td></td>
+                    // </tr>
+                    // <tr>
+                    //     <td></td>
+                    //     <td><b>출간일</b></td>
+                    //     <td></td>
+                    //     <td>{book.pubdate}</td>
+                    //     <td></td>
+                    //     <td></td>
+                    // </tr>
                     ))}
 
                 </div>

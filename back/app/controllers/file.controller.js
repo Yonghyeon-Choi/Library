@@ -1,6 +1,6 @@
 const uploadFile = require("../middleware/upload");
 const fs = require("fs");
-const baseUrl = "http://203.237.183.42:7163/files/";
+const baseUrl = "http://203.237.183.42:7163/api/images/";
 
 const upload = async (req, res) => {
     try {
@@ -43,7 +43,7 @@ const getListFiles = (req, res) => {
         files.forEach((file) => {
             fileInfos.push({
                 name: file,
-                url: baseUrl + file,
+                url: baseUrl + "list/" + file,
             });
         });
 

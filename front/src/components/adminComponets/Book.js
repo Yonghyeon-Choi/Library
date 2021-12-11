@@ -17,8 +17,6 @@ const Book = (props) => {
     const [currentBook, setCurrentBook] = useState(initialBookState);
     const [message, setMessage] = useState("");
 
-    const dispatch = useDispatch();
-
     const getBook = id => {
         bookService.get(id)
             .then(response => {
@@ -58,7 +56,18 @@ const Book = (props) => {
     // };
 
     const updateContent = () => {
-        bookService.update(currentBook.id, book)
+        var data = {
+            id: currentBook.id,
+            title: currentBook.title,
+            isbn: currentBook.isbn,
+            author: currentBook.author,
+            publisher: currentBook.publisher,
+            pubdate: currentBook.pubdate,
+            cnt: currentBook.cnt,
+            description: currentBook.description
+        };
+
+        bookService.update(currentBook.id, data)
             .then(response => {
                 console.log(response.data);
                 setMessage("The tutorial was updated successfully!");

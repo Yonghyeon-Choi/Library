@@ -86,8 +86,8 @@ const BooksList = (props) => {
                     <tbody>
                     {books && books.map((book, index) => (
                         <tr>
-                            <dir>
-                                <td width={"15%"} rowSpan={3}>book cover</td>
+                            <div>
+                                <td width={"15%"}>book cover</td>
                                 <td width={"2%"}/>
                                 <td width={"10%"}><b>제목</b></td>
                                 <td width={"2%"}/>
@@ -101,7 +101,7 @@ const BooksList = (props) => {
                                         관리
                                     </button>
                                 </td>
-                            </dir>
+                            </div>
                             <div>
                                 <td/>
                                 <td><b>저자</b></td>

@@ -71,16 +71,23 @@ class App extends Component {
       <Router history={history}>
         <div>
           <nav className="navbar navbar-expand nav-back">
-            <Link to={"/"} className="navbar-brand white-font">
-              <img src={homeLogo} alt="homeLogo" className="home-logo"/>
-            </Link>
-            <div className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link to={"/home"} className="nav-link white-font">
-                  홈
-                </Link>
-              </li>
+            {currentUser ? (
+                showAdminBoard ? (
+                    <Link to={"/admin"} className="navbar-brand white-font">
+                      <img src={homeLogo} alt="homeLogo" className="home-logo"/>
+                    </Link>
+                    ) : (
+                    <Link to={"/user"} className="navbar-brand white-font">
+                      <img src={homeLogo} alt="homeLogo" className="home-logo"/>
+                    </Link>
+                    )
 
+            ) : (
+                <Link to={"/"} className="navbar-brand white-font">
+                  <img src={homeLogo} alt="homeLogo" className="home-logo"/>
+                </Link>
+            )}
+            <div className="navbar-nav mr-auto">
               {showAdminBoard && (
                 <li className="nav-item">
                   <Link to={"/admin"} className="nav-link white-font">
@@ -130,7 +137,7 @@ class App extends Component {
 
           <div className="container mt-3">
             <Switch>
-              <Route exact path={["/", "/home"]} component={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/admin" component={BoardAdmin} />
               <Route path="/user" component={BoardUser} />
 

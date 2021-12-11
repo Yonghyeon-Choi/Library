@@ -1,5 +1,5 @@
 module.exports = app => {
-    const images = require("../controllers/file.controller.js");
+    const images = require("../controllers/file.controller");
 
     var router = require("express").Router();
 

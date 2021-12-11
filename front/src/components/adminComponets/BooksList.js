@@ -46,6 +46,7 @@ const BooksList = (props) => {
     };
 
     return (
+        <>
         {adminToken ? (
                 <div className="card">
                     <div style={{width: "100%"}}>{/*className="col-md-8"*/}
@@ -140,7 +141,7 @@ const BooksList = (props) => {
                 props.history.push("/login")
             )
         }
-
+        </>
     );
 };
 

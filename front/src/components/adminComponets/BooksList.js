@@ -106,7 +106,16 @@ const BooksList = (props) => {
                             onClick={() => setActiveBook(book, index)}
                             key={index}
                         >
-                            {book.title}
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>{book.title}</td>
+                                </tr>
+                                <tr>
+                                    <td>{book.description}</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </li>
                     ))}
                 </ul>

@@ -38,3 +38,13 @@ label {
 .white-font {
   color: white;
 }
+
+.home-logo {
+  padding-left: 30px;
+  width: 60px;
+  height: 30px;
+}
+
+.center-align{
+  text-align: center;
+}

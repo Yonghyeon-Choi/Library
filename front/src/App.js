@@ -19,6 +19,7 @@ import { history } from './helpers/history';
 
 import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
+import homeLogo from "./LibraryIcon.png";
 
 class App extends Component {
   constructor(props) {
@@ -71,7 +72,7 @@ class App extends Component {
         <div>
           <nav className="navbar navbar-expand nav-back">
             <Link to={"/"} className="navbar-brand white-font">
-              로고
+              <img src={homeLogo} alt="homeLogo" className="home-logo"/>
             </Link>
             <div className="navbar-nav mr-auto">
               <li className="nav-item">

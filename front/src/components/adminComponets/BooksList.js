@@ -114,6 +114,7 @@ const BooksList = (props) => {
                                     <td width={"10%"}><b>제목</b></td>
                                     <td width={"75%"}>{book.title}</td>
                                 </tr>
+                                <hr/>
                                 <tr>
                                     <td><b>저자</b></td>
                                     <td>{book.author}</td>

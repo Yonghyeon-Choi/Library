@@ -107,7 +107,7 @@ const BooksList = (props) => {
                             onClick={() => setActiveBook(book, index)}
                             key={index}
                         >
-                            <table>
+                            <table className={"table"}>
                                 <tbody>
                                 <tr>
                                     <td rowSpan={2}>book cover</td>

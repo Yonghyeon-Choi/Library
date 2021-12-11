@@ -3,33 +3,49 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../GlobalStyles.css";
 
-import {
-    retrieveBooks,
-    findBooksByTitle,
-    // deleteAllBooks,
-} from "../../actions/books";
-import {
-    retrieveImages,
-} from "../../actions/images";
+// import {
+//     retrieveBooks,
+//     findBooksByTitle,
+//     // deleteAllBooks,
+// } from "../../actions/books";
+// import {
+//     retrieveImages,
+// } from "../../actions/images";
+
+import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
 
 const BooksList = (props) => {
     const adminToken = window.localStorage.getItem('adminToken');
 
     const [searchTitle, setSearchTitle] = useState("");
-    const books = useSelector(state => state.books);
-    const images = useSelector(state => state.images);
-    const dispatch = useDispatch();
-    const booksRef = useRef();
-    booksRef.current = books;
-
+    // const books = useSelector(state => state.books);
+    // const images = useSelector(state => state.images);
+    // const dispatch = useDispatch();
+    // const booksRef = useRef();
+    // booksRef.current = books;
+    //
+    // useEffect(() => {
+    //     dispatch(retrieveBooks());
+    // }, []);
+    //
+    // useEffect(() => {
+    //     dispatch(retrieveImages());
+    // }, []);
+    const [books, setBooks] = useState([]);
     useEffect(() => {
-        dispatch(retrieveBooks());
+        retrieveBooks();
     }, []);
-
-    useEffect(() => {
-        dispatch(retrieveImages());
-    }, []);
+    const retrieveTutorials = () => {
+        bookService.getAll()
+            .then(response => {
+                setBooks(response.data);
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
 
     const onChangeSearchTitle = e => {
         const searchTitle = e.target.value;
@@ -53,7 +69,7 @@ const BooksList = (props) => {
     const onKeyPress = (e) => {
         if(e.key === "Enter") findByTitle();
     };
-    
+
     return (
         <div>
             {typeof(images)}

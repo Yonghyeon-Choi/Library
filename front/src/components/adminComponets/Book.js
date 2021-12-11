@@ -19,7 +19,7 @@ const Book = (props) => {
 
     const dispatch = useDispatch();
 
-    const getTutorial = id => {
+    const getBook = id => {
         bookService.get(id)
             .then(response => {
                 setCurrentBook(response.data);
@@ -31,7 +31,7 @@ const Book = (props) => {
     };
 
     useEffect(() => {
-        getTutorial(props.match.params.id);
+        getBook(props.match.params.id);
     }, [props.match.params.id]);
 
     const handleInputChange = event => {
@@ -58,7 +58,7 @@ const Book = (props) => {
     // };
 
     const updateContent = () => {
-        bookService.update(currentTutorial.id, book)
+        bookService.update(currentBook.id, book)
             .then(response => {
                 console.log(response.data);
                 setMessage("The tutorial was updated successfully!");

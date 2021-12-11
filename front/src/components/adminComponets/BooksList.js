@@ -109,10 +109,10 @@ const BooksList = (props) => {
                             <table>
                                 <tbody>
                                 <tr>
-                                    <td>{book.title}</td>
+                                    <td><b>제목</b> {book.title}</td>
                                 </tr>
                                 <tr>
-                                    <td>{book.description}</td>
+                                    <td><b>설명</b> {book.description}</td>
                                 </tr>
                                 </tbody>
                             </table>

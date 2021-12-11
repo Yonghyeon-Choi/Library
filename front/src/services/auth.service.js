@@ -11,9 +11,9 @@ class AuthService {
         if (response.data.accessToken) {
           localStorage.setItem("user", JSON.stringify(response.data));
           if(response.data.roles[0] === 'ROLE_ADMIN') {
-            sessionStorage.setItem("adminToken", true);
+            localStorage.setItem("adminToken", true);
           } else if(response.data.roles[0] === 'ROLE_USER'){
-            sessionStorage.setItem("userToken", true);
+            localStorage.setItem("userToken", true);
           }
         }
         return response.data;

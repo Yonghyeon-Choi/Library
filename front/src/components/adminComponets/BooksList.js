@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import "../GlobalStyles.css";
 
 const BooksList = (props) => {
-    const adminToken = window.sessionStorage.getItem('adminToken');
+    const adminToken = window.localStorage.getItem('adminToken');
 
     const [searchTitle, setSearchTitle] = useState("");
     const booksRef = useRef();

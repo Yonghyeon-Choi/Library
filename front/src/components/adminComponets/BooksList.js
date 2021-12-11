@@ -87,7 +87,7 @@ const BooksList = (props) => {
                     {books && books.map((book, index) => (
                         <tr>
                             <dir>
-                                {/*<td width={"15%"} rowSpan={3}>book cover</td>*/}
+                                <td width={"15%"} rowSpan={3}>book cover</td>
                                 <td width={"2%"}/>
                                 <td width={"10%"}><b>제목</b></td>
                                 <td width={"2%"}/>

@@ -6,7 +6,7 @@ import {
     // deleteAllBooks,
 } from "../../actions/books";
 import { Link } from "react-router-dom";
-import "../GlobalStyles.css";
+// import "../GlobalStyles.css";
 
 const BooksList = (props) => {
     const [currentBook, setCurrentBook] = useState(null);
@@ -107,7 +107,7 @@ const BooksList = (props) => {
                             onClick={() => setActiveBook(book, index)}
                             key={index}
                         >
-                            <table className={"table"}>
+                            <table>
                                 <tbody>
                                 <tr>
                                     <td rowSpan={2}>book cover</td>

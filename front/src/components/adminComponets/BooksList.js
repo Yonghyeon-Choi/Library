@@ -88,8 +88,8 @@ const BooksList = (props) => {
                 <hr/>
 
                 {books && books.map((book, index) => (
-                    <div>
-                        <table key={index} width={"100%"} style={{fontSize: "11px"}}>
+                    <div key={index}>
+                        <table width={"100%"} style={{fontSize: "11px"}}>
                             <tbody>
                                 <tr>
                                     <td width={"15%"}>book cover</td>

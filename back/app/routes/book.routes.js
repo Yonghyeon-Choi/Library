@@ -1,5 +1,3 @@
-const imagesController = require("../controllers/file.controller");
-
 module.exports = app => {
     const books = require("../controllers/book.controller.js");
 

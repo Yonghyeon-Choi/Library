@@ -3,6 +3,8 @@ const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
 const app = express();
 
+global.__basedir = __dirname;
+
 let corsOptions = {
   origin: "http://203.237.183.42:7165"
 };
@@ -33,6 +35,7 @@ app.get("/", (req, res) => {
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 require("./app/routes/book.routes")(app);
+require("./app/routes/image.routes")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, "0.0.0.0", () => {

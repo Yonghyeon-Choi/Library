@@ -123,6 +123,12 @@ const BooksList = (props) => {
                         </div>
                         <div>
                             <label>
+                                <strong>ISBN</strong>
+                            </label>{" "}
+                            {currentBook.isbn}
+                        </div>
+                        <div>
+                            <label>
                                 <strong>저자</strong>
                             </label>{" "}
                             {currentBook.author}

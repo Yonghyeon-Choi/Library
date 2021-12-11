@@ -120,6 +120,7 @@ const BooksList = (props) => {
                             <td></td>
                         </tr>
                     </tbody>
+                    <br/>
                     ))}
 
                 </table>

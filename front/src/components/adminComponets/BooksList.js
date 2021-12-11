@@ -15,7 +15,7 @@ const BooksList = (props) => {
     booksRef.current = books;
     useEffect(() => {
         retrieveBooks();
-        retrieveIamges();
+        retrieveImages();
     }, []);
 
     const retrieveBooks = () => {

@@ -13,6 +13,7 @@ const BooksList = (props) => {
     const [books, setBooks] = useState([]);
     const booksRef = useRef();
     booksRef.current = books;
+
     useEffect(() => {
         retrieveBooks();
         retrieveImages();
@@ -72,8 +73,9 @@ const BooksList = (props) => {
 
     return (
         <div>
-            {typeof(images)}
-            {typeof(books)}
+            {images[0]['url']}
+            {/*<img src={images[0]['url']}/>*/}
+
         {adminToken ? (
                 <div className="card">
                     <div style={{width: "100%"}}>{/*className="col-md-8"*/}

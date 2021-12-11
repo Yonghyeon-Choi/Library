@@ -69,7 +69,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <div>
-          <nav className="navbar navbar-expand navbar-dark bg-dark">
+          <nav className="navbar navbar-expand navbar-dark bg-dark nav-back">
             <Link to={"/"} className="navbar-brand">
               로고
             </Link>

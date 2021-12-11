@@ -33,5 +33,9 @@ label {
 
 .nav-back {
   background: #021420;
+}
+
+.white-font {
   color: white;
+  font-size: 13px;
 }

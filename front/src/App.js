@@ -70,19 +70,19 @@ class App extends Component {
       <Router history={history}>
         <div>
           <nav className="navbar navbar-expand nav-back">
-            <Link to={"/"} className="navbar-brand">
+            <Link to={"/"} className="navbar-brand white-font">
               로고
             </Link>
             <div className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link to={"/home"} className="nav-link">
+                <Link to={"/home"} className="nav-link white-font">
                   홈
                 </Link>
               </li>
 
               {showAdminBoard && (
                 <li className="nav-item">
-                  <Link to={"/admin"} className="nav-link">
+                  <Link to={"/admin"} className="nav-link white-font">
                     도서 관리
                   </Link>
                 </li>
@@ -90,7 +90,7 @@ class App extends Component {
 
               {currentUser && (
                 <li className="nav-item">
-                  <Link to={"/user"} className="nav-link">
+                  <Link to={"/user"} className="nav-link white-font">
                     도서
                   </Link>
                 </li>
@@ -100,12 +100,12 @@ class App extends Component {
             {currentUser ? (
               <div className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link to={"/profile"} className="nav-link">
+                  <Link to={"/profile"} className="nav-link white-font">
                     {currentUser.username}
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="/login" className="nav-link" onClick={this.logOut}>
+                  <a href="/login" className="nav-link white-font" onClick={this.logOut}>
                     로그아웃
                   </a>
                 </li>
@@ -113,13 +113,13 @@ class App extends Component {
             ) : (
               <div className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link to={"/login"} className="nav-link">
+                  <Link to={"/login"} className="nav-link white-font">
                     로그인
                   </Link>
                 </li>
 
                 <li className="nav-item">
-                  <Link to={"/register"} className="nav-link">
+                  <Link to={"/register"} className="nav-link white-font">
                     회원가입
                   </Link>
                 </li>

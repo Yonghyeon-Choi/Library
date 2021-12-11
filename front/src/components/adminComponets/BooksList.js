@@ -22,8 +22,7 @@ const BooksList = (props) => {
     // const books = useSelector(state => state.books);
     // const images = useSelector(state => state.images);
     // const dispatch = useDispatch();
-    const booksRef = useRef();
-    booksRef.current = books;
+
     //
     // useEffect(() => {
     //     dispatch(retrieveBooks());
@@ -33,6 +32,8 @@ const BooksList = (props) => {
     //     dispatch(retrieveImages());
     // }, []);
     const [books, setBooks] = useState([]);
+    const booksRef = useRef();
+    booksRef.current = books;
     useEffect(() => {
         retrieveBooks();
     }, []);

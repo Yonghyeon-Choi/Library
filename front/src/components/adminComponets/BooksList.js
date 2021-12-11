@@ -112,7 +112,7 @@ const BooksList = (props) => {
                                     <td><b>제목</b> {book.title}</td>
                                 </tr>
                                 <tr>
-                                    <td><b>설명</b> {book.description}</td>
+                                    <td><b>저자</b> {book.author}</td>
                                 </tr>
                                 </tbody>
                             </table>

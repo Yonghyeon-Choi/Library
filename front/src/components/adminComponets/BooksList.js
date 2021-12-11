@@ -89,45 +89,52 @@ const BooksList = (props) => {
 
                 {books && books.map((book, index) => (
                     <table key={index} width={"100%"} style={{fontSize: "11px"}}>
-                    <tbody>
-                        <tr>
-                            <td width={"15%"}>book cover</td>
-                            <td width={"2%"}/>
-                            <td width={"10%"} className={"right-align"}><b>제목</b></td>
-                            <td width={"1%"}/>
-                            <td width={"57%"}>{book.title}</td>
-                            <td width={"2%"}/>
-                            <td width={"13%"}  className={"right-align"}>
-                                <button
-                                    type="button"
-                                    className="editBtnStyle"
-                                    onClick={() => openBook(index)}>
-                                    관리
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td className={"right-align"}><b>저자</b></td>
-                            <td></td>
-                            <td>{book.author}</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td className={"right-align"}><b>출간</b></td>
-                            <td></td>
-                            <td>{book.publisher} {book.pubdate}</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
+                        <tbody>
+                            <tr>
+                                <td width={"15%"}>book cover</td>
+                                <td width={"2%"}/>
+                                <td width={"10%"} className={"right-align"}><b>제목</b></td>
+                                <td width={"1%"}/>
+                                <td width={"57%"}>{book.title}</td>
+                                <td width={"2%"}/>
+                                <td width={"13%"}  className={"right-align"}>
+                                    <button
+                                        type="button"
+                                        className="editBtnStyle"
+                                        onClick={() => openBook(index)}>
+                                        관리
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td className={"right-align"}><b>저자</b></td>
+                                <td></td>
+                                <td>{book.author}</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td className={"right-align"}><b>출간</b></td>
+                                <td></td>
+                                <td>{book.publisher} {book.pubdate}</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <br/>
+                            </tr>
+                        </tbody>
                     </table>
                     ))}
-                <br/>
+
             </div>
         </div>
     );

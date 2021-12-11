@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateBook, deleteBook } from "../../actions/books";
 import BookDataService from "../../services/book.service";
+import "../GlobalStyles.css";
 
 const Book = (props) => {
     const initialBookState = {
@@ -178,16 +179,16 @@ const Book = (props) => {
                         </div>
                     </form>
 
-                    <button className="badge badge-danger mr-2" onClick={removeBook}>
-                        Delete
+                    <button className="delBtnStyle" onClick={removeBook}>
+                        삭제
                     </button>
 
                     <button
                         type="submit"
-                        className="badge badge-success"
+                        className="addBtnStyle"
                         onClick={updateContent}
                     >
-                        Update
+                        수정
                     </button>
                     <p>{message}</p>
                 </div>

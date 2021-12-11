@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import "../GlobalStyles.css";
+
 import {
     retrieveBooks,
     findBooksByTitle,
     // deleteAllBooks,
 } from "../../actions/books";
-import { Link } from "react-router-dom";
-import "../GlobalStyles.css";
+import imageService from "../../services/image.service";
 
 const BooksList = (props) => {
     const adminToken = window.localStorage.getItem('adminToken');
@@ -46,7 +48,7 @@ const BooksList = (props) => {
     };
 
     return (
-        <>
+        <div>
         {adminToken ? (
                 <div className="card">
                     <div style={{width: "100%"}}>{/*className="col-md-8"*/}
@@ -83,7 +85,7 @@ const BooksList = (props) => {
                                         type="button"
                                         onClick={addBook}
                                     >
-                                        추가
+                                        등록
                                     </button>
                                 </td>
                             </tr>
@@ -141,7 +143,7 @@ const BooksList = (props) => {
                 props.history.push("/login")
             )
         }
-        </>
+        </div>
     );
 };
 

@@ -12,3 +12,6 @@ export const RETRIEVE_BOOKS = "RETRIEVE_BOOKS";
 export const UPDATE_BOOK = "UPDATE_BOOK";
 export const DELETE_BOOK = "DELETE_BOOK";
 export const DELETE_ALL_BOOKS = "DELETE_ALL_BOOKS";
+
+export const RETRIEVE_IMAGES = "RETRIEVE_IMAGES";
+export const CREATE_IMAGE = "CREATE_IMAGE";

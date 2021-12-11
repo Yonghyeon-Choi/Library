@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createBook } from "../../actions/books";
+import "../GlobalStyles.css";
 
 const BookAdd = () => {
     const initialBookState = {
         id: null,
+        id: null,
         title: "",
+        isbn: "",
+        author: "",
+        publisher: "",
+        pubdate: "",
         description: ""
     };
     const [book, setBook] = useState(initialBookState);
@@ -54,7 +60,7 @@ const BookAdd = () => {
             ) : (
                 <div>
                     <div className="form-group">
-                        <label htmlFor="title">Title</label>
+                        <label htmlFor="title">제목</label>
                         <input
                             type="text"
                             className="form-control"
@@ -65,9 +71,52 @@ const BookAdd = () => {
                             name="title"
                         />
                     </div>
-
                     <div className="form-group">
-                        <label htmlFor="description">Description</label>
+                        <label htmlFor="isbn">ISBN</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="ISBN"
+                            name="ISBN"
+                            value={book.isbn}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="author">저자</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="author"
+                            name="author"
+                            value={book.author}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="publisher">출판사</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="publisher"
+                            name="publisher"
+                            value={book.publisher}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="pubdate">출간일</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="pubdate"
+                            name="pubdate"
+                            value={book.pubdate}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="description">설명</label>
                         <input
                             type="text"
                             className="form-control"
@@ -79,8 +128,8 @@ const BookAdd = () => {
                         />
                     </div>
 
-                    <button onClick={saveBook} className="btn btn-success">
-                        Submit
+                    <button onClick={saveBook} className="addBtnStyle">
+                        등록
                     </button>
                 </div>
             )}

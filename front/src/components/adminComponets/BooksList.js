@@ -71,15 +71,15 @@ const BooksList = (props) => {
                     <tbody>
                     <tr>
                         <td width={"88%"}>
-                            <h4>Books List</h4>
+                            <h4>책 목록</h4>
                         </td>
                         <td width={"12%"}>
                             <button
-                                className="btn btn-outline-secondary"
+                                className="BtnStyle"
                                 type="button"
                                 onClick={addBook}
                             >
-                                Add
+                                추가
                             </button>
                         </td>
                     </tr>
@@ -98,7 +98,7 @@ const BooksList = (props) => {
                             <td width={"12%"}>
                                 <button
                                     type="button"
-                                    className="editBtnStyle"
+                                    className="BtnStyle"
                                     onClick={() => openBook(index)}>
                                     관리
                                 </button>

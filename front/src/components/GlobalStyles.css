@@ -20,11 +20,9 @@
     width: 100%;
 }
 
-.editBtnStyle{
+.BtnStyle{
     color: #021420;
     background: white;
-    /*color: #021420;*/
-    /*background: #faa61a;*/
     padding: 0.100rem 0.50rem;
     border: 1px solid dimgray;
     border-radius: 0.300rem;

@@ -88,6 +88,7 @@ const BooksList = (props) => {
                 <hr/>
 
                 {books && books.map((book, index) => (
+                    <div>
                     <table key={index} width={"100%"} style={{fontSize: "11px"}}>
                         <tbody>
                             <tr>
@@ -133,6 +134,7 @@ const BooksList = (props) => {
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                     ))}
 
             </div>

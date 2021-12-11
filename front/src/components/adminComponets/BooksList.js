@@ -75,7 +75,7 @@ const BooksList = (props) => {
                         </td>
                         <td width={"12%"}>
                             <button
-                                className="BtnStyle"
+                                className="addBtnStyle"
                                 type="button"
                                 onClick={addBook}
                             >
@@ -99,7 +99,7 @@ const BooksList = (props) => {
                             <td width={"12%"}>
                                 <button
                                     type="button"
-                                    className="BtnStyle"
+                                    className="editBtnStyle"
                                     onClick={() => openBook(index)}>
                                     관리
                                 </button>

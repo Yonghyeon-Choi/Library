@@ -1,10 +1,12 @@
-module.exports = app => {
-    const images = require("../controllers/file.controller");
+const express = require("express");
+const router = express.Router();
+const controller = require("../controller/file.controller");
 
-    var router = require("express").Router();
-
+let routes = (app) => {
     router.post("/upload", images.upload);
     router.get("/list", images.getListFiles);
 
     app.use("/api/images", router);
 };
+
+module.exports = routes;

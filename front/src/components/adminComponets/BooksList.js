@@ -76,7 +76,7 @@ const BooksList = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="col-md-6">
+            <div > {/*className="col-md-6"*/}
                 <table width={"100%"}>
                     <tbody>
                     <tr>
@@ -111,73 +111,73 @@ const BooksList = (props) => {
                     ))}
                 </ul>
             </div>
-            <div className="col-md-6">
-                {currentBook ? (
-                    <div>
-                        <h4>Book</h4>
-                        <div>
-                            <label>
-                                <strong>제목</strong>
-                            </label>{" "}
-                            {currentBook.title}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>ISBN</strong>
-                            </label>{" "}
-                            {currentBook.isbn}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>저자</strong>
-                            </label>{" "}
-                            {currentBook.author}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>출판사</strong>
-                            </label>{" "}
-                            {currentBook.publisher}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>출간일</strong>
-                            </label>{" "}
-                            {currentBook.pubdate}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>설명</strong>
-                            </label>{" "}
-                            {currentBook.description}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>보유 수</strong>
-                            </label>{" "}
-                            {currentBook.cnt}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>대출 중</strong>
-                            </label>{" "}
-                            {currentBook.brw}
-                        </div>
-                        <hr/>
-                        <Link
-                            to={"/admin/" + currentBook.id}
-                            className="badge badge-warning"
-                        >
-                            Edit
-                        </Link>
-                    </div>
-                ) : (
-                    <div>
-                        <br />
-                        <p>Please click on a Book</p>
-                    </div>
-                )}
-            </div>
+            {/*<div className="col-md-6">*/}
+            {/*    {currentBook ? (*/}
+            {/*        <div>*/}
+            {/*            <h4>Book</h4>*/}
+            {/*            <div>*/}
+            {/*                <label>*/}
+            {/*                    <strong>제목</strong>*/}
+            {/*                </label>{" "}*/}
+            {/*                {currentBook.title}*/}
+            {/*            </div>*/}
+            {/*            <div>*/}
+            {/*                <label>*/}
+            {/*                    <strong>ISBN</strong>*/}
+            {/*                </label>{" "}*/}
+            {/*                {currentBook.isbn}*/}
+            {/*            </div>*/}
+            {/*            <div>*/}
+            {/*                <label>*/}
+            {/*                    <strong>저자</strong>*/}
+            {/*                </label>{" "}*/}
+            {/*                {currentBook.author}*/}
+            {/*            </div>*/}
+            {/*            <div>*/}
+            {/*                <label>*/}
+            {/*                    <strong>출판사</strong>*/}
+            {/*                </label>{" "}*/}
+            {/*                {currentBook.publisher}*/}
+            {/*            </div>*/}
+            {/*            <div>*/}
+            {/*                <label>*/}
+            {/*                    <strong>출간일</strong>*/}
+            {/*                </label>{" "}*/}
+            {/*                {currentBook.pubdate}*/}
+            {/*            </div>*/}
+            {/*            <div>*/}
+            {/*                <label>*/}
+            {/*                    <strong>설명</strong>*/}
+            {/*                </label>{" "}*/}
+            {/*                {currentBook.description}*/}
+            {/*            </div>*/}
+            {/*            <div>*/}
+            {/*                <label>*/}
+            {/*                    <strong>보유 수</strong>*/}
+            {/*                </label>{" "}*/}
+            {/*                {currentBook.cnt}*/}
+            {/*            </div>*/}
+            {/*            <div>*/}
+            {/*                <label>*/}
+            {/*                    <strong>대출 중</strong>*/}
+            {/*                </label>{" "}*/}
+            {/*                {currentBook.brw}*/}
+            {/*            </div>*/}
+            {/*            <hr/>*/}
+            {/*            <Link*/}
+            {/*                to={"/admin/" + currentBook.id}*/}
+            {/*                className="badge badge-warning"*/}
+            {/*            >*/}
+            {/*                Edit*/}
+            {/*            </Link>*/}
+            {/*        </div>*/}
+            {/*    ) : (*/}
+            {/*        <div>*/}
+            {/*            <br />*/}
+            {/*            <p>Please click on a Book</p>*/}
+            {/*        </div>*/}
+            {/*    )}*/}
+            {/*</div>*/}
         </div>
     );
 };

@@ -3,15 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../GlobalStyles.css";
 
-// import {
-//     retrieveBooks,
-//     findBooksByTitle,
-//     // deleteAllBooks,
-// } from "../../actions/books";
-// import {
-//     retrieveImages,
-// } from "../../actions/images";
-
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
 
@@ -19,18 +10,6 @@ const BooksList = (props) => {
     const adminToken = window.localStorage.getItem('adminToken');
 
     const [searchTitle, setSearchTitle] = useState("");
-    // const books = useSelector(state => state.books);
-    // const images = useSelector(state => state.images);
-    // const dispatch = useDispatch();
-
-    //
-    // useEffect(() => {
-    //     dispatch(retrieveBooks());
-    // }, []);
-    //
-    // useEffect(() => {
-    //     dispatch(retrieveImages());
-    // }, []);
     const [books, setBooks] = useState([]);
     const booksRef = useRef();
     booksRef.current = books;

@@ -84,7 +84,7 @@ const BooksList = (props) => {
 
                 <table width={"100%"} style={{fontSize: "11px"}}>
                     <tbody>
-                    {books.map((book, index) => (
+                    {books && books.map((book, index) => (
                         <tr>
                             {/*<td width={"15%"} rowSpan={3}>book cover</td>*/}
                             <td width={"2%"}/>

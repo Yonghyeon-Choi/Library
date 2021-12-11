@@ -117,9 +117,9 @@ const BooksList = (props) => {
                         <tr>
                             <td></td>
                             <td></td>
-                            <td><b>출간일</b></td>
+                            <td><b>출간</b></td>
                             <td></td>
-                            <td>{book.pubdate}</td>
+                            <td>{book.publisher} {book.pubdate}</td>
                             <td></td>
                             <td></td>
                         </tr>

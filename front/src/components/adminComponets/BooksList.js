@@ -25,6 +25,9 @@ const BooksList = (props) => {
 
     useEffect(() => {
         dispatch(retrieveBooks());
+    }, []);
+
+    useEffect(() => {
         dispatch(retrieveImages());
     }, []);
 

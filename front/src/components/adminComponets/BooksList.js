@@ -73,7 +73,7 @@ const BooksList = (props) => {
 
     return (
         <div>
-            {images[0][url]}
+            {images[0]}
             {/*<img src={images[0]['url']}/>*/}
 
         {adminToken ? (

@@ -1,7 +1,6 @@
 
 .table {
     width: 100%;
-    border-top: white;
     font-size: 11px;
 }
 
@@ -41,9 +40,9 @@
     font-size: 11px;
 }
 
-.form-control{
-    font-size: 12px;
-}
+/*.form-control{*/
+/*    font-size: 12px;*/
+/*}*/
 
 .right-align{
     text-align: right;

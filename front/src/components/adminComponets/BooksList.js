@@ -6,7 +6,7 @@ import {
     // deleteAllBooks,
 } from "../../actions/books";
 import { Link } from "react-router-dom";
-// import "../GlobalStyles.css";
+import "../GlobalStyles.css";
 
 const BooksList = (props) => {
     const [currentBook, setCurrentBook] = useState(null);

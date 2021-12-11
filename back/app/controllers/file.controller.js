@@ -1,4 +1,4 @@
-const uploadFile = require("../middleware/upload");
+const uploadFile = require("../middlewares/upload");
 const fs = require("fs");
 const baseUrl = "http://203.237.183.42:7163/api/images/";
 

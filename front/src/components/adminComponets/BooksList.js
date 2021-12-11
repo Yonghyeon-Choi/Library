@@ -98,7 +98,7 @@ const BooksList = (props) => {
                             <td width={"12%"}>
                                 <button
                                     type="button"
-                                    className="editBtnStyle"
+                                    className="btn btn-outline-secondary"
                                     onClick={() => openBook(index)}>
                                     관리
                                 </button>

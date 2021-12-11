@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const images = require("../controller/file.controller");
+const images = require("../controllers/file.controller");
 
 let routes = (app) => {
     router.post("/upload", images.upload);

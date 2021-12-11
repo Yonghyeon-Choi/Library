@@ -36,7 +36,7 @@ const BooksList = (props) => {
     };
 
     const findByTitle = () => {
-        refreshData();
+        // refreshData();
         dispatch(findBooksByTitle(searchTitle));
     };
 

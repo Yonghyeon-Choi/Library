@@ -127,7 +127,7 @@ const BooksList = (props) => {
                             </tr>
                         </tbody>
                     </table>
-                    <table>
+                    <table key={index}>
                         <tbody>
                             <tr>
                                 <td><br/></td>

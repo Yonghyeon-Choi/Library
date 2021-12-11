@@ -159,8 +159,8 @@ const Book = (props) => {
                                 type="number"
                                 className="form-control"
                                 id="cnt"
-                                name="description"
-                                value={currentBook.description}
+                                name="cnt"
+                                value={currentBook.cnt}
                                 onChange={handleInputChange}
                             />
                         </div>

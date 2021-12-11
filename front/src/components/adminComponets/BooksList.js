@@ -118,6 +118,10 @@ const BooksList = (props) => {
                                     <td><b>저자</b></td>
                                     <td>{book.author}</td>
                                 </tr>
+                                <tr>
+                                    <td><b>출간</b></td>
+                                    <td>{book.pubdate}</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </li>

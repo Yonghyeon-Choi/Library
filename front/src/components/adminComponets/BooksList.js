@@ -19,6 +19,7 @@ const BooksList = (props) => {
     const [searchTitle, setSearchTitle] = useState("");
     const booksRef = useRef();
     const books = useSelector(state => state.books);
+    const images = useSelector(state => state.images);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -50,9 +51,10 @@ const BooksList = (props) => {
     const onKeyPress = (e) => {
         if(e.key === "Enter") findByTitle();
     };
-
+    
     return (
         <div>
+            {images}
         {adminToken ? (
                 <div className="card">
                     <div style={{width: "100%"}}>{/*className="col-md-8"*/}

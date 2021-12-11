@@ -124,7 +124,11 @@ const BooksList = (props) => {
                                             >
                                                 Edit
                                             </Link>
-                                        ):()}
+                                        ):(
+                                            <div>
+                                                
+                                            </div>
+                                        )}
                                     </td>
                                 </tr>
                                 <tr>

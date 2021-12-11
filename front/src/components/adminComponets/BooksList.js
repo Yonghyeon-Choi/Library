@@ -78,7 +78,7 @@ const BooksList = (props) => {
                 </div>
             </div>
             <div className="col-md-6"> {/*className="col-md-6"*/}
-                <table width={"100%"}>
+                <table className={"table"}>
                     <tbody>
                     <tr>
                         <td width={"88%"}>

@@ -15,8 +15,6 @@ const BookAdd = () => {
     const [book, setBook] = useState(initialBookState);
     const [submitted, setSubmitted] = useState(false);
 
-    const dispatch = useDispatch();
-
     const handleInputChange = event => {
         const { name, value } = event.target;
         setBook({ ...book, [name]: value });

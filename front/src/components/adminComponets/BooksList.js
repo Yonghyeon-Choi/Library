@@ -86,35 +86,43 @@ const BooksList = (props) => {
                     <tbody>
                     {books && books.map((book, index) => (
                         <tr>
-                            {/*<td width={"15%"} rowSpan={3}>book cover</td>*/}
-                            <td width={"2%"}/>
-                            <td width={"10%"}><b>제목</b></td>
-                            <td width={"2%"}/>
-                            <td width={"57%"}>{book.title}</td>
-                            <td width={"2%"}/>
-                            <td width={"12%"}>
-                                <button
-                                    type="button"
-                                    className="editBtnStyle"
-                                    onClick={() => openBook(index)}>
-                                    관리
-                                </button>
-                            </td>
+                            <dir>
+                                {/*<td width={"15%"} rowSpan={3}>book cover</td>*/}
+                                <td width={"2%"}/>
+                                <td width={"10%"}><b>제목</b></td>
+                                <td width={"2%"}/>
+                                <td width={"57%"}>{book.title}</td>
+                                <td width={"2%"}/>
+                                <td width={"12%"}>
+                                    <button
+                                        type="button"
+                                        className="editBtnStyle"
+                                        onClick={() => openBook(index)}>
+                                        관리
+                                    </button>
+                                </td>
+                            </dir>
+                            <div>
+                                <td/>
+                                <td><b>저자</b></td>
+                                <td/>
+                                <td>{book.author}</td>
+                                <td/>
+                            </div>
+                            <div>
+                                <td/>
+                                <td><b>출간일</b></td>
+                                <td/>
+                                <td>{book.pubdate}</td>
+                                <td/>
+                            </div>
                         </tr>
                         // <tr>
-                        //     <td/>
-                        //     <td><b>저자</b></td>
-                        //     <td/>
-                        //     <td>{book.author}</td>
-                        //     <td/>
+                        //
                         // </tr>
-                        <tr>
-                            <td/>
-                            <td><b>출간일</b></td>
-                            <td/>
-                            <td>{book.pubdate}</td>
-                            <td/>
-                        </tr>
+                        // <tr>
+                        //
+                        // </tr>
                         ))}
                     </tbody>
                 </table>

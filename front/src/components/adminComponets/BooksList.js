@@ -22,8 +22,8 @@ const BooksList = (props) => {
     // const books = useSelector(state => state.books);
     // const images = useSelector(state => state.images);
     // const dispatch = useDispatch();
-    // const booksRef = useRef();
-    // booksRef.current = books;
+    const booksRef = useRef();
+    booksRef.current = books;
     //
     // useEffect(() => {
     //     dispatch(retrieveBooks());
@@ -36,7 +36,7 @@ const BooksList = (props) => {
     useEffect(() => {
         retrieveBooks();
     }, []);
-    const retrieveTutorials = () => {
+    const retrieveBooks = () => {
         bookService.getAll()
             .then(response => {
                 setBooks(response.data);
@@ -63,7 +63,14 @@ const BooksList = (props) => {
     };
 
     const findByTitle = () => {
-        dispatch(findBooksByTitle(searchTitle));
+        bookService.findByTitle(searchTitle)
+            .then(response => {
+                setBooks(response.data);
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     };
 
     const onKeyPress = (e) => {

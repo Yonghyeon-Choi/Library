@@ -173,6 +173,7 @@ const Book = (props) => {
                                 name="brw"
                                 value={currentBook.brw}
                                 onChange={handleInputChange}
+                                disabled
                             />
                         </div>
                     </form>

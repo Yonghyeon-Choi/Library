@@ -117,12 +117,14 @@ const BooksList = (props) => {
                                     <td width={"57%"}>{book.title}</td>
                                     <td width={"2%"}/>
                                     <td width={"12%"}>
-                                        <Link
-                                            to={"/admin/" + currentBook.id}
-                                            className="badge badge-warning"
-                                        >
-                                            Edit
-                                        </Link>
+                                        {currentBook ? (
+                                            <Link
+                                                to={"/admin/" + currentBook.id}
+                                                className="badge badge-warning"
+                                            >
+                                                Edit
+                                            </Link>
+                                        ):()}
                                     </td>
                                 </tr>
                                 <tr>

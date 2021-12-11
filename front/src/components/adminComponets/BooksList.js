@@ -111,19 +111,25 @@ const BooksList = (props) => {
                                 <tbody>
                                 <tr>
                                     <td width={"15%"} rowSpan={3}>book cover</td>
+                                    <td width={"2%"}/>
                                     <td width={"10%"}><b>제목</b></td>
                                     <td width={"2%"}/>
-                                    <td width={"75%"}>{book.title}</td>
+                                    <td width={"57%"}>{book.title}</td>
+                                    <td width={"2%"}/>
                                 </tr>
                                 <tr>
+                                    <td/>
                                     <td><b>저자</b></td>
-                                    <td width={"2%"}/>
+                                    <td/>
                                     <td>{book.author}</td>
+                                    <td/>
                                 </tr>
                                 <tr>
+                                    <td/>
                                     <td><b>출간일</b></td>
-                                    <td width={"2%"}/>
+                                    <td/>
                                     <td>{book.pubdate}</td>
+                                    <td/>
                                 </tr>
                                 </tbody>
                             </table>

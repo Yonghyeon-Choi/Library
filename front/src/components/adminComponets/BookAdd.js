@@ -6,7 +6,6 @@ import "../GlobalStyles.css";
 const BookAdd = () => {
     const initialBookState = {
         id: null,
-        id: null,
         title: "",
         isbn: "",
         author: "",

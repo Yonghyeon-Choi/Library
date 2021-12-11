@@ -42,7 +42,7 @@ const BooksList = (props) => {
 
     return (
         <div className="list row">
-            <div>{/*className="col-md-8"*/}
+            <div style={{backgroundColor:"#021420"}}>{/*className="col-md-8"*/}
                 <div className="input-group mb-3">
                     <input
                         type="text"
@@ -62,7 +62,7 @@ const BooksList = (props) => {
                     </div>
                 </div>
             </div>
-            <div> {/*className="col-md-6"*/}
+            <div>
                 <table width={"100%"}>
                     <tbody>
                     <tr>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import "../GlobalStyles.css";
 
 import bookService from "../../services/book.service";

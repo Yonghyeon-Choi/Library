@@ -71,10 +71,12 @@ const BooksList = (props) => {
     };
 
     const imageView = (book) => {
-        
-        return (
 
-        )
+        return (
+            <div>
+                <img/>
+            </div>
+        );
     };
 
     return (

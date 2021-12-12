@@ -29,7 +29,7 @@ const upload = async (req, res) => {
 };
 
 const getListFiles = (req, res) => {
-    const directoryPath = __basedir + "/images/list/";
+    const directoryPath = __basedir + "/images/";
 
     fs.readdir(directoryPath, function (err, files) {
         if (err) {
@@ -43,7 +43,6 @@ const getListFiles = (req, res) => {
         files.forEach((file) => {
             fileInfos.push({
                 name: file,
-                // url: baseUrl + file,
                 url: baseUrl + file,
             });
         });
@@ -54,7 +53,7 @@ const getListFiles = (req, res) => {
 
 const download = (req, res) => {
     const fileName = req.params.name;
-    const directoryPath = __basedir + "/images/list/";
+    const directoryPath = __basedir + "/images/";
 
     res.download(directoryPath + fileName, fileName, (err) => {
         if (err) {

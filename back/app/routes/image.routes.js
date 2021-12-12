@@ -5,7 +5,7 @@ module.exports = app => {
 
     router.post("/upload", images.upload);
     router.get("/", images.getListFiles);
-    router.get("/:name", controller.download);
+    router.get("/:name", images.download);
 
     app.use("/api/images", router);
 };

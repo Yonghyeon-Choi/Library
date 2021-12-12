@@ -1,6 +1,5 @@
 import axios from "axios";
 import {serverURL} from "./serverURL";
-import { Link } from "react-router-dom";
 
 const API_URL = serverURL + "/api/auth/";
 
@@ -25,7 +24,6 @@ class AuthService {
     localStorage.removeItem("user");
     localStorage.removeItem("adminToken");
     localStorage.removeItem("userToken");
-    {<Link to={"/"}/>}
   }
 
   register(username, email, password) {

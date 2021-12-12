@@ -82,7 +82,7 @@ const BooksList = (props) => {
             }
         }
         return (
-            <div>
+            <div className={"center-align"}>
                 <img src={url} alt={name} height={"100"} width={"80"}/>
             </div>
         );

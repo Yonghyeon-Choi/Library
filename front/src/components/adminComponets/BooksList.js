@@ -126,7 +126,7 @@ const BooksList = (props) => {
                                     <td width={"1%"}/>
                                     <td width={"57%"}>{book.title}</td>
                                     <td width={"2%"}/>
-                                    <td width={"13%"}  className={"right-align"}>
+                                    <td width={"13px"}  className={"right-align"}>
                                         <button
                                             type="button"
                                             className="editBtnStyle"

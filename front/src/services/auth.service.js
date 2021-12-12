@@ -25,7 +25,7 @@ class AuthService {
     localStorage.removeItem("user");
     localStorage.removeItem("adminToken");
     localStorage.removeItem("userToken");
-    <Link to={"/"}/>
+    {<Link to={"/"}/>}
   }
 
   register(username, email, password) {

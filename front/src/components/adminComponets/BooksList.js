@@ -99,10 +99,10 @@ const BooksList = (props) => {
                     <table width={"100%"}>
                         <tbody>
                         <tr>
-                            <td width={"87%"}>
+                            <td width={"85%"}>
                                 <h5>책 목록</h5>
                             </td>
-                            <td width={"13%"} className={"right-align"}>
+                            <td width={"15%"} className={"right-align"}>
                                 <button
                                     className="addBtnStyle"
                                     type="button"

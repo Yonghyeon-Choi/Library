@@ -83,7 +83,7 @@ const BooksList = (props) => {
         }
         return (
             <div>
-                <img src={url} alt={name}/>
+                <img src={url} alt={name} height={"100"} width={"80"}/>
             </div>
         );
     };

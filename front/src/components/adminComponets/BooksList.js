@@ -70,6 +70,13 @@ const BooksList = (props) => {
         if(e.key === "Enter") findByTitle();
     };
 
+    const imageView = (book) => {
+        
+        return (
+
+        )
+    };
+
     return (
         <div>
         {adminToken ? (
@@ -115,7 +122,6 @@ const BooksList = (props) => {
                         </tbody>
                     </table>
                     <hr/>
-                    {images[0].name}
                     {books && books.map((book, index) => (
                         <div key={index}>
                             <table width={"100%"} style={{fontSize: "11px"}}>

@@ -177,6 +177,14 @@ const BooksList = (props) => {
                                     <td></td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td></td>
+                                    <td className={"right-align"}><b>ISBN</b></td>
+                                    <td></td>
+                                    <td>{book.isbn}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 </tbody>
                             </table>
                             <br/>

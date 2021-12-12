@@ -51,6 +51,10 @@
     text-align: center;
 }
 
+.vert-center-align{
+    vertical-align: center;
+}
+
 .form-select{
     font-size: 12px;
 }

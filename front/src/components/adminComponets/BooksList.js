@@ -157,7 +157,7 @@ const BooksList = (props) => {
                                     <td></td>
                                     <td className={"right-align"}><b>설명</b></td>
                                     <td></td>
-                                    <td>{book.description}</td>
+                                    <td><i>{book.description}</i></td>
                                     <td></td>
                                     <td></td>
                                 </tr>

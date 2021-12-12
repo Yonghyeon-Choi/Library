@@ -71,10 +71,19 @@ const BooksList = (props) => {
     };
 
     const imageView = (book) => {
-
+        const isbn = book.isbn;
+        let name = "";
+        let url = "";
+        for(let i = 0; i < images.length; i++){
+            if(images[i]['name'].includes(isbn)){
+                name = images[i]['name'];
+                url = images[i]['url'];
+                break;
+            }
+        }
         return (
             <div>
-                <img/>
+                <img src={url} alt={name}/>
             </div>
         );
     };
@@ -129,7 +138,7 @@ const BooksList = (props) => {
                             <table width={"100%"} style={{fontSize: "11px"}}>
                                 <tbody>
                                 <tr>
-                                    <td width={"15%"}>book cover</td>
+                                    <td width={"15%"}>{imageView(book)}</td>
                                     <td width={"2%"}/>
                                     <td width={"10%"} className={"right-align"}><b>제목</b></td>
                                     <td width={"1%"}/>

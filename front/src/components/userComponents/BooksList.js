@@ -1,126 +1,201 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-    retrieveBooks,
-    findBooksByTitle,
-    deleteAllBooks,
-} from "../../actions/books";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import "../GlobalStyles.css";
 
-const BooksList = () => {
-    const [currentBook, setCurrentBook] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(-1);
+import bookService from "../../services/book.service";
+import imageService from "../../services/image.service";
+
+const BooksList = (props) => {
+    const adminToken = window.localStorage.getItem('adminToken');
+
     const [searchTitle, setSearchTitle] = useState("");
-
-    const books = useSelector(state => state.books);
-    const dispatch = useDispatch();
+    const [images, setImages] = useState([]);
+    const [books, setBooks] = useState([]);
+    const booksRef = useRef();
+    booksRef.current = books;
 
     useEffect(() => {
-        dispatch(retrieveBooks());
+        retrieveBooks();
+        retrieveImages();
     }, []);
 
-    const onChangeSearchTitle = e => {
-        const searchTitle = e.target.value;
-        setSearchTitle(searchTitle);
-    };
-
-    const refreshData = () => {
-        setCurrentBook(null);
-        setCurrentIndex(-1);
-    };
-
-    const setActiveTutorial = (book, index) => {
-        setCurrentBook(book);
-        setCurrentIndex(index);
-    };
-
-    const removeAllTutorials = () => {
-        dispatch(deleteAllBooks())
+    const retrieveBooks = () => {
+        bookService.getAll()
             .then(response => {
-                console.log(response);
-                refreshData();
+                setBooks(response.data);
+                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
             });
     };
 
+    const retrieveImages = () => {
+        imageService.getFiles()
+            .then(response => {
+                setImages(response.data);
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
+    const onChangeSearchTitle = e => {
+        const searchTitle = e.target.value;
+        setSearchTitle(searchTitle);
+    };
+
+    const addBook = () => {
+        props.history.push("/admin/add");
+    };
+
+    const openBook = (rowIndex) => {
+        const id = booksRef.current[rowIndex].id;
+
+        props.history.push("/admin/" + id);
+    };
+
     const findByTitle = () => {
-        refreshData();
-        dispatch(findBooksByTitle(searchTitle));
+        bookService.findByTitle(searchTitle)
+            .then(response => {
+                setBooks(response.data);
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
+    const onKeyPress = (e) => {
+        if(e.key === "Enter") findByTitle();
+    };
+
+    const imageView = (book) => {
+        const isbn = book.isbn;
+        let name = "";
+        let url = "";
+        for(let i = 0; i < images.length; i++){
+            if(images[i]['name'].includes(isbn)){
+                name = images[i]['name'];
+                url = images[i]['url'];
+                break;
+            }
+        }
+        return (
+            <div className={"right-align vert-center-align"}>
+                <img src={url} alt={name} height={"100"} width={"70"}/>
+            </div>
+        );
     };
 
     return (
-        <div className="list row">
-            <div className="col-md-8">
-                <div className="input-group mb-3">
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Search by title"
-                        value={searchTitle}
-                        onChange={onChangeSearchTitle}
-                    />
-                    <div className="input-group-append">
-                        <button
-                            className="btn btn-outline-secondary"
-                            type="button"
-                            onClick={findByTitle}
-                        >
-                            Search
-                        </button>
+        <div>
+        {adminToken ? (
+            <div className="card">
+                <div style={{width: "100%"}}>{/*className="col-md-8"*/}
+                    <div className="input-group mb-3">
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="제목"
+                            value={searchTitle}
+                            onChange={onChangeSearchTitle}
+                            onKeyPress={onKeyPress}
+                        />
+                        <div className="input-group-append">
+                            <button
+                                className="btn btn-outline-secondary"
+                                type="button"
+                                onClick={findByTitle}
+                            >
+                                Search
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="col-md-6">
-                <h4>Books List</h4>
-
-                <ul className="list-group">
-                    {books &&
-                    books.map((book, index) => (
-                        <li
-                            className={
-                                "list-group-item " + (index === currentIndex ? "active" : "")
-                            }
-                            onClick={() => setActiveTutorial(book, index)}
-                            key={index}
-                        >
-                            {book.title}
-                        </li>
+                <div style={{width: "100%"}}>
+                    <table width={"100%"}>
+                        <tbody>
+                        <tr>
+                            <td width={"85%"}>
+                                <h5>책 목록</h5>
+                            </td>
+                            <td width={"15%"} className={"right-align"}>
+                                <button
+                                    className="addBtnStyle"
+                                    type="button"
+                                    onClick={addBook}
+                                >
+                                    등록
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <hr/>
+                    {books && books.map((book, index) => (
+                        <div key={index}>
+                            <table width={"100%"} style={{fontSize: "11px"}}>
+                                <tbody>
+                                <tr>
+                                    <td width={"15%"} rowSpan={5}>{imageView(book)}</td>
+                                    <td width={"2%"}/>
+                                    <td width={"10%"} className={"right-align"}><b>제목</b></td>
+                                    <td width={"1%"}/>
+                                    <td width={"50%"}><b>{book.title}</b></td>
+                                    <td width={"2%"}/>
+                                    <td width={"13%"}  className={"left-align"}>
+                                        <button
+                                            type="button"
+                                            className="editBtnStyle"
+                                            onClick={() => openBook(index)}>
+                                            관리
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td className={"right-align"}><b>설명</b></td>
+                                    <td></td>
+                                    <td><i>{book.description}</i></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td className={"right-align"}><b>저자</b></td>
+                                    <td></td>
+                                    <td>{book.author}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td className={"right-align"}><b>출간</b></td>
+                                    <td></td>
+                                    <td>{book.publisher} {book.pubdate}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td className={"right-align"}><b>ISBN</b></td>
+                                    <td></td>
+                                    <td>{book.isbn}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                        </div>
                     ))}
-                </ul>
-            </div>
-            <div className="col-md-6">
-                {currentBook ? (
-                    <div>
-                        <h4>Book</h4>
-                        <div>
-                            <label>
-                                <strong>Title:</strong>
-                            </label>{" "}
-                            {currentBook.title}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>Description:</strong>
-                            </label>{" "}
-                            {currentBook.description}
-                        </div>
 
-                        <Link
-                            to={"/admin/" + currentBook.id}
-                            className="badge badge-warning"
-                        >
-                            Edit
-                        </Link>
-                    </div>
-                ) : (
-                    <div>
-                        <br />
-                        <p>Please click on a Book</p>
-                    </div>
-                )}
+                </div>
             </div>
+        ):(
+            props.history.push("/login")
+        )}
         </div>
     );
 };

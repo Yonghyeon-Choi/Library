@@ -138,7 +138,7 @@ const BooksList = (props) => {
                             <table width={"100%"} style={{fontSize: "11px"}}>
                                 <tbody>
                                 <tr>
-                                    <td width={"15%"} rowSpan={3}>{imageView(book)}</td>
+                                    <td width={"15%"} rowSpan={4}>{imageView(book)}</td>
                                     <td width={"2%"}/>
                                     <td width={"10%"} className={"right-align"}><b>제목</b></td>
                                     <td width={"1%"}/>
@@ -152,6 +152,14 @@ const BooksList = (props) => {
                                             관리
                                         </button>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td className={"right-align"}><b>설명</b></td>
+                                    <td></td>
+                                    <td>{book.description}</td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td></td>

@@ -83,10 +83,9 @@ const BooksList = (props) => {
             }
         }
         return (
-            <div className={"right-align vert-center-align image-card"}>
-                <div style={{height:"100px", width: "70px"}}>
-                    <img src={url} alt={name} height={"100px"} width={"70px"}/>
-                </div>
+            <div style={{height:"100px", width: "70px"}}
+                 className={"right-align vert-center-align image-card"}>
+                <img src={url} alt={name} height={"100px"} width={"70px"}/>
             </div>
         );
     };
@@ -157,36 +156,36 @@ const BooksList = (props) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td/>
                                     <td className={"right-align"}><b>설명</b></td>
-                                    <td></td>
+                                    <td/>
                                     <td><i>{book.description}</i></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td/>
+                                    <td/>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td/>
                                     <td className={"right-align"}><b>저자</b></td>
-                                    <td></td>
+                                    <td/>
                                     <td>{book.author}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td/>
+                                    <td/>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td/>
                                     <td className={"right-align"}><b>출간</b></td>
-                                    <td></td>
+                                    <td/>
                                     <td>{book.publisher} {book.pubdate}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td/>
+                                    <td/>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td/>
                                     <td className={"right-align"}><b>ISBN</b></td>
-                                    <td></td>
+                                    <td/>
                                     <td>{book.isbn}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td/>
+                                    <td/>
                                 </tr>
                                 </tbody>
                             </table>

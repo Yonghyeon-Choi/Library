@@ -100,7 +100,7 @@ class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username"><b>이름</b></label>
               <Input
                 type="text"
                 className="form-control"
@@ -112,7 +112,7 @@ class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password"><b>비밀번호</b></label>
               <Input
                 type="password"
                 className="form-control"
@@ -131,7 +131,7 @@ class Login extends Component {
                 {this.state.loading && (
                   <span className="spinner-border spinner-border-sm"></span>
                 )}
-                <span className={"eleven"}>로그인</span>
+                <span>로그인</span>
               </button>
             </div>
 

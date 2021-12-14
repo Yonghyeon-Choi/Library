@@ -129,7 +129,7 @@ class Register extends Component {
             {!this.state.successful && (
               <div>
                 <div className="form-group">
-                  <label htmlFor="username">Username</label>
+                  <label htmlFor="username">이름</label>
                   <Input
                     type="text"
                     className="form-control"
@@ -141,7 +141,7 @@ class Register extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email">이메일</label>
                   <Input
                     type="text"
                     className="form-control"
@@ -153,7 +153,7 @@ class Register extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">비밀번호</label>
                   <Input
                     type="password"
                     className="form-control"

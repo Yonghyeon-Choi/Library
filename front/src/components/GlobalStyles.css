@@ -109,3 +109,10 @@
     width: 100%;
     overflow-x: auto;
 }
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}

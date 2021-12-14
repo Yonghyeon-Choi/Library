@@ -146,10 +146,10 @@ const BooksList = (props) => {
                                     <td width={"1%"}/>
                                     <td width={"50%"}><b>{book.title}</b></td>
                                     <td width={"2%"}/>
-                                    <td width={"13%"}  className={"right-align right-margin"}>
+                                    <td width={"13%"} className={"right-align"}>
                                         <button
                                             type="button"
-                                            className="editBtnStyle"
+                                            className="editBtnStyle right-margin"
                                             onClick={() => openBook(index)}>
                                             수정
                                         </button>

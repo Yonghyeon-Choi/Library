@@ -84,7 +84,7 @@ const BooksList = (props) => {
         }
         return (
             <div style={{height:"100px", width: "70px"}}
-                 className={"image-card right-align vert-center-align left-pad"}>
+                 className={"image-card right-align vert-center-align left-margin"}>
                 <img src={url} alt={name} height={"100px"} width={"70px"}/>
             </div>
         );

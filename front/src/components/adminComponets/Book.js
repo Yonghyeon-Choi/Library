@@ -92,7 +92,7 @@ const Book = (props) => {
         <div>
             {currentBook ? (
                 <div className="edit-form">
-                    <h4>도서 관리</h4>
+                    <h5>도서 관리</h5>
                     <form>
                         <div className="form-group">
                             <label htmlFor="title">제목</label>

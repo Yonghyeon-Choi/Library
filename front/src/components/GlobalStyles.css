@@ -65,6 +65,10 @@
     text-align: center;
 }
 
+.left-pad{
+    padding-left: 20%;
+}
+
 .vert-center-align{
     vertical-align: center;
 }

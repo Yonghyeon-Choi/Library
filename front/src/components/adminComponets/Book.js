@@ -17,6 +17,7 @@ const Book = (props) => {
     };
     const [currentBook, setCurrentBook] = useState(initialBookState);
     const [message, setMessage] = useState("");
+    const [images, setImages] = useState([]);
 
     const getBook = id => {
         bookService.get(id)

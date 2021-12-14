@@ -131,7 +131,7 @@ class Login extends Component {
                 {this.state.loading && (
                   <span className="spinner-border spinner-border-sm"></span>
                 )}
-                <span>Login</span>
+                <span className={"eleven"}>로그인</span>
               </button>
             </div>
 

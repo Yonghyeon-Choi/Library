@@ -83,11 +83,10 @@ const BooksList = (props) => {
             }
         }
         return (
-            <div
-                style={{height:"100px", width: "70px"}}
-                className={"right-align vert-center-align image-card"}
-            >
-                <img src={url} alt={name} height={"100"} width={"70"}/>
+            <div className={"right-align vert-center-align image-card"}>
+                <div style={{height:"100px", width: "70px"}}>
+                    <img src={url} alt={name} height={"100"} width={"70"}/>
+                </div>
             </div>
         );
     };

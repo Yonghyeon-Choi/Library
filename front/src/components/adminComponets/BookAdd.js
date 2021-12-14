@@ -57,76 +57,77 @@ const BookAdd = () => {
                     </button>
                 </div>
             ) : (
-                <div>
-                    <div className="form-group">
-                        <label htmlFor="title">제목</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="title"
-                            required
-                            value={book.title}
-                            onChange={handleInputChange}
-                            name="title"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="isbn">ISBN</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="ISBN"
-                            name="ISBN"
-                            value={book.isbn}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="author">저자</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="author"
-                            name="author"
-                            value={book.author}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="publisher">출판사</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="publisher"
-                            name="publisher"
-                            value={book.publisher}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="pubdate">출간일</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="pubdate"
-                            name="pubdate"
-                            value={book.pubdate}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="description">설명</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="description"
-                            required
-                            value={book.description}
-                            onChange={handleInputChange}
-                            name="description"
-                        />
-                    </div>
-
+                <div className={"edit-form"}>
+                    <h5>도서 등록</h5>
+                    <form>
+                        <div className="form-group">
+                            <label htmlFor="title">제목</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="title"
+                                name="title"
+                                value={book.title}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="isbn">ISBN</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="ISBN"
+                                name="ISBN"
+                                value={book.isbn}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="author">저자</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="author"
+                                name="author"
+                                value={book.author}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="publisher">출판사</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="publisher"
+                                name="publisher"
+                                value={book.publisher}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="pubdate">출간일</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="pubdate"
+                                name="pubdate"
+                                value={book.pubdate}
+                                onChange={handleInputChange}
+                                placeholder={"YYYYMMDD"}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="description">설명</label>
+                            <textarea
+                                className="form-control"
+                                id="description"
+                                name="description"
+                                value={book.description}
+                                onChange={handleInputChange}
+                                rows={"5"}
+                            />
+                        </div>
+                    </form>
                     <button onClick={saveBook} className="addBtnStyle">
                         등록
                     </button>

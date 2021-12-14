@@ -218,7 +218,7 @@ const Book = (props) => {
                             />
                         </div>
                     </form>
-                    <table>
+                    <table width={"100%"}>
                         <tbody>
                             <tr>
                                 <td className={"left-align"}>

@@ -139,7 +139,7 @@ const BooksList = (props) => {
                             <table width={"100%"} style={{fontSize: "11px"}}>
                                 <tbody>
                                 <tr>
-                                    <td width={"70px"} rowSpan={5}>{imageView(book)}</td>
+                                    <td width={"15%"} rowSpan={5}>{imageView(book)}</td>
                                     <td width={"2%"}/>
                                     <td width={"10%"} className={"right-align"}><b>제목</b></td>
                                     <td width={"1%"}/>

@@ -74,20 +74,29 @@ const BooksList = (props) => {
         const isbn = book.isbn;
         let name = "";
         let url = "";
+        let exist = false;
 
         for(let i = 0; i < images.length; i++){
             if(images[i]['name'].includes(isbn)){
                 name = images[i]['name'];
                 url = images[i]['url'];
+                exist = true;
                 break;
             }
         }
-        return (
-            <div style={{height:"100px", width: "70px"}}
-                 className={"image-card right-align vert-center-align left-margin"}>
-                <img src={url} alt={name} height={"100px"} width={"70px"}/>
-            </div>
-        );
+        if(exist) {
+            return (
+                <div style={{height: "100px", width: "70px"}}
+                     className={"image-card right-align vert-center-align left-margin"}>
+                    <img src={url} alt={name} height={"100px"} width={"70px"}/>
+                </div>
+            );
+        }else{
+            return (
+                <div style={{height: "100px", width: "70px"}}
+                     className={"image-card right-align vert-center-align left-margin"}/>
+            );
+        }
     };
 
     return (

@@ -116,8 +116,8 @@ const Book = (props) => {
             }
         }
         return (
-            <div className={"right-align vert-center-align"}>
-                <img src={url} alt={name} height={"100"} width={"70"}/>
+            <div className={"center-align vert-center-align"}>
+                <img src={url} alt={name} height={"200"} width={"140"}/>
             </div>
         );
     };

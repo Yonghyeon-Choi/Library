@@ -198,6 +198,7 @@ const Book = (props) => {
                                 name="pubdate"
                                 value={currentBook.pubdate}
                                 onChange={handleInputChange}
+                                placeholder={"YYYYMMDD"}
                             />
                         </div>
                         <div className="form-group">

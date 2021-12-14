@@ -69,6 +69,10 @@
     margin-left: 10%;
 }
 
+.right-margin{
+    margin-right: 10%;
+}
+
 .vert-center-align{
     vertical-align: center;
 }

@@ -84,7 +84,7 @@ const BooksList = (props) => {
         }
         return (
             <div style={{height:"100px", width: "70px"}}
-                 className={"right-align vert-center-align image-card"}>
+                 className={"image-card"}>
                 <img src={url} alt={name} height={"100px"} width={"70px"}/>
             </div>
         );
@@ -140,7 +140,12 @@ const BooksList = (props) => {
                             <table width={"100%"} style={{fontSize: "11px"}}>
                                 <tbody>
                                 <tr>
-                                    <td width={"15%"} rowSpan={5}>{imageView(book)}</td>
+                                    <td
+                                        width={"15%"} rowSpan={5}
+                                        className={"right-align vert-center-align"}
+                                    >
+                                        {imageView(book)}
+                                    </td>
                                     <td width={"2%"}/>
                                     <td width={"10%"} className={"right-align"}><b>제목</b></td>
                                     <td width={"1%"}/>

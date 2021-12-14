@@ -16,6 +16,7 @@ const BookAdd = () => {
     const [submitted, setSubmitted] = useState(false);
 
     const handleInputChange = event => {
+        event.preventDefault();
         const { name, value } = event.target;
         setBook({ ...book, [name]: value });
     };

@@ -49,6 +49,7 @@ const Book = (props) => {
     }, []);
 
     const handleInputChange = event => {
+        event.preventDefault();
         const { name, value } = event.target;
         setCurrentBook({ ...currentBook, [name]: value });
     };

@@ -39,6 +39,7 @@ const BooksList = (props) => {
     };
 
     const onChangeSearchTitle = e => {
+        e.preventDefault();
         const searchTitle = e.target.value;
         setSearchTitle(searchTitle);
     };
@@ -65,6 +66,7 @@ const BooksList = (props) => {
     };
 
     const onKeyPress = (e) => {
+        e.preventDefault();
         if(e.key === "Enter") findByTitle();
     };
 
@@ -72,6 +74,7 @@ const BooksList = (props) => {
         const isbn = book.isbn;
         let name = "";
         let url = "";
+
         for(let i = 0; i < images.length; i++){
             if(images[i]['name'].includes(isbn)){
                 name = images[i]['name'];
@@ -80,7 +83,7 @@ const BooksList = (props) => {
             }
         }
         return (
-            <div className={"right-align vert-center-align"}>
+            <div className={"right-align vert-center-align image-card"}>
                 <img src={url} alt={name} height={"100"} width={"70"}/>
             </div>
         );

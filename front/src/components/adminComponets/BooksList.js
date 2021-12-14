@@ -104,7 +104,7 @@ const BooksList = (props) => {
                         />
                         <div className="input-group-append">
                             <button
-                                className="btn btn-outline-secondary"
+                                className="btn btn-outline-secondary form-control"
                                 type="button"
                                 onClick={findByTitle}
                             >

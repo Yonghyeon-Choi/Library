@@ -124,7 +124,7 @@ const Book = (props) => {
                 <div className={"wrapper"}>
                     <div style={{height: "200px", width: "140px"}}
                          className={"image-card center-align vert-center-align"}>
-                        <img src={url} alt={name} height={"100px"} width={"70px"}/>
+                        <img src={url} alt={name} height={"200px"} width={"140px"}/>
                     </div>
                 </div>
             );

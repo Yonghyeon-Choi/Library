@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import bookService from "../../services/book.service";
+import imageService from "../../services/image.service";
 import "../GlobalStyles.css";
 
 const Book = (props) => {
@@ -28,9 +29,23 @@ const Book = (props) => {
             });
     };
 
+    const retrieveImages = () => {
+        imageService.getFiles()
+            .then(response => {
+                setImages(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
     useEffect(() => {
         getBook(props.match.params.id);
     }, [props.match.params.id]);
+
+    useEffect(() => {
+        retrieveImages();
+    }, []);
 
     const handleInputChange = event => {
         const { name, value } = event.target;
@@ -86,6 +101,24 @@ const Book = (props) => {
             .catch(e => {
                 console.log(e);
             });
+    };
+
+    const imageView = (book) => {
+        const isbn = book.isbn;
+        let name = "";
+        let url = "";
+        for(let i = 0; i < images.length; i++){
+            if(images[i]['name'].includes(isbn)){
+                name = images[i]['name'];
+                url = images[i]['url'];
+                break;
+            }
+        }
+        return (
+            <div className={"right-align vert-center-align"}>
+                <img src={url} alt={name} height={"100"} width={"70"}/>
+            </div>
+        );
     };
 
     return (

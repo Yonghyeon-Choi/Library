@@ -31,10 +31,6 @@
     font-size: 11px;
 }
 
-.form-control{
-    font-size:11px;
-}
-
 .card {
     background-color: #f7f7f7;
     /*padding: 20px 25px 30px;*/
@@ -65,6 +61,14 @@
 
 .form-select{
     font-size: 12px;
+}
+
+.form-control{
+    font-size:11px;
+}
+
+.eleven{
+    font-size:11px;
 }
 
 .radio{

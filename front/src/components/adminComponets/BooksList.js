@@ -22,7 +22,6 @@ const BooksList = (props) => {
         bookService.getAll()
             .then(response => {
                 setBooks(response.data);
-                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -33,7 +32,6 @@ const BooksList = (props) => {
         imageService.getFiles()
             .then(response => {
                 setImages(response.data);
-                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);

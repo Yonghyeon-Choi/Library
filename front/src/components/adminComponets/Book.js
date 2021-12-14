@@ -122,7 +122,7 @@ const Book = (props) => {
         if(exist) {
             return (
                 <div className={"wrapper"}>
-                    <div style={{height: "200px", width: "1400px"}}
+                    <div style={{height: "200px", width: "140px"}}
                          className={"image-card center-align vert-center-align"}>
                         <img src={url} alt={name} height={"100px"} width={"70px"}/>
                     </div>

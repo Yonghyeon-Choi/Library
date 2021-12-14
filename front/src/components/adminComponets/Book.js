@@ -126,7 +126,7 @@ const Book = (props) => {
         <div>
             {currentBook ? (
                 <div className="edit-form">
-                    <h5>도서 관리</h5>
+                    <h5>도서 정보 수정</h5>
                     <form>
                         <div className="form-group">
                             <label htmlFor="title">제목</label>
@@ -218,18 +218,26 @@ const Book = (props) => {
                             />
                         </div>
                     </form>
-
-                    <button className="delBtnStyle" onClick={removeBook}>
-                        삭제
-                    </button>
-
-                    <button
-                        type="submit"
-                        className="addBtnStyle"
-                        onClick={updateContent}
-                    >
-                        수정
-                    </button>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td className={"left-align"}>
+                                    <button
+                                        type="submit"
+                                        className="addBtnStyle"
+                                        onClick={updateContent}
+                                    >
+                                        수정
+                                    </button>
+                                </td>
+                                <td className={"right-align"}>
+                                    <button className="delBtnStyle" onClick={removeBook}>
+                                        삭제
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <p>{message}</p>
                 </div>
             ) : (

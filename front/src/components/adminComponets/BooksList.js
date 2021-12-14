@@ -147,7 +147,7 @@ const BooksList = (props) => {
                                             type="button"
                                             className="editBtnStyle"
                                             onClick={() => openBook(index)}>
-                                            관리
+                                            수정
                                         </button>
                                     </td>
                                 </tr>

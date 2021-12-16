@@ -28,7 +28,7 @@ exports.create = (req, res) => {
         return;
     }
 
-    // Create a Tutorial
+    // Create a Book
     const book = new Book({
         isbn: req.body.isbn,
         title: req.body.title,
@@ -37,7 +37,8 @@ exports.create = (req, res) => {
         pubdate: req.body.pubdate,
         description: req.body.description,
         cnt: 1,
-        brw: 0
+        brw: 0,
+        brws: []
     });
 
     // Save Book in the database
@@ -68,7 +69,7 @@ exports.findAll = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while retrieving tutorials."
+                    err.message || "Some error occurred while retrieving books."
             });
         });
 };

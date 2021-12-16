@@ -8,7 +8,12 @@ module.exports = mongoose => {
             description: String,
             cnt: Number,
             brw: Number,
-            brws: Array,
+            brws: [
+                {
+                    username: String,
+                    brwtime: Date
+                }
+            ],
             image: String,
             link: String,
             },

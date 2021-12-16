@@ -11,6 +11,7 @@ import Home from "./pages/home.page";
 import Profile from "./pages/profile.page";
 import BoardUser from "./pages/user.page";
 import BoardAdmin from "./pages/admin.page";
+import BoardUsermanage from "./pages/usermanage.page";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
@@ -96,6 +97,14 @@ class App extends Component {
                 </li>
               )}
 
+              {showAdminBoard && (
+                  <li className="nav-item">
+                    <Link to={"/usermanage"} className="nav-link white-font">
+                      사용자 관리
+                    </Link>
+                  </li>
+              )}
+
               {currentUser && (
                 <li className="nav-item">
                   <Link to={"/user"} className="nav-link white-font">
@@ -139,6 +148,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/admin" component={BoardAdmin} />
+              <Route path="/usermanage" component={BoardUsermanage} />
               <Route path="/user" component={BoardUser} />
 
               <Route exact path="/login" component={Login} />

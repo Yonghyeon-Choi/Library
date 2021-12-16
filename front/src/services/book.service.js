@@ -16,6 +16,10 @@ const update = (id, data) => {
     return http.put(`/books/${id}`, data);
 };
 
+const borrow = (id, data) => {
+    return http.put(`/books/borrow/${id}`, data);
+};
+
 const remove = id => {
     return http.delete(`/books/${id}`);
 };
@@ -33,6 +37,7 @@ const BookService = {
     get,
     create,
     update,
+    borrow,
     remove,
     removeAll,
     findByTitle

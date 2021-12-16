@@ -9,7 +9,7 @@ export default class adminPage extends Component {
   render() {
     return (
         <div className="container">
-          <Link to={"/books"}/>
+          <Link to={"/admin"}/>
           <Switch>
             <Route exact path={"/admin"} component={bookList}/>
             <Route exact path={"/admin/add"} component={addBook} />

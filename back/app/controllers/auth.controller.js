@@ -10,6 +10,7 @@ exports.signup = (req, res) => {
     username: req.body.username,
     organ: req.body.organ,
     email: req.body.email,
+    brws:[],
     password: bcrypt.hashSync(req.body.password, 8),
   });
 
@@ -106,6 +107,7 @@ exports.signin = (req, res) => {
         organ: user.organ,
         email: user.email,
         roles: authorities,
+        brws: user.brws,
         accessToken: token,
         refreshToken: refreshToken,
       });

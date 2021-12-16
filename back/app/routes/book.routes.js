@@ -18,6 +18,9 @@ module.exports = app => {
     // Update a Book with id
     router.put("/:id", books.update);
 
+    // Borrow Book
+    router.put("/borrow/:id", books.borrow);
+
     // Delete a Book with id
     router.delete("/:id", books.delete);
 

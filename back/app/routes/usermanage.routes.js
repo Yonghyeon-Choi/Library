@@ -15,6 +15,9 @@ module.exports = app => {
     // Update a User with id
     router.put("/:id", users.update);
 
+    // Update a User with id
+    router.put("/borrow/:id", users.borrow);
+
     // Delete a User with id
     router.delete("/:id", users.delete);
 

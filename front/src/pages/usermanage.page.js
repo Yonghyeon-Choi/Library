@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 
-import userList from "../components/usermanageComponets/UsersList";
-import oneUser from "../components/usermanageComponets/User";
+import userList from "../components/usermanageComponents/UsersList";
+import oneUser from "../components/usermanageComponents/User";
 
 export default class adminPage extends Component {
     render() {

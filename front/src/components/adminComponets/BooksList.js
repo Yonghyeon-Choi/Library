@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../GlobalStyles.css";
-
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
+import "../GlobalStyles.css";
 
 const BooksList = (props) => {
     const adminToken = window.localStorage.getItem('adminToken');

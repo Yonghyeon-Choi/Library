@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import bookService from "../../services/book.service";
+import imageService from "../../services/image.service";
 import "../GlobalStyles.css";
 
 const BookAdd = () => {
@@ -20,6 +21,14 @@ const BookAdd = () => {
         const { name, value } = event.target;
         setBook({ ...book, [name]: value });
     };
+
+    const onChange = (e) => {
+        const img = e.target.files[0];
+        const formData = new FormData();
+        formData.append('img', img);
+        console.log(formData) // FormData {}
+        for (const keyValue of formData) console.log(keyValue); // ["img", File] File은 객체
+    }
 
     const saveBook = () => {
         var data = {
@@ -126,6 +135,13 @@ const BookAdd = () => {
                                 onChange={handleInputChange}
                                 rows={"5"}
                             />
+                        </div>
+                        <div>
+                            <input type='file'
+                                   accept='impge/png'
+                                   name='cover_img'
+                                   onChange={onChange}>
+                            </input>
                         </div>
                     </form>
                     <button onClick={saveBook} className="addBtnStyle">

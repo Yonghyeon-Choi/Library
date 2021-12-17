@@ -54,7 +54,7 @@ const UsersList = (props) => {
     const [adminId, setAdminId] = useState("");
 
     const setAuth = () => {
-        const curUser = window.sessionStorage.getItem('user');
+        const curUser = window.localStorage.getItem('user');
         const adminName = curUser.username;
         let adminId = "";
 

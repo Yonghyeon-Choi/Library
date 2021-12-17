@@ -251,6 +251,7 @@ const Book = (props) => {
                                     >
                                         수정
                                     </button>
+                                    &nbsp;&nbsp;
                                     <button
                                         type="button"
                                         onClick={moveAdmin}

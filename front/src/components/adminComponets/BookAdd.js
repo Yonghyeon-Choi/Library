@@ -65,7 +65,6 @@ const BookAdd = () => {
         imageService.upload(image)
             .then(response => {
                 setImage(response.image);
-                console.log(response.image);
             })
             .catch(e => {
                 console.log(e);

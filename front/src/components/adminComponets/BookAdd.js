@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
+import ImageUploading from "react-images-uploading";
+import { PictureOutlined } from '@ant-design/icons';
 import "../GlobalStyles.css";
 
 const BookAdd = () => {
@@ -22,13 +24,13 @@ const BookAdd = () => {
         setBook({ ...book, [name]: value });
     };
 
-    const onChange = (e) => {
-        const img = e.target.files[0];
-        const formData = new FormData();
-        formData.append('img', img);
-        console.log(formData) // FormData {}
-        for (const keyValue of formData) console.log(keyValue); // ["img", File] File은 객체
-    }
+    const [images, setImages] = useState([]);
+
+    const onChange = (imageList, addUpdateIndex) => {
+        // data for submit
+        console.log(imageList, addUpdateIndex);
+        setImages(imageList);
+    };
 
     const saveBook = () => {
         var data = {
@@ -137,11 +139,35 @@ const BookAdd = () => {
                             />
                         </div>
                         <div>
-                            <input type='file'
-                                   accept='impge/png'
-                                   name='cover_img'
-                                   onChange={onChange}>
-                            </input>
+                            <ImageUploading
+                                multiple
+                                value={images}
+                                onChange={onChange}
+                                maxNumber={maxNumber}
+                                dataURLKey="data_url"
+                                onError={onError}
+                            >
+                                {({
+                                      imageList,
+                                      onImageUpload,
+                                      onImageRemoveAll,
+                                      onImageUpdate,
+                                      onImageRemove,
+                                      isDragging,
+                                      dragProps,
+                                  }) => (
+                                    // write your building UI
+                                    <div className="upload__image-wrapper">
+                                        <button
+                                            style={isDragging ? { color: 'red' } : undefined}
+                                            onClick={onImageUpload}
+                                            {...dragProps}
+                                        >
+                                            <PictureOutlined /> 사진추가
+                                        </button>
+                                    </div>
+                                )}
+                            </ImageUploading>
                         </div>
                     </form>
                     <button onClick={saveBook} className="addBtnStyle">

@@ -48,7 +48,6 @@ const UsersList = (props) => {
     };
 
     const onKeyPress = (e) => {
-        e.preventDefault();
         if(e.key === "Enter") findByName();
     };
 

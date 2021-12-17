@@ -136,7 +136,8 @@ const BookAdd = () => {
                                 rows={"5"}
                             />
                         </div>
-                        <div>
+                        <div className="form-group">
+                            <label htmlFor="cover-image">북커버 이미지</label>
                             <input 
                                 type='file'
                                 id='file-upload'

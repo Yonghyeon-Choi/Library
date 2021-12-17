@@ -51,6 +51,34 @@ const UsersList = (props) => {
         if(e.key === "Enter") findByName();
     };
 
+    const [adminId, setAdminId] = useState("");
+
+    const setAuth = () => {
+        const curUser = window.sessionStorage.getItem('user');
+        const adminName = curUser.username;
+        let adminId = "";
+
+        for(let i = 0; i < users.length; i++){
+            if(users[i].username === adminName){
+                setAdminId(users[i].roles[0]);
+                break
+            }
+        }
+    };
+
+    useEffect(() => {
+        setAuth();
+    }, []);
+
+    const showAuth = (roleId) => {
+        if(roleId===adminId){
+            return <p>관리자</p>
+        }
+        else{
+            return <p>사용자</p>
+        }
+    };
+
     return (
         <div>
         {adminToken ? (
@@ -96,7 +124,7 @@ const UsersList = (props) => {
                             <table width={"100%"} style={{fontSize: "11px"}}>
                                 <tbody>
                                 <tr>
-                                    <td width={"15%"}>{user.roles[0]}</td>
+                                    <td width={"15%"}>{showAuth(user.roles[0])}</td>
                                     <td width={"15%"}>{user.username}</td>
                                     <td width={"28%"}>{user.email}</td>
                                     <td width={"39%"}>{user.brws && user.brws.map((book, bindex)=>(

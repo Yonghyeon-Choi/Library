@@ -97,8 +97,8 @@ const UsersList = (props) => {
                                 <tr>
                                     <td width={"15%"}>{user.username}</td>
                                     <td width={"25%"}>{user.email}</td>
-                                    <td width={"47%"}>{user.brws && user.brws.map((book, bindex)=>(
-                                        <div key={bindex}>
+                                    <td width={"47%"}>{user.brws && user.brws.map((book, index)=>(
+                                        <div key={index}>
                                             <b>도서명</b>&nbsp;{book.bookname}
                                             <b>대출일</b>&nbsp;{book.brwtime}
                                         </div>

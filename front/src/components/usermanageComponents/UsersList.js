@@ -51,26 +51,17 @@ const UsersList = (props) => {
         if(e.key === "Enter") findByName();
     };
 
-    const [adminId, setAdminId] = useState("");
-
-    const setAuth = () => {
+    const showAuth = (roleId) => {
         const curUser = window.localStorage.getItem('user');
         const adminName = curUser.username;
         let adminId = "";
 
         for(let i = 0; i < users.length; i++){
             if(users[i].username === adminName){
-                setAdminId(users[i].roles[0]);
+                adminId = users[i].roles[0];
                 break
             }
         }
-    };
-
-    useEffect(() => {
-        setAuth();
-    }, []);
-
-    const showAuth = (roleId) => {
         if(roleId===adminId){
             return <p>관리자</p>
         }
@@ -81,7 +72,6 @@ const UsersList = (props) => {
 
     return (
         <div>
-            {adminId}
         {adminToken ? (
             <div className="card">
                 <div style={{width: "100%"}}>{/*className="col-md-8"*/}

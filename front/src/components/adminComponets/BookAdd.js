@@ -29,6 +29,7 @@ const BookAdd = () => {
         e.preventDefault();
         const img = e.target.files[0];
         console.log(img);
+        console.log(URL.createObjectURL(img));
         setImage(img);
         setPreview(URL.createObjectURL(img));
     };

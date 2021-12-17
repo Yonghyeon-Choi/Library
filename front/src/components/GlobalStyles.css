@@ -116,3 +116,12 @@
     align-items: center;
     /*min-height: 100vh;*/
 }
+
+.fileUploadBtn{
+    width: 75px;
+    height: 17px;
+}
+
+.floatRight{
+    float: right;
+}

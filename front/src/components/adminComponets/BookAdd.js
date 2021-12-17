@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
-import ImageUploading from "react-images-uploading";
-import { PictureOutlined } from '@ant-design/icons';
 import "../GlobalStyles.css";
 
 const BookAdd = () => {
@@ -139,11 +137,17 @@ const BookAdd = () => {
                             />
                         </div>
                         <div>
-                            <input type='file'
-                                   accept='image/png'
-                                   name='cover_img'
-                                   onChange={onChange}>
-                            </input>
+                            <input 
+                                type='file'
+                                accept='.png'
+                                name='cover_img'
+                                onChange={onChange}/>
+                            <label
+                                className={"addBtnStyle fileUploadBtn floatRight"}
+                                htmlFor="file-upload"
+                            >
+                                사진 추가
+                            </label>
                         </div>
                     </form>
                     <button onClick={saveBook} className="addBtnStyle">

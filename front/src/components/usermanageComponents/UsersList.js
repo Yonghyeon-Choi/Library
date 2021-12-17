@@ -78,13 +78,13 @@ const UsersList = (props) => {
                 </div>
                 <div style={{width: "100%"}}>
                     <h5>사용자 목록</h5>
-                    <table>
+                    <table width={"100%"} style={{fontSize: "11px"}}>
                         <thead>
                         <tr>
-                            <th>이름</th>
-                            <th>이메일</th>
-                            <th>대출 도서</th>
-                            <th/>
+                            <th width={"25%"}>이름</th>
+                            <th width={"30%"}>이메일</th>
+                            <th width={"39%"}>대출 도서</th>
+                            <th width={"13%"}/>
                         </tr>
                         </thead>
                     </table>

@@ -89,6 +89,7 @@ const UsersList = (props) => {
                         </tr>
                         </thead>
                     </table>
+                    <br/>
                     {users && users.map((user, index) => (
                         <div key={index}>
                             <table width={"100%"} style={{fontSize: "11px"}}>

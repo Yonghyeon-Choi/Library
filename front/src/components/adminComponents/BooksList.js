@@ -65,7 +65,7 @@ const BooksList = (props) => {
     };
 
     const onKeyPress = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if(e.key === "Enter") findByTitle();
     };
 

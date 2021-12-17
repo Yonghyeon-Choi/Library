@@ -143,9 +143,7 @@ const BookAdd = () => {
                                 multiple
                                 value={images}
                                 onChange={onChange}
-                                maxNumber={maxNumber}
                                 dataURLKey="data_url"
-                                onError={onError}
                             >
                                 {({
                                       imageList,

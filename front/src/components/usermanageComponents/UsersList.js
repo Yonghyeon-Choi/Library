@@ -15,7 +15,7 @@ const UsersList = (props) => {
         retrieveUsers();
     }, []);
 
-    const retrieveBooks = () => {
+    const retrieveUsers = () => {
         usermanageService.getAll()
             .then(response => {
                 setUsers(response.data);

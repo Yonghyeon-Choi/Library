@@ -1,5 +1,5 @@
 const db = require("../models");
-const User = db.users;
+const User = db.user;
 
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {

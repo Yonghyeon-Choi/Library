@@ -62,12 +62,11 @@ const UsersList = (props) => {
         //         break
         //     }
         // }
-        users.map((user, index) => (
-            if(user.username === adminName){
+        users.map((user, index) => {
+            if (user.username === adminName) {
                 adminId = user.roles[0];
-                break
             }
-        ))
+        })
         if(roleId===adminId){
             return <p>관리자</p>
         }

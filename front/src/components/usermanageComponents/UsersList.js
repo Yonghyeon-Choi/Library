@@ -78,6 +78,7 @@ const UsersList = (props) => {
                 </div>
                 <div style={{width: "100%"}}>
                     <h5>사용자 목록</h5>
+                    <hr/>
                     <table width={"100%"} style={{fontSize: "11px"}}>
                         <thead>
                         <tr>
@@ -88,7 +89,6 @@ const UsersList = (props) => {
                         </tr>
                         </thead>
                     </table>
-                    <hr/>
                     {users && users.map((user, index) => (
                         <div key={index}>
                             <table width={"100%"} style={{fontSize: "11px"}}>

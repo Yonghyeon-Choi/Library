@@ -87,7 +87,7 @@ const Book = (props) => {
         bookService.update(currentBook.id, data)
             .then(response => {
                 console.log(response.data);
-                setMessage("The tutorial was updated successfully!");
+                setMessage("The book was updated successfully!");
             })
             .catch(e => {
                 console.log(e);
@@ -103,6 +103,10 @@ const Book = (props) => {
             .catch(e => {
                 console.log(e);
             });
+    };
+
+    const moveAdmin = () => {
+        props.history.push("/admin");
     };
 
     const imageView = (book) => {
@@ -246,6 +250,12 @@ const Book = (props) => {
                                         onClick={updateContent}
                                     >
                                         수정
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={moveAdmin}
+                                        className="addBtnStyle">
+                                        목록
                                     </button>
                                 </td>
                                 <td className={"right-align"}>

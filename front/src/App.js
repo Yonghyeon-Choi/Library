@@ -9,7 +9,7 @@ import Login from "./pages/login.page";
 import Register from "./pages/register.page";
 import Profile from "./pages/profile.page";
 
-import Home from "./pages/01public.page";
+import Home from "./components/publicComponents/BooksList";
 import BoardAdmin from "./pages/02admin.page";
 import BoardUsermanage from "./pages/03usermanage.page";
 import BoardUser from "./pages/04user.page";
@@ -147,7 +147,7 @@ class App extends Component {
 
           <div className="container mt-3">
             <Switch>
-              <Route path="/" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/admin" component={BoardAdmin} />
               <Route path="/usermanage" component={BoardUsermanage} />
               <Route path="/user" component={BoardUser} />

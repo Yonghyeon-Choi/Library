@@ -149,7 +149,7 @@ const BookAdd = () => {
                                 type='file'
                                 id='file-upload'
                                 style={{display:'none'}}
-                                name={book.isbn+'.png'}
+                                // name={book.isbn+'.png'}
                                 accept='image/png'
                                 onChange={onChange}/>
                             <label

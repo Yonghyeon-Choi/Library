@@ -31,7 +31,6 @@ class AuthService {
       username,
       email,
       password,
-      organ,
     });
   }
 }

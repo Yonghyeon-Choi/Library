@@ -37,16 +37,6 @@ const vusername = (value) => {
   }
 };
 
-const vorgan = (value) => {
-  if (value.length < 3 || value.length > 20) {
-    return (
-        <div className="alert alert-danger" role="alert">
-          The organ must be between 3 and 20 characters.
-        </div>
-    );
-  }
-};
-
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
@@ -62,13 +52,11 @@ class Register extends Component {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
     this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangeOrgan = this.onChangeOrgan.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
 
     this.state = {
       username: "",
-      organ: "",
       email: "",
       password: "",
       successful: false,
@@ -78,12 +66,6 @@ class Register extends Component {
   onChangeUsername(e) {
     this.setState({
       username: e.target.value,
-    });
-  }
-
-  onChangeOrgan(e) {
-    this.setState({
-      organ: e.target.value,
     });
   }
 
@@ -111,7 +93,7 @@ class Register extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       this.props
         .dispatch(
-          register(this.state.username, this.state.email, this.state.password, this.state.organ)
+          register(this.state.username, this.state.email, this.state.password)
         )
         .then(() => {
           this.setState({
@@ -155,18 +137,6 @@ class Register extends Component {
                     value={this.state.username}
                     onChange={this.onChangeUsername}
                     validations={[required, vusername]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="organ">소속</label>
-                  <Input
-                      type="text"
-                      className="form-control"
-                      name="organ"
-                      value={this.state.organ}
-                      onChange={this.onChangeOrgan}
-                      validations={[required, vorgan]}
                   />
                 </div>
 

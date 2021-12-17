@@ -4,7 +4,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import userList from "../components/usermanageComponents/UsersList";
 import oneUser from "../components/usermanageComponents/User";
 
-export default class adminPage extends Component {
+export default class usermanagePage extends Component {
     render() {
         return (
             <div className="container">

@@ -7,11 +7,12 @@ import "./App.css";
 
 import Login from "./pages/login.page";
 import Register from "./pages/register.page";
-import Home from "./pages/home.page";
 import Profile from "./pages/profile.page";
-import BoardUser from "./pages/user.page";
-import BoardAdmin from "./pages/admin.page";
-import BoardUsermanage from "./pages/usermanage.page";
+
+import Home from "./pages/01public.page";
+import BoardAdmin from "./pages/02admin.page";
+import BoardUsermanage from "./pages/03usermanage.page";
+import BoardUser from "./pages/04user.page";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
@@ -146,7 +147,7 @@ class App extends Component {
 
           <div className="container mt-3">
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route path="/" component={Home} />
               <Route path="/admin" component={BoardAdmin} />
               <Route path="/usermanage" component={BoardUsermanage} />
               <Route path="/user" component={BoardUser} />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../GlobalStyles.css";
 
-import bookService from "../../services/book.service";
+import bookService from "../../services/usermanage.service";
 import imageService from "../../services/image.service";
 
 const UsersList = (props) => {

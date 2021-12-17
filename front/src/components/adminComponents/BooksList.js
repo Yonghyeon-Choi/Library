@@ -38,7 +38,7 @@ const BooksList = (props) => {
     };
 
     const onChangeSearchTitle = e => {
-        // e.preventDefault();
+        e.preventDefault();
         const searchTitle = e.target.value;
         setSearchTitle(searchTitle);
     };
@@ -65,7 +65,6 @@ const BooksList = (props) => {
     };
 
     const onKeyPress = (e) => {
-        // e.preventDefault();
         if(e.key === "Enter") findByTitle();
     };
 

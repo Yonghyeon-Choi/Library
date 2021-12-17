@@ -45,6 +45,7 @@ const vorgan = (value) => {
         </div>
     );
   }
+};
 
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {

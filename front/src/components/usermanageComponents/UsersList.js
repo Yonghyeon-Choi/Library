@@ -96,7 +96,7 @@ const UsersList = (props) => {
                             <table width={"100%"} style={{fontSize: "11px"}}>
                                 <tbody>
                                 <tr>
-                                    <td width={"15%"}>{user.roles[0]['name']}</td>
+                                    <td width={"15%"}>{user.roles[0]}</td>
                                     <td width={"15%"}>{user.username}</td>
                                     <td width={"28%"}>{user.email}</td>
                                     <td width={"39%"}>{user.brws && user.brws.map((book, bindex)=>(

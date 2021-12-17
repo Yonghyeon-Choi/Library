@@ -27,6 +27,7 @@ const BookAdd = () => {
     const onChange = (e) => {
         e.preventDefault();
         const img = e.target.files[0];
+        console.log(img);
         setImages(img);
     };
 

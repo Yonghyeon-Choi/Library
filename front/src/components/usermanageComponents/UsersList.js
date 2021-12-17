@@ -56,12 +56,18 @@ const UsersList = (props) => {
         const adminName = curUser.username;
         let adminId = "";
 
-        for(let i = 0; i < users.length; i++){
-            if(users[i].username === adminName){
-                adminId = users[i].roles[0];
+        // for(let i = 0; i < users.length; i++){
+        //     if(users[i].username === adminName){
+        //         adminId = users[i].roles[0];
+        //         break
+        //     }
+        // }
+        users.map((user, index) => (
+            if(user.username === adminName){
+                adminId = user.roles[0];
                 break
             }
-        }
+        ))
         if(roleId===adminId){
             return <p>관리자</p>
         }
@@ -72,7 +78,6 @@ const UsersList = (props) => {
 
     return (
         <div>
-            {users[0].username}
         {adminToken ? (
             <div className="card">
                 <div style={{width: "100%"}}>{/*className="col-md-8"*/}

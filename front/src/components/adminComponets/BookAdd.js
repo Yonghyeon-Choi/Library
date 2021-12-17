@@ -87,8 +87,8 @@ const BookAdd = () => {
                             <input
                                 type="text"
                                 className="form-control"
-                                id="ISBN"
-                                name="ISBN"
+                                id="isbn"
+                                name="isbn"
                                 value={book.isbn}
                                 onChange={handleInputChange}
                             />

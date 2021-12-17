@@ -95,7 +95,7 @@ const UsersList = (props) => {
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>{user.rols[0]}</td>
+                                    <td>{user.roles[0]}</td>
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
                                     <td>도서</td>

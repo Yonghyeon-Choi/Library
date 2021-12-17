@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 
-import bookList from "../components/publicComponets/BooksList";
+import bookList from "../components/publicComponents/BooksList";
 
 export default class publicPage extends Component {
     render() {

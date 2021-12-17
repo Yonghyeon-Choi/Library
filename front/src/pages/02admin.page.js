@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 
-import bookList from "../components/adminComponets/BooksList";
-import oneBook from "../components/adminComponets/Book";
-import addBook from "../components/adminComponets/BookAdd";
+import bookList from "../components/adminComponents/BooksList";
+import oneBook from "../components/adminComponents/Book";
+import addBook from "../components/adminComponents/BookAdd";
 
 export default class adminPage extends Component {
   render() {

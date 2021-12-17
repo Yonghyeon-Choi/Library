@@ -22,7 +22,7 @@ const BookAdd = () => {
         setBook({ ...book, [name]: value });
     };
 
-    const [image, setImage] = useState([]);
+    const [image, setImage] = useState("");
     const [preview, setPreview] = useState("");
 
     const onChange = (e) => {
@@ -35,7 +35,12 @@ const BookAdd = () => {
 
     const saveBook = () => {
         var data = {
+            id: book.id,
             title: book.title,
+            isbn: book.isbn,
+            author: book.author,
+            publisher: book.publisher,
+            pubdate: book.pubdate,
             description: book.description
         };
 
@@ -44,10 +49,23 @@ const BookAdd = () => {
                 setBook({
                     id: response.data.id,
                     title: response.data.title,
+                    isbn: response.data.isbn,
+                    author: response.data.author,
+                    publisher: response.data.publisher,
+                    pubdate: response.data.pubdate,
                     description: response.data.description
                 });
                 setSubmitted(true);
                 console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+
+        imageService.upload(image)
+            .then(response => {
+                setImage(response.image);
+                console.log(response.image);
             })
             .catch(e => {
                 console.log(e);

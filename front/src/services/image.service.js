@@ -1,6 +1,6 @@
 import http from "./http-common";
 
-const upload = (file, onUploadProgress) => {
+const upload = (file) => {
     let formData = new FormData();
 
     formData.append("file", file);
@@ -9,7 +9,6 @@ const upload = (file, onUploadProgress) => {
         headers: {
             "Content-Type": "multipart/form-data",
         },
-        onUploadProgress,
     });
 };
 

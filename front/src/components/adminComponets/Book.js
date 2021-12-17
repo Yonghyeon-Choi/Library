@@ -161,8 +161,8 @@ const Book = (props) => {
                             <input
                                 type="text"
                                 className="form-control"
-                                id="ISBN"
-                                name="ISBN"
+                                id="isbn"
+                                name="isbn"
                                 value={currentBook.isbn}
                                 onChange={handleInputChange}
                             />

@@ -144,7 +144,7 @@ const BookAdd = () => {
                                 accept='.png'
                                 onChange={onChange}/>
                             <label
-                                className={"addBtnStyle"}
+                                className={"addBtnStyle fileUploadBtn"}
                                 htmlFor="file-upload"
                             >
                                 사진 추가

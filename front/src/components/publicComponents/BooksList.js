@@ -104,7 +104,7 @@ const BooksList = (props) => {
                             type="button"
                             onClick={findByTitle}
                         >
-                            Search
+                            검색
                         </button>
                     </div>
                 </div>

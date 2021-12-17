@@ -86,7 +86,6 @@ const UsersList = (props) => {
                             <table width={"100%"} style={{fontSize: "11px"}}>
                                 <thead>
                                 <tr>
-                                    <th>권한</th>
                                     <th>이름</th>
                                     <th>이메일</th>
                                     <th>대출 도서</th>
@@ -95,7 +94,6 @@ const UsersList = (props) => {
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>{user.roles[0]}</td>
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
                                     <td>도서</td>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import bookService from "../../services/book.service";
-import imageService from "../../services/image.service";
+import usermanageService from "../../services/usermanage.service";
 import "../GlobalStyles.css";
 
 const User = (props) => {

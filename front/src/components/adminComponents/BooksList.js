@@ -38,7 +38,7 @@ const BooksList = (props) => {
     };
 
     const onChangeSearchTitle = e => {
-        e.preventDefault();
+        // e.preventDefault();
         const searchTitle = e.target.value;
         setSearchTitle(searchTitle);
     };

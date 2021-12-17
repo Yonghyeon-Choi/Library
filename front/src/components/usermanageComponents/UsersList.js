@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../GlobalStyles.css";
-
 import usermanageService from "../../services/usermanage.service";
+import "../GlobalStyles.css";
 
 const UsersList = (props) => {
     const adminToken = window.localStorage.getItem('adminToken');

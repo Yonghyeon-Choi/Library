@@ -30,19 +30,6 @@ const BookAdd = () => {
         setImages(img);
     };
 
-    useEffect(()=>{
-        preview();
-        return () => preview();
-    });
-
-    const preview = () => {
-        if (!images) return false;
-        const imgEl = document.querySelector('.img__box');
-        const reader = new FileReader();
-        reader.onload = () => (imgEl.style.backgroundImage = `url(${reader.result})`);
-        reader.readAsDataURL(images[0]);
-    };
-
     const saveBook = () => {
         var data = {
             title: book.title,
@@ -151,12 +138,16 @@ const BookAdd = () => {
                         </div>
                         <div className="form-group">
                             <label htmlFor="cover-image">북커버 이미지</label>
-                            <div className="img__box"/>
+                            {images && (
+                                <div>
+                                    <img className={'preview'} src={images} alt={''}/>
+                                </div>
+                            )}
                             <input 
                                 type='file'
                                 id='file-upload'
                                 style={{display:'none'}}
-                                accept='.png'
+                                accept='image/png'
                                 onChange={onChange}/>
                             <label
                                 className={"addBtnStyle fileUploadBtn"}

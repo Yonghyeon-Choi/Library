@@ -81,6 +81,7 @@ const UsersList = (props) => {
 
     return (
         <div>
+            {adminId}
         {adminToken ? (
             <div className="card">
                 <div style={{width: "100%"}}>{/*className="col-md-8"*/}

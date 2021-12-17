@@ -78,23 +78,30 @@ const UsersList = (props) => {
                 </div>
                 <div style={{width: "100%"}}>
                     <h5>사용자 목록</h5>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>이름</th>
+                            <th>이메일</th>
+                            <th>대출 도서</th>
+                            <th/>
+                        </tr>
+                        </thead>
+                    </table>
                     <hr/>
                     {users && users.map((user, index) => (
                         <div key={index}>
                             <table width={"100%"} style={{fontSize: "11px"}}>
-                                <thead>
-                                <tr>
-                                    <th>이름</th>
-                                    <th>이메일</th>
-                                    <th>대출 도서</th>
-                                    <th/>
-                                </tr>
-                                </thead>
                                 <tbody>
                                 <tr>
-                                    <td>{user.username}</td>
-                                    <td>{user.email}</td>
-                                    <td>도서</td>
+                                    <td width={"25%"}>{user.username}</td>
+                                    <td width={"30%"}>{user.email}</td>
+                                    <td width={"39%"}>{user.brws && user.brws.map((book, bindex)=>(
+                                        <div key={bindex}>
+                                            <b>도서명</b>&nbsp;{book.bookname}
+                                            <b>대출일</b>&nbsp;{book.brwtime}
+                                        </div>
+                                    ))}</td>
                                     <td width={"13%"} className={"right-align"}>
                                         <button
                                             type="button"

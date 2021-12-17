@@ -22,13 +22,15 @@ const BookAdd = () => {
         setBook({ ...book, [name]: value });
     };
 
-    const [images, setImages] = useState([]);
+    const [image, setImage] = useState([]);
+    const [preview, setPreview] = useState("");
 
     const onChange = (e) => {
         e.preventDefault();
         const img = e.target.files[0];
         console.log(img);
-        setImages(img);
+        setImage(img);
+        setPreview(URL.createObjectURL(img));
     };
 
     const saveBook = () => {
@@ -141,7 +143,7 @@ const BookAdd = () => {
                             <label htmlFor="cover-image">북커버 이미지</label>
                             {images && (
                                 <div>
-                                    <img className={'preview'} src={images} alt={''}/>
+                                    <img className={'preview'} src={preview} alt={''}/>
                                 </div>
                             )}
                             <input 

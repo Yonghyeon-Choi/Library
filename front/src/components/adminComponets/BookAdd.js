@@ -141,7 +141,7 @@ const BookAdd = () => {
                         </div>
                         <div className="form-group">
                             <label htmlFor="cover-image">북커버 이미지</label>
-                            {images && (
+                            {preview && (
                                 <div>
                                     <img className={'preview'} src={preview} alt={''}/>
                                 </div>

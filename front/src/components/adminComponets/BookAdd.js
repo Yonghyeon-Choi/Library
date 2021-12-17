@@ -28,8 +28,6 @@ const BookAdd = () => {
     const onChange = (e) => {
         e.preventDefault();
         const img = e.target.files[0];
-        console.log(img);
-        console.log(URL.createObjectURL(img));
         setImage(img);
         setPreview(URL.createObjectURL(img));
     };
@@ -151,6 +149,7 @@ const BookAdd = () => {
                                 type='file'
                                 id='file-upload'
                                 style={{display:'none'}}
+                                name={book.isbn+'.png'}
                                 accept='image/png'
                                 onChange={onChange}/>
                             <label

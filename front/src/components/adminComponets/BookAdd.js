@@ -139,11 +139,12 @@ const BookAdd = () => {
                         <div>
                             <input 
                                 type='file'
+                                id='file-upload'
+                                style={{display:'none'}}
                                 accept='.png'
-                                name='cover_img'
                                 onChange={onChange}/>
                             <label
-                                className={"addBtnStyle fileUploadBtn floatRight"}
+                                className={"addBtnStyle"}
                                 htmlFor="file-upload"
                             >
                                 사진 추가

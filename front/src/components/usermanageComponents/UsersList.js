@@ -82,8 +82,9 @@ const UsersList = (props) => {
                     <table width={"100%"} style={{fontSize: "11px"}}>
                         <thead>
                         <tr>
-                            <th width={"25%"}>이름</th>
-                            <th width={"30%"}>이메일</th>
+                            <th width={"15%"}>권한</th>
+                            <th width={"15%"}>이름</th>
+                            <th width={"28%"}>이메일</th>
                             <th width={"39%"}>대출 도서</th>
                             <th width={"13%"}/>
                         </tr>
@@ -95,8 +96,9 @@ const UsersList = (props) => {
                             <table width={"100%"} style={{fontSize: "11px"}}>
                                 <tbody>
                                 <tr>
-                                    <td width={"25%"}>{user.username}</td>
-                                    <td width={"30%"}>{user.email}</td>
+                                    <td width={"15%"}>{user.roles[0]['name']}</td>
+                                    <td width={"15%"}>{user.username}</td>
+                                    <td width={"28%"}>{user.email}</td>
                                     <td width={"39%"}>{user.brws && user.brws.map((book, bindex)=>(
                                         <div key={bindex}>
                                             <b>도서명</b>&nbsp;{book.bookname}

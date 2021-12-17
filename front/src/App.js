@@ -10,9 +10,9 @@ import Register from "./pages/register.page";
 import Profile from "./pages/profile.page";
 
 import Home from "./components/publicComponents/BooksList";
-import BoardAdmin from "./pages/02admin.page";
-import BoardUsermanage from "./pages/03usermanage.page";
-import BoardUser from "./pages/04user.page";
+import BoardAdmin from "./pages/01admin.page";
+import BoardUsermanage from "./pages/02usermanage.page";
+import BoardUser from "./pages/03user.page";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";

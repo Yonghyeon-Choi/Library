@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
 import "../GlobalStyles.css";

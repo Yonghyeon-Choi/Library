@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
 import "../GlobalStyles.css";
@@ -28,6 +28,19 @@ const BookAdd = () => {
         e.preventDefault();
         const img = e.target.files[0];
         setImages(img);
+    };
+
+    useEffect(()=>{
+        preview();
+        return () => preview();
+    });
+
+    const preview = () => {
+        if (!images) return false;
+        const imgEl = document.querySelector('.img__box');
+        const reader = new FileReader();
+        reader.onload = () => (imgEl.style.backgroundImage = `url(${reader.result})`);
+        reader.readAsDataURL(images[0]);
     };
 
     const saveBook = () => {
@@ -138,6 +151,7 @@ const BookAdd = () => {
                         </div>
                         <div className="form-group">
                             <label htmlFor="cover-image">북커버 이미지</label>
+                            <div className="img__box"/>
                             <input 
                                 type='file'
                                 id='file-upload'
@@ -148,7 +162,7 @@ const BookAdd = () => {
                                 className={"addBtnStyle fileUploadBtn"}
                                 htmlFor="file-upload"
                             >
-                                사진 추가
+                                파일 선택
                             </label>
                         </div>
                     </form>

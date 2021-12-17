@@ -111,7 +111,7 @@ class Register extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       this.props
         .dispatch(
-          register(this.state.username, this.state.organ, this.state.email, this.state.password)
+          register(this.state.username, this.state.email, this.state.password, this.state.organ)
         )
         .then(() => {
           this.setState({

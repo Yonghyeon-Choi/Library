@@ -34,7 +34,6 @@ const Book = (props) => {
         bookService.get(id)
             .then(response => {
                 setCurrentBook(response.data);
-                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -45,7 +44,6 @@ const Book = (props) => {
         imageService.getFiles()
             .then(response => {
                 setImages(response.data);
-                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -56,7 +54,6 @@ const Book = (props) => {
         usermanageService.get(userid)
             .then(response => {
                 setCurrentUser(response.data);
-                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -68,7 +65,7 @@ const Book = (props) => {
         retrieveImages();
         getUser();
     }, [props.match.params.id]);
-    
+
     const updateContent = (event) => {
         event.preventDefault();
 

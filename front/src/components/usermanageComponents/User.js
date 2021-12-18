@@ -15,7 +15,6 @@ const User = (props) => {
         usermanageService.get(id)
             .then(response => {
                 setCurrentUser(response.data);
-                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -29,7 +28,6 @@ const User = (props) => {
     const removeUser = () => {
         usermanageService.remove(currentUser.id)
             .then(response => {
-                console.log(response.data);
                 props.history.push("/usermanage");
             })
             .catch(e => {

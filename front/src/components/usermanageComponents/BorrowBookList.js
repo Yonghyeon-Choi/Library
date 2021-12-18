@@ -118,7 +118,7 @@ const BorrowBookList = (props) => {
     };
 
     const returnBook = (book) => {
-        const currentBook = book;
+        let currentBook = book;
 
         for(let i = 0; i < userBrws.length; i++){
             if(userBrws[i].id === book.bookid){

@@ -113,12 +113,12 @@ const BorrowBookList = (props) => {
         brws: [],
         description: ""
     };
-    const [currentBook, setCurrentBook] = useState(initialBookState);
+    const [currentBorrow, setCurrentBorrow] = useState(initialBookState);
 
     const getBook = id => {
         bookService.get(id)
             .then(response => {
-                setCurrentBook(response.data);
+                setCurrentBorrow(response.data);
                 // console.log(response.data);
             })
             .catch(e => {
@@ -137,16 +137,8 @@ const BorrowBookList = (props) => {
         }
         console.log(user.brws);
 
-        // getBook(book.id);
-        bookService.get(book.id)
-            .then(response => {
-                currentBook = response.data;
-                // console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-        console.log(currentBook.brws);
+        getBook(book.id);
+        console.log(currentBorrow.brws);
 
         // let userdata = {
         //     id: user.id,

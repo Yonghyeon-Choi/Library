@@ -13,6 +13,7 @@ import Home from "./components/publicComponents/BooksList";
 import BoardAdmin from "./pages/01admin.page";
 import BoardUsermanage from "./pages/02usermanage.page";
 import BoardUser from "./pages/03user.page";
+import BoardBorrow from "./components/usermanageComponents/borrowBookList";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
@@ -113,6 +114,14 @@ class App extends Component {
                   </Link>
                 </li>
               )}
+
+              {currentUser && (
+                  <li className="nav-item">
+                    <Link to={"/borrow"} className="nav-link white-font">
+                      대출 도서
+                    </Link>
+                  </li>
+              )}
             </div>
 
             {currentUser ? (
@@ -151,6 +160,7 @@ class App extends Component {
               <Route path="/admin" component={BoardAdmin} />
               <Route path="/usermanage" component={BoardUsermanage} />
               <Route path="/user" component={BoardUser} />
+              <Route path="/borrow" component={BoardBorrow} />
 
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />

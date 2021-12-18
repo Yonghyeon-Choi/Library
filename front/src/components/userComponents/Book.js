@@ -69,16 +69,11 @@ const Book = (props) => {
         retrieveImages();
         getUser();
     }, [props.match.params.id]);
-    var cur_date = new Date();
-    var cur_date_korea = new Date(cur_date + (3600000*9));
 
     const borrowContent = (event) => {
         event.preventDefault();
 
-        const curr = new Date();
-        const utc = curr.getTime() + (curr.getTimezoneOffset() * 60 * 1000);
-        const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
-        const kr_curr = new Date(utc + (KR_TIME_DIFF));
+        let now = new Date();
         let userId = userid;
         let bookId = currentBook.id;
 
@@ -87,12 +82,12 @@ const Book = (props) => {
 
         userBrws.push({
             bookid : bookId,
-            brwtime : kr_curr
+            brwtime : now
         })
 
         bookBrws.push({
             userid : userId,
-            brwtime : kr_curr
+            brwtime : now
         })
 
         setCurrentUser({ ...currentUser, brws: userBrws});
@@ -166,9 +161,6 @@ const Book = (props) => {
 
     return (
         <div>
-            {cur_date.toISOString()}
-            <br/>
-            {cur_date_korea.toISOString()}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

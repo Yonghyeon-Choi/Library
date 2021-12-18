@@ -68,7 +68,7 @@ const Book = (props) => {
         bookService.update(currentBook.id, data)
             .then(response => {
                 console.log(response.data);
-                setMessage("The book was updated successfully!");
+                setMessage("수정이 완료 되었습니다.");
             })
             .catch(e => {
                 console.log(e);

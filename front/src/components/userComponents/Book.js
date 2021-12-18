@@ -91,7 +91,6 @@ const Book = (props) => {
 
         setCurrentUser({ ...currentUser, brws: userBrws});
         setCurrentBook({ ...currentBook, brws: bookBrws});
-        setCurrentBook({ ...currentBook, brw: currentBook.brw + 1 });
 
         let userdata = {
             id: currentUser.id,
@@ -100,7 +99,7 @@ const Book = (props) => {
 
         let bookdata = {
             id: currentBook.id,
-            brw: currentBook.brw,
+            brw: currentBook.brw + 1,
             brws: currentBook.brws,
         };
 
@@ -115,7 +114,7 @@ const Book = (props) => {
         bookService.borrow(currentBook.id, bookdata)
             .then(response => {
                 console.log(response.data);
-                setMessage("The book was borrowed successfully!");
+                setMessage("대출이 완료 되었습니다.");
             })
             .catch(e => {
                 console.log(e);

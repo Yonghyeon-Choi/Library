@@ -135,7 +135,7 @@ const UsersList = (props) => {
                                 <td width={"25%"}>{user.email}</td>
                                 <td width={"47%"}>{user.brws && user.brws.map((book, bindex)=>(
                                     <div key={bindex}>
-                                        <b>도서명</b>&nbsp;{getBook(book.bookid)}<br/>
+                                        <b>도서명</b>&nbsp;{getBook(book.id)}<br/>
                                         <b>대출일</b>&nbsp;{KST(book.brwtime)}<br/><br/>
                                     </div>
                                 ))}</td>

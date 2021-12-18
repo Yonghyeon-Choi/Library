@@ -68,6 +68,7 @@ const BorrowBookList = (props) => {
                 }
             }
         }
+        console.log(brws);
     };
 
     retieveBorrows();
@@ -116,6 +117,56 @@ const BorrowBookList = (props) => {
         return dateString + timeString;
     };
 
+    const returnBook = (id) => {
+        //
+        // let userId = userid;
+        // let bookId = currentBook.id;
+        //
+        // let userBrws = currentUser.brws;
+        // let bookBrws = currentBook.brws;
+        //
+        // userBrws.push({
+        //     bookid : bookId,
+        //     brwtime : now
+        // })
+        //
+        // bookBrws.push({
+        //     userid : userId,
+        //     brwtime : now
+        // })
+        //
+        // setCurrentUser({ ...currentUser, brws: userBrws});
+        // setCurrentBook({ ...currentBook, brws: bookBrws});
+        //
+        // let userdata = {
+        //     id: currentUser.id,
+        //     brws: currentUser.brws,
+        // };
+        //
+        // let bookdata = {
+        //     id: currentBook.id,
+        //     brw: currentBook.brw - 1,
+        //     brws: currentBook.brws,
+        // };
+        //
+        // usermanageService.borrow(userId, userdata)
+        //     .then(response => {
+        //         console.log(response.data);
+        //     })
+        //     .catch(e => {
+        //         console.log(e);
+        //     });
+        //
+        // bookService.borrow(currentBook.id, bookdata)
+        //     .then(response => {
+        //         console.log(response.data);
+        //         setMessage("대출이 완료 되었습니다.");
+        //     })
+        //     .catch(e => {
+        //         console.log(e);
+        //     });
+    };
+
     return (
         <div className="card">
             <div style={{width: "100%"}}>
@@ -136,9 +187,9 @@ const BorrowBookList = (props) => {
                                     <button
                                         type="button"
                                         className="editBtnStyle right-margin"
-                                        // onClick={() => openBook(index)}
+                                        onClick={() => returnBook(book._id)}
                                     >
-                                        >>
+                                        반납
                                     </button>
                                 </td>
                             </tr>

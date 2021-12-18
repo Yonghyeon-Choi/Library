@@ -62,7 +62,7 @@ const Book = (props) => {
                 console.log(e);
             });
     };
-    let now = new Date();
+
     useEffect(() => {
         getBook(props.match.params.id);
         retrieveImages();
@@ -72,7 +72,14 @@ const Book = (props) => {
     const borrowContent = (event) => {
         event.preventDefault();
 
-        let now = new Date();
+        const curr = new Date();
+        document.writeln("현재시간(Locale) : " + curr + '<br>');
+        const utc =
+            curr.getTime() +
+            (curr.getTimezoneOffset() * 60 * 1000);
+        const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+        const kr_curr =
+            new Date(utc + (KR_TIME_DIFF));
         let userId = userid;
         let bookId = currentBook.id;
 
@@ -81,12 +88,12 @@ const Book = (props) => {
 
         userBrws.push({
             bookid : bookId,
-            brwtime : now
+            brwtime : kr_curr
         })
 
         bookBrws.push({
             userid : userId,
-            brwtime : now
+            brwtime : kr_curr
         })
 
         setCurrentUser({ ...currentUser, brws: userBrws});

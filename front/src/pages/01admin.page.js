@@ -21,7 +21,7 @@ export default class adminPage extends Component {
                 </Switch>
                 </>
             ) : (
-                props.history.push("/login")
+                <Link to={"/login")}/>
             )}
 
         </div>

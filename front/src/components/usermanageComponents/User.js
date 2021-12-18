@@ -37,6 +37,21 @@ const User = (props) => {
             });
     };
 
+    const KST = (utc) => {
+        const KST = new Date(utc);
+
+        let year = KST.getFullYear();
+        let month = ('0' + (KST.getMonth() + 1)).slice(-2);
+        let day = ('0' + KST.getDate()).slice(-2);
+        let dateString = year + '년' + month  + '월' + day +"일 ";
+        let hours = ('0' + KST.getHours()).slice(-2);
+        let minutes = ('0' + KST.getMinutes()).slice(-2);
+        let seconds = ('0' + KST.getSeconds()).slice(-2);
+        let timeString = hours + '시' + minutes  + '분' + seconds + "초";
+
+        return dateString + timeString;
+    };
+
     return (
         <div>
             {currentUser ? (
@@ -56,8 +71,8 @@ const User = (props) => {
                             <label htmlFor="brws">대출 도서</label>
                             {currentUser.brws && currentUser.brws.map((book, index)=>(
                                 <div key={index}>
-                                    <b>도서명</b>&nbsp;{book.bookname}
-                                    <b>대출일</b>&nbsp;{book.brwtime}
+                                    <b>도서명</b>&nbsp;{book.title}<br/>
+                                    <b>대출일</b>&nbsp;{KST(book.brwtime)}
                                 </div>
                             ))}
                         </div>

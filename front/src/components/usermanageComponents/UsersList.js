@@ -30,8 +30,6 @@ const UsersList = (props) => {
     };
 
     const openUser = (id) => {
-        // const id = usersRef.current[rowIndex].id;
-
         props.history.push("/usermanage/" + id);
     };
 

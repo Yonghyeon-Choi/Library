@@ -121,7 +121,7 @@ const BorrowBookList = (props) => {
         const currentBook = book;
 
         for(let i = 0; i < userBrws.length; i++){
-            if(userBrws[i].id === book.id){
+            if(userBrws[i].id === book.bookid){
                 userBrws.splice(i, i+1);
             }
         }
@@ -166,6 +166,7 @@ const BorrowBookList = (props) => {
 
     return (
         <div className="card">
+            {userid}
             <div style={{width: "100%"}}>
                 <h5>대출 도서</h5>
                 <hr/>

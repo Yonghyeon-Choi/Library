@@ -50,19 +50,16 @@ const UsersList = (props) => {
     };
 
     const getBook = (id) => {
-        const initialBookState = {
-            id: null,
-            title: "",
-        };
-        const [book, setBook] = useState(initialBookState);
+        let book = "";
         bookService.get(id)
             .then(response => {
-                setBook(response.data);
+                book = response.data;
                 // console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
             });
+        book = JSON.parse(book);
         return book.title
     };
 

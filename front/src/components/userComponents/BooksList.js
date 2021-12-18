@@ -44,7 +44,7 @@ const BooksList = (props) => {
     const openBook = (rowIndex) => {
         const id = booksRef.current[rowIndex].id;
 
-        props.history.push("/admin/" + id);
+        props.history.push("/user/" + id);
     };
 
     const findByTitle = () => {

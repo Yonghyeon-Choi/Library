@@ -63,17 +63,6 @@ const UsersList = (props) => {
         if(e.key === "Enter") findByName();
     };
 
-    const getBook = (id) => {
-        let title = "";
-        for(let i = 0; i < books.length; i++){
-            if(books[i].id === id){
-                title = books[i].title;
-                break
-            }
-        }
-        return title
-    };
-
     const KST = (utc) => {
         const KST = new Date(utc);
 
@@ -135,7 +124,7 @@ const UsersList = (props) => {
                                 <td width={"25%"}>{user.email}</td>
                                 <td width={"47%"}>{user.brws && user.brws.map((book, bindex)=>(
                                     <div key={bindex}>
-                                        <b>도서명</b>&nbsp;{getBook(book.id)}<br/>
+                                        <b>도서명</b>&nbsp;{book.title}<br/>
                                         <b>대출일</b>&nbsp;{KST(book.brwtime)}<br/><br/>
                                     </div>
                                 ))}</td>

@@ -49,18 +49,6 @@ class Profile extends Component {
                                 </td>
                                 <td>{currentUser.email}</td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <strong>대출 도서 </strong>
-                                </td>
-                                <td>{currentUser.brws.map((book, index)=>(
-                                    <div key={index}>
-                                        <b>도서명</b>&nbsp;{getBook(book.bookid)}<br/>
-                                        <b>대출일</b>&nbsp;{KST(book.brwtime)}<br/><br/>
-                                    </div>
-                                ))}
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>

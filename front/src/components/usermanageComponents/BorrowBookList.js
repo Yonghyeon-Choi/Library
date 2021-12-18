@@ -126,32 +126,32 @@ const BorrowBookList = (props) => {
 
         console.log(currentBorrow.brws);
 
-        let userdata = {
-            id: user.id,
-            brws: user.brws,
-        };
-
-        usermanageService.borrow(userid, userdata)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-
-        let bookdata = {
-            id: currentBorrow.id,
-            brw: currentBorrow.brw - 1,
-            brws: currentBorrow.brws,
-        };
-
-        bookService.borrow(currentBorrow.id, bookdata)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
+        // let userdata = {
+        //     id: user.id,
+        //     brws: user.brws,
+        // };
+        //
+        // usermanageService.borrow(userid, userdata)
+        //     .then(response => {
+        //         console.log(response.data);
+        //     })
+        //     .catch(e => {
+        //         console.log(e);
+        //     });
+        //
+        // let bookdata = {
+        //     id: currentBorrow.id,
+        //     brw: currentBorrow.brw - 1,
+        //     brws: currentBorrow.brws,
+        // };
+        //
+        // bookService.borrow(currentBorrow.id, bookdata)
+        //     .then(response => {
+        //         console.log(response.data);
+        //     })
+        //     .catch(e => {
+        //         console.log(e);
+        //     });
 
         window.location.reload();
     };

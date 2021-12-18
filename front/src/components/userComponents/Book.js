@@ -223,13 +223,24 @@ const Book = (props) => {
                         </div>
                     </form>
                     <hr/>
-                    <button
-                        type="submit"
-                        className="addBtnStyle"
-                        onClick={updateContent}
-                    >
-                        대출
-                    </button>
+                    {(currentBook.cnt === currentBook.brw) ? (
+                        <button
+                            type="submit"
+                            className="addBtnStyle"
+                            disabled="disabled"
+                        >
+                            대출
+                        </button>
+                    ) : (
+                        <button
+                            type="submit"
+                            className="addBtnStyle"
+                            onClick={updateContent}
+                        >
+                            대출
+                        </button>
+                    )}
+
                     &nbsp;&nbsp;
                     <button
                         type="button"

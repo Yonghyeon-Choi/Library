@@ -1,0 +1,32 @@
+{
+	"config":{
+		"target": "http://203.237.183.42:7163",
+		"phases": [
+			{
+				"duration": 60,
+				"arrivalRate": 30
+			}
+		]
+	},
+	"scenarios":[{
+		"flow":[
+			{
+				"get":{
+					"url": "/"
+				}
+			},{
+				"post":{
+					"url": "/api/auth/signin",
+					"json": {
+						"username": "test_account",
+						"password": "123456"
+					}
+				}
+			},{
+				"get":{
+					"url": "/api/books/61bca34bef3a041256eddcf5"
+				}
+			}
+		]
+	}]
+}

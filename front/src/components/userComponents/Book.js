@@ -78,6 +78,7 @@ const Book = (props) => {
         getBook(props.match.params.id);
         retrieveImages();
         getUser();
+        // eslint-disable-next-line
     }, [props.match.params.id]);
 
     const borrowContent = (event) => {

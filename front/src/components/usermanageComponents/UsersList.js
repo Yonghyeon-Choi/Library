@@ -50,7 +50,8 @@ const UsersList = (props) => {
     };
 
     const KST = (utc) => {
-        const kst = utc.setHours(utc.getHours()+9);
+        const UTC = new Date(utc);
+        const kst = UTC.setHours(UTC.getHours()+9);
         return kst.toISOString();
     };
 

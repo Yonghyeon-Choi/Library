@@ -179,17 +179,17 @@ exports.deleteAll = (req, res) => {
             });
         });
 };
-
-// Find all borrowed Books
-exports.findAllBorrowed = (req, res) => {
-    Book.find({ brw: !0 })
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving books."
-            });
-        });
-};
+//
+// // Find all borrowed Books
+// exports.findAllBorrowed = (req, res) => {
+//     Book.find({ brw: !0 })
+//         .then(data => {
+//             res.send(data);
+//         })
+//         .catch(err => {
+//             res.status(500).send({
+//                 message:
+//                     err.message || "Some error occurred while retrieving books."
+//             });
+//         });
+// };

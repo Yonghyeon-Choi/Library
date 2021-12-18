@@ -9,9 +9,6 @@ module.exports = app => {
     // Retrieve all Books
     router.get("/", books.findAll);
 
-    // Retrieve all borrowed Books
-    router.get("/borrowed", books.findAllBorrowed);
-
     // Retrieve a single Book with id
     router.get("/:id", books.findOne);
 
@@ -26,6 +23,9 @@ module.exports = app => {
 
     // Delete all Booksb
     router.delete("/", books.deleteAll);
+
+    // // Retrieve all borrowed Books
+    // router.get("/borrowed", books.findAllBorrowed);
 
     app.use("/api/books", router);
 };

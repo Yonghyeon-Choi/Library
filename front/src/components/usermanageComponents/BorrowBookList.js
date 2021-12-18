@@ -158,7 +158,6 @@ const BorrowBookList = (props) => {
 
     return (
         <div className="card">
-            {userid}
             <div style={{width: "100%"}}>
                 <h5>대출 도서</h5>
                 <hr/>

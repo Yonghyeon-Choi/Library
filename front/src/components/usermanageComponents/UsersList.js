@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import usermanageService from "../../services/usermanage.service";
-import moment from "moment-timezone";
 import "../GlobalStyles.css";
 
 const UsersList = (props) => {
@@ -61,7 +60,8 @@ const UsersList = (props) => {
         let minutes = ('0' + KST.getMinutes()).slice(-2);
         let seconds = ('0' + KST.getSeconds()).slice(-2);
         let timeString = hours + '시 ' + minutes  + '분 ' + seconds + "초";
-        return dateString + timeString;
+        // return dateString + timeString;
+        return KST.toISOString()
     };
 
     return (

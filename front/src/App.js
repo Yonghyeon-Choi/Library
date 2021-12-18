@@ -5,9 +5,9 @@ import { Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import Login from "./pages/login.page";
-import Register from "./pages/register.page";
-import Profile from "./pages/profile.page";
+import Profile from "./pages/04profile.page";
+import Login from "./pages/05login.page";
+import Register from "./pages/06register.page";
 
 import Home from "./components/publicComponents/BooksList";
 import BoardAdmin from "./pages/01admin.page";

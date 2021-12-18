@@ -109,7 +109,7 @@ const BooksList = (props) => {
                 </div>
             </div>
             <div style={{width: "100%"}}>
-                <h5>책 목록</h5>
+                <h5>도서 목록</h5>
                 <hr/>
                 {books && books.map((book, index) => (
                     <div key={index}>

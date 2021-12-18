@@ -123,7 +123,7 @@ const BooksList = (props) => {
                     <tbody>
                     <tr>
                         <td width={"85%"}>
-                            <h5>책 목록</h5>
+                            <h5>도서 목록</h5>
                         </td>
                         <td width={"15%"} className={"right-align"}>
                             <button

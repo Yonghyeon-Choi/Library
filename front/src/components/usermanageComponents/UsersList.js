@@ -18,7 +18,6 @@ const UsersList = (props) => {
         usermanageService.getAll()
             .then(response => {
                 setUsers(response.data);
-                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);

@@ -7,12 +7,26 @@ import "../GlobalStyles.css";
 const Book = (props) => {
     const initialBookState = {
         id: null,
+        title: "",
+        isbn: "",
+        author: "",
+        publisher: "",
+        pubdate: "",
+        cnt: 0,
         brw: 0,
+        brws: [],
+        description: ""
+    };
+    const initialUserState = {
+        id: null,
+        username: "",
+        email: "",
         brws: [],
     };
     const [currentBook, setCurrentBook] = useState(initialBookState);
     const [message, setMessage] = useState("");
     const [images, setImages] = useState([]);
+    const [currentUser, setCurrentUser] = useState(initialUserState);
 
     const getBook = id => {
         bookService.get(id)
@@ -35,16 +49,6 @@ const Book = (props) => {
             });
     };
 
-    useEffect(() => {
-        getBook(props.match.params.id);
-        retrieveImages();
-        getUser();
-    }, [props.match.params.id]);
-
-    const initialUserState = {id: null,};
-    const [currentUser, setCurrentUser] = useState(initialUserState);
-
-
     const getUser = () => {
         let user = window.localStorage.getItem('user');
         let userid = user.id;
@@ -57,6 +61,15 @@ const Book = (props) => {
                 console.log(e);
             });
     };
+
+    useEffect(() => {
+        getBook(props.match.params.id);
+        retrieveImages();
+        getUser();
+    }, [props.match.params.id]);
+
+
+
 
     const updateContent = (event) => {
         event.preventDefault();

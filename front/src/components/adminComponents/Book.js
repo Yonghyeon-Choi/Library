@@ -13,6 +13,7 @@ const Book = (props) => {
         pubdate: "",
         cnt: 0,
         brw: 0,
+        brws: [],
         description: ""
     };
     const [currentBook, setCurrentBook] = useState(initialBookState);

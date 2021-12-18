@@ -127,6 +127,7 @@ const BorrowBookList = (props) => {
     };
 
     const returnBook = (book) => {
+        let currentBook = {};
         let user = currentUser;
 
         for(let i = 0; i < user.brws.length; i++){
@@ -136,7 +137,15 @@ const BorrowBookList = (props) => {
         }
         console.log(user.brws);
 
-        getBook(book.id);
+        // getBook(book.id);
+        bookService.get(book.id)
+            .then(response => {
+                currentBook = response.data;
+                // console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
         console.log(currentBook.brws);
 
         // let userdata = {

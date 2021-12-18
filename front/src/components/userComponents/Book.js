@@ -134,6 +134,7 @@ const Book = (props) => {
             .catch(e => {
                 console.log(e);
             });
+        window.location.reload();
     };
 
     const moveUser = () => {

@@ -102,34 +102,37 @@ const BorrowBookList = (props) => {
     };
 
     const returnBook = (book) => {
-        // let currentBook = book;
-        //
-        // for(let i = 0; i < userBrws.length; i++){
-        //     if(userBrws[i].id === book.bookid){
-        //         userBrws.splice(i, i+1);
-        //     }
-        // }
-        //
-        // for(let i = 0; i < currentBook.brws.length; i++){
-        //     if(currentBook.brws[i].userid === userid){
-        //         currentBook.brws.splice(i, i+1);
-        //     }
-        // }
-        //
-        // let userId = userid;
-        // let bookId = currentBook.id;
-        //
-        // let userdata = {
-        //     id: currentUser.id,
-        //     brws: userBrws,
-        // };
-        //
-        // let bookdata = {
-        //     id: currentBook.id,
-        //     brw: currentBook.brw - 1,
-        //     brws: currentBook.brws,
-        // };
-        //
+        let currentBook = book;
+        let user = currentUser;
+
+        for(let i = 0; i < user.brws.length; i++){
+            if(user.brws[i].isbn === currentBook.isbn){
+                user.brws.splice(i, i+1);
+            }
+        }
+        console.log(user.brws);
+
+        for(let i = 0; i < currentBook.brws.length; i++){
+            if(currentBook.brws[i].userid === userid){
+                currentBook.brws.splice(i, i+1);
+            }
+        }
+        console.log(currentBook.brws);
+
+        let userId = userid;
+        let bookId = currentBook.id;
+
+        let userdata = {
+            id: currentUser.id,
+            brws: userBrws,
+        };
+
+        let bookdata = {
+            id: currentBook.id,
+            brw: currentBook.brw - 1,
+            brws: currentBook.brws,
+        };
+
         // bookService.borrow(currentBook.id, bookdata)
         //     .then(response => {
         //         console.log(response.data);

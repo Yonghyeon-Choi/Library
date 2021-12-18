@@ -73,7 +73,6 @@ const Book = (props) => {
         event.preventDefault();
 
         const curr = new Date();
-        document.writeln("현재시간(Locale) : " + curr + '<br>');
         const utc =
             curr.getTime() +
             (curr.getTimezoneOffset() * 60 * 1000);

@@ -9,9 +9,18 @@ const UsersList = (props) => {
     const usersRef = useRef();
     usersRef.current = users;
 
-    useEffect(() => {
-        retrieveUsers();
-    }, []);
+    const [books, setBooks] = useState([]);
+
+    const retrieveBooks = () => {
+        bookService.getAll()
+            .then(response => {
+                setBooks(response.data);
+                // console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
 
     const retrieveUsers = () => {
         usermanageService.getAll()
@@ -23,6 +32,13 @@ const UsersList = (props) => {
                 console.log(e);
             });
     };
+
+    useEffect(() => {
+        retrieveUsers();
+        retrieveBooks();
+    }, []);
+
+
 
     const onChangeSearchName = e => {
         e.preventDefault();
@@ -50,17 +66,14 @@ const UsersList = (props) => {
     };
 
     const getBook = (id) => {
-        let book = "";
-        bookService.get(id)
-            .then(response => {
-                book = response.data;
-                // console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-        book = JSON.parse(book);
-        return book.title
+        let title = "";
+        for(let i = 0; i < books.length; i++){
+            if(books[i].id === id){
+                title = books[i].title;
+                break
+            }
+        }
+        return title
     };
 
     const KST = (utc) => {

@@ -71,7 +71,7 @@ const BorrowBookList = (props) => {
         console.log(userBrws);
     };
 
-    retieveBorrows();
+    retieveBorrows(currentUser);
 
     const imageView = (book) => {
         const isbn = book.isbn;

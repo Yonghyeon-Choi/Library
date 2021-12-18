@@ -85,13 +85,11 @@ const Book = (props) => {
 
         let now = new Date();
         let userId = userid;
-        let bookId = currentBook.id;
 
         let userBrws = currentUser.brws;
         let bookBrws = currentBook.brws;
 
         userBrws.push({
-            id : currentBorrow.id,
             title: currentBorrow.title,
             isbn: currentBorrow.isbn,
             author: currentBorrow.author,

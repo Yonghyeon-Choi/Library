@@ -92,11 +92,11 @@ const BorrowBookList = (props) => {
         let year = KST.getFullYear();
         let month = ('0' + (KST.getMonth() + 1)).slice(-2);
         let day = ('0' + KST.getDate()).slice(-2);
-        let dateString = year + '/' + month  + '/' + day +"/ ";
+        let dateString = year + '/' + month  + '/' + day +" ";
         let hours = ('0' + KST.getHours()).slice(-2);
         let minutes = ('0' + KST.getMinutes()).slice(-2);
         let seconds = ('0' + KST.getSeconds()).slice(-2);
-        let timeString = hours + ':' + minutes  + ':' + seconds + ":";
+        let timeString = hours + ':' + minutes  + ':' + seconds;
 
         return dateString + timeString;
     };

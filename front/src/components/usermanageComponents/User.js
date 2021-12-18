@@ -10,7 +10,6 @@ const User = (props) => {
         brws: [],
     };
     const [currentUser, setCurrentUser] = useState(initialUserState);
-    const [message, setMessage] = useState("");
 
     const getUser = id => {
         usermanageService.get(id)
@@ -69,8 +68,6 @@ const User = (props) => {
                             회원 삭제
                         </button>
                     </div>
-
-                    <p>{message}</p>
                 </div>
             ) : (
                 <div>

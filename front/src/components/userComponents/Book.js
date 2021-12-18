@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import bookService from "../../services/book.service";
+import imageService from "../../services/image.service";
 import "../GlobalStyles.css";
 
 const Book = (props) => {
@@ -16,6 +17,7 @@ const Book = (props) => {
     };
     const [currentBook, setCurrentBook] = useState(initialBookState);
     const [message, setMessage] = useState("");
+    const [images, setImages] = useState([]);
 
     const getBook = id => {
         bookService.get(id)
@@ -28,11 +30,26 @@ const Book = (props) => {
             });
     };
 
+    const retrieveImages = () => {
+        imageService.getFiles()
+            .then(response => {
+                setImages(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
     useEffect(() => {
         getBook(props.match.params.id);
     }, [props.match.params.id]);
 
+    useEffect(() => {
+        retrieveImages();
+    }, []);
+
     const handleInputChange = event => {
+        event.preventDefault();
         const { name, value } = event.target;
         setCurrentBook({ ...currentBook, [name]: value });
     };
@@ -70,7 +87,7 @@ const Book = (props) => {
         bookService.update(currentBook.id, data)
             .then(response => {
                 console.log(response.data);
-                setMessage("The tutorial was updated successfully!");
+                setMessage("The book was updated successfully!");
             })
             .catch(e => {
                 console.log(e);
@@ -88,12 +105,51 @@ const Book = (props) => {
             });
     };
 
+    const moveAdmin = () => {
+        props.history.push("/admin");
+    };
+
+    const imageView = (book) => {
+        const isbn = book.isbn;
+        let name = "";
+        let url = "";
+        let exist = false;
+
+        for(let i = 0; i < images.length; i++){
+            if(images[i]['name'].includes(isbn)){
+                name = images[i]['name'];
+                url = images[i]['url'];
+                exist = true;
+                break;
+            }
+        }
+        if(exist) {
+            return (
+                <div className={"wrapper"}>
+                    <div style={{height: "200px", width: "140px"}}
+                         className={"image-card center-align vert-center-align"}>
+                        <img src={url} alt={name} height={"200px"} width={"140px"}/>
+                    </div>
+                </div>
+            );
+        }else{
+            return (
+                <div className={"wrapper"}>
+                    <div style={{height: "200px", width: "140px"}}
+                         className={"image-card center-align vert-center-align"}/>
+                </div>
+            );
+        }
+    };
+
     return (
         <div>
             {currentBook ? (
                 <div className="edit-form">
-                    <h4>Book</h4>
+                    <h5>도서 정보 수정</h5>
+                    <hr/>
                     <form>
+                        {imageView(currentBook)}
                         <div className="form-group">
                             <label htmlFor="title">제목</label>
                             <input
@@ -110,8 +166,8 @@ const Book = (props) => {
                             <input
                                 type="text"
                                 className="form-control"
-                                id="ISBN"
-                                name="ISBN"
+                                id="isbn"
+                                name="isbn"
                                 value={currentBook.isbn}
                                 onChange={handleInputChange}
                             />
@@ -147,6 +203,7 @@ const Book = (props) => {
                                 name="pubdate"
                                 value={currentBook.pubdate}
                                 onChange={handleInputChange}
+                                placeholder={"YYYYMMDD"}
                             />
                         </div>
                         <div className="form-group">
@@ -184,18 +241,34 @@ const Book = (props) => {
                             />
                         </div>
                     </form>
-
-                    <button className="delBtnStyle" onClick={removeBook}>
-                        삭제
-                    </button>
-
-                    <button
-                        type="submit"
-                        className="addBtnStyle"
-                        onClick={updateContent}
-                    >
-                        수정
-                    </button>
+                    <hr/>
+                    <table width={"100%"}>
+                        <tbody>
+                            <tr>
+                                <td className={"left-align"}>
+                                    <button
+                                        type="submit"
+                                        className="addBtnStyle"
+                                        onClick={updateContent}
+                                    >
+                                        수정
+                                    </button>
+                                    &nbsp;&nbsp;
+                                    <button
+                                        type="button"
+                                        onClick={moveAdmin}
+                                        className="addBtnStyle">
+                                        목록
+                                    </button>
+                                </td>
+                                <td className={"right-align"}>
+                                    <button className="delBtnStyle" onClick={removeBook}>
+                                        삭제
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <p>{message}</p>
                 </div>
             ) : (

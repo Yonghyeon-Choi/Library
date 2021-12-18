@@ -62,7 +62,7 @@ const Book = (props) => {
                 console.log(e);
             });
     };
-
+    let now = new Date();
     useEffect(() => {
         getBook(props.match.params.id);
         retrieveImages();
@@ -160,6 +160,7 @@ const Book = (props) => {
 
     return (
         <div>
+            {now}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

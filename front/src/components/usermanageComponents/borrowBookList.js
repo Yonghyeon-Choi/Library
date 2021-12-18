@@ -11,6 +11,12 @@ const borrowBookList = (props) => {
 
     const [images, setImages] = useState([]);
     const [books, setBooks] = useState([]);
+    
+    useEffect(() => {
+        retrieveBooks();
+        retrieveImages();
+        retieveBorrows()
+    }, []);
 
     const retrieveBooks = () => {
         bookService.getAll()
@@ -51,11 +57,7 @@ const borrowBookList = (props) => {
         }
     };
 
-    useEffect(() => {
-        retrieveBooks();
-        retrieveImages();
-        retieveBorrows()
-    }, []);
+
 
     const imageView = (book) => {
         const isbn = book.isbn;
@@ -156,7 +158,6 @@ const borrowBookList = (props) => {
                         <br/>
                     </div>
                 ))}
-
             </div>
         </div>
     );

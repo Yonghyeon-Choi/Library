@@ -14,7 +14,7 @@ const BorrowBookList = (props) => {
         bookService.getAll()
             .then(response => {
                 setBooks(response.data);
-                // console.log(response.data);
+                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -32,28 +32,24 @@ const BorrowBookList = (props) => {
             });
     };
 
+    useEffect(() => {
+        retrieveBooks();
+        retrieveImages();
+    }, []);
+
     let brws = [];
 
-    const getBook = (id) => {
-        for(let i = 0; i < books.length; i++){
-            if(books[i].id === id){
-                brws.push(books[i]);
+    const retieveBorrows = () => {
+        for(let i = 0; i < userBorrows.length; i++){
+            for(let j = 0; j < books.length; j++){
+                if(userBorrows[i].bookid === books[j].id){
+                    brws.push(books[i]);
+                }
             }
         }
     };
 
-    const retieveBorrows = () => {
-        for(let i = 0; i < userBorrows.length; i++){
-            getBook(userBorrows[i].bookid);
 
-        }
-    };
-
-    useEffect(() => {
-        retrieveBooks();
-        retrieveImages();
-        retieveBorrows();
-    }, []);
 
     const imageView = (book) => {
         const isbn = book.isbn;
@@ -101,7 +97,6 @@ const BorrowBookList = (props) => {
 
     return (
         <div className="card">
-            {userBorrows[0].bookid}
             <div style={{width: "100%"}}>
                 <h5>대출 도서</h5>
                 <hr/>

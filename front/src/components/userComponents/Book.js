@@ -19,6 +19,15 @@ const Book = (props) => {
         brws: [],
         description: ""
     };
+    const initialBorrowBookState = {
+        id: null,
+        title: "",
+        isbn: "",
+        author: "",
+        publisher: "",
+        pubdate: "",
+        description: ""
+    };
     const initialUserState = {
         id: null,
         username: "",
@@ -26,6 +35,7 @@ const Book = (props) => {
         brws: [],
     };
     const [currentBook, setCurrentBook] = useState(initialBookState);
+    const [currentBorrow, setCurrentBorrow] = useState(initialBorrowBookState);
     const [message, setMessage] = useState("");
     const [images, setImages] = useState([]);
     const [currentUser, setCurrentUser] = useState(initialUserState);
@@ -34,6 +44,7 @@ const Book = (props) => {
         bookService.get(id)
             .then(response => {
                 setCurrentBook(response.data);
+                setCurrentBorrow(response.data);
                 // console.log(response.data);
             })
             .catch(e => {
@@ -80,7 +91,13 @@ const Book = (props) => {
         let bookBrws = currentBook.brws;
 
         userBrws.push({
-            bookid : bookId,
+            id : currentBorrow.id,
+            title: currentBorrow.title,
+            isbn: currentBorrow.isbn,
+            author: currentBorrow.author,
+            publisher: currentBorrow.publisher,
+            pubdate: currentBorrow.pubdate,
+            description: currentBorrow.description,
             brwtime : now
         })
 

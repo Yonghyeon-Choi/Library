@@ -57,21 +57,6 @@ const BorrowBookList = (props) => {
         retrieveImages();
     }, []);
 
-    let userBrws = [];
-
-    const retieveBorrows = () => {
-        for(let i = 0; i < currentUser.brws.length; i++){
-            for(let j = 0; j < books.length; j++){
-                if(currentUser.brws[i].bookid === books[j].id){
-                    userBrws.push(books[j]);
-                }
-            }
-        }
-        console.log(userBrws);
-    };
-
-    retieveBorrows();
-
     const imageView = (book) => {
         const isbn = book.isbn;
         let name = "";
@@ -170,7 +155,7 @@ const BorrowBookList = (props) => {
             <div style={{width: "100%"}}>
                 <h5>대출 도서</h5>
                 <hr/>
-                {userBrws && userBrws.map((book, index) => (
+                {currentUser.brws && currentUser.brws.map((book, index) => (
                     <div key={index}>
                         <table width={"100%"} style={{fontSize: "11px"}}>
                             <tbody>

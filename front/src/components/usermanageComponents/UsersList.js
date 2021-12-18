@@ -122,13 +122,13 @@ const UsersList = (props) => {
                             <tr>
                                 <td width={"15%"}>{user.username}</td>
                                 <td width={"25%"}>{user.email}</td>
-                                <td width={"47%"}>{user.brws && user.brws.map((book, bindex)=>(
+                                <td width={"45%"}>{user.brws && user.brws.map((book, bindex)=>(
                                     <div key={bindex}>
                                         <b>도서명</b>&nbsp;{book.title}<br/>
                                         <b>대출일</b>&nbsp;{KST(book.brwtime)}<br/><br/>
                                     </div>
                                 ))}</td>
-                                <td width={"13%"} className={"right-align"}>
+                                <td width={"15%"} className={"right-align"}>
                                     <button
                                         type="button"
                                         className="editBtnStyle right-margin"

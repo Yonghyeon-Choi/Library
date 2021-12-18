@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, Redirect } from "react-router-dom";
 
 import bookList from "../components/adminComponents/BooksList";
 import oneBook from "../components/adminComponents/Book";
@@ -21,7 +21,7 @@ export default class adminPage extends Component {
                 </Switch>
                 </>
             ) : (
-                <Link to={"/login"}/>
+                <Redirect to={"/login"}/>
             )}
 
         </div>

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
-import usermanageService from "../../services/usermanage.service";
 import "../GlobalStyles.css";
 
 const BorrowBookList = (props) => {
-    let user = window.localStorage.getItem("user");
-    user = JSON.parse(user);
+    const user = JSON.parse(window.localStorage.getItem("user"));
     const userBorrows = user.brws;
 
     const [images, setImages] = useState([]);
@@ -37,7 +35,6 @@ const BorrowBookList = (props) => {
     let brws = [];
 
     const getBook = (id) => {
-        let title = "";
         for(let i = 0; i < books.length; i++){
             if(books[i].id === id){
                 brws.push(books[i]);
@@ -48,6 +45,7 @@ const BorrowBookList = (props) => {
     const retieveBorrows = () => {
         for(let i = 0; i < userBorrows.length; i++){
             getBook(userBorrows[i].bookid);
+
         }
     };
 
@@ -103,6 +101,7 @@ const BorrowBookList = (props) => {
 
     return (
         <div className="card">
+            {userBorrows[0].bookid}
             <div style={{width: "100%"}}>
                 <h5>대출 도서</h5>
                 <hr/>

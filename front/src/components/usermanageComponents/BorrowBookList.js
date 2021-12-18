@@ -161,7 +161,7 @@ const BorrowBookList = (props) => {
             .catch(e => {
                 console.log(e);
             });
-        location.reload();
+        window.location.reload();
     };
 
     return (

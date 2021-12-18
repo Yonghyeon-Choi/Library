@@ -69,16 +69,16 @@ const Book = (props) => {
         getUser();
     }, [props.match.params.id]);
     const curr = new Date().toISOString();
+    const utc = curr.getTime() + (curr.getTimezoneOffset() * 60 * 1000);
+    const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+    const kr_curr = new Date(utc + (KR_TIME_DIFF));
     const borrowContent = (event) => {
         event.preventDefault();
 
         const curr = new Date();
-        const utc =
-            curr.getTime() +
-            (curr.getTimezoneOffset() * 60 * 1000);
+        const utc = curr.getTime() + (curr.getTimezoneOffset() * 60 * 1000);
         const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
-        const kr_curr =
-            new Date(utc + (KR_TIME_DIFF));
+        const kr_curr = new Date(utc + (KR_TIME_DIFF));
         let userId = userid;
         let bookId = currentBook.id;
 
@@ -167,6 +167,7 @@ const Book = (props) => {
     return (
         <div>
             {curr}
+            {kr_curr}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

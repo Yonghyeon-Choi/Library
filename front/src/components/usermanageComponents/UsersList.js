@@ -104,7 +104,7 @@ const UsersList = (props) => {
                                     <button
                                         type="button"
                                         className="editBtnStyle right-margin"
-                                        onClick={() => openUser(user.id)}>
+                                        onClick={() => openUser(user._id)}>
                                         관리
                                     </button>
                                 </td>

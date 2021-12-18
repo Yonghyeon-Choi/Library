@@ -1,23 +1,23 @@
 import http from "./http-common";
 
 const getAll = () => {
-    return http.get("/usermanage");
+    return http.get("/class/admin/usermanage");
 };
 
 const get = id => {
-    return http.get(`/usermanage/${id}`);
+    return http.get(`/class/admin/usermanage/${id}`);
 };
 
 const borrow = (id, data) => {
-    return http.put(`/usermanage/borrow/${id}`, data);
+    return http.put(`/class/admin/usermanage/borrow/${id}`, data);
 };
 
 const remove = id => {
-    return http.delete(`/usermanage/${id}`);
+    return http.delete(`/class/admin/usermanage/${id}`);
 };
 
 const findByName = username => {
-    return http.get(`/usermanage?username=${username}`);
+    return http.get(`/class/admin/usermanage?username=${username}`);
 };
 
 const BookService = {

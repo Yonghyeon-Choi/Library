@@ -5,6 +5,8 @@ import usermanageService from "../../services/usermanage.service";
 import "../GlobalStyles.css";
 
 const Book = (props) => {
+    const user = window.localStorage.getItem('user');
+    const userid = user.id;
     const initialBookState = {
         id: null,
         title: "",
@@ -50,8 +52,6 @@ const Book = (props) => {
     };
 
     const getUser = () => {
-        let user = window.localStorage.getItem('user');
-        let userid = user.id;
         usermanageService.get(userid)
             .then(response => {
                 setCurrentUser(response.data);
@@ -133,6 +133,7 @@ const Book = (props) => {
 
     return (
         <div>
+            {currentUser.id}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

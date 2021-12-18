@@ -51,7 +51,7 @@ const UsersList = (props) => {
 
     const KST = (utc) => {
         const kst = moment(utc, "YYYY-MM-DD HH:mm:ss");
-        return kst["_d"];
+        return kst["_d"].toISOString();
     };
 
     return (

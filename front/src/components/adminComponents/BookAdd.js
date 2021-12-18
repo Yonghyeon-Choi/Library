@@ -88,6 +88,7 @@ const BookAdd = () => {
             ) : (
                 <div className={"edit-form"}>
                     <h5>도서 등록</h5>
+                    <hr/>
                     <form>
                         <div className="form-group">
                             <label htmlFor="title">제목</label>

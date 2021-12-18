@@ -147,6 +147,7 @@ const Book = (props) => {
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보 수정</h5>
+                    <hr/>
                     <form>
                         {imageView(currentBook)}
                         <div className="form-group">

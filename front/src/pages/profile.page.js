@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-//import { Redirect } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Profile extends Component {
     render() {
@@ -64,7 +64,7 @@ class Profile extends Component {
                         </table>
                     </div>
                 ) : (
-                    props.history.push("/login")
+                    <Link to={"/login"}/>
                 )
                 }
             </div>

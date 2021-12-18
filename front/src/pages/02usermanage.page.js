@@ -4,6 +4,8 @@ import { Switch, Route, Link, Redirect } from "react-router-dom";
 import userList from "../components/usermanageComponents/UsersList";
 import oneUser from "../components/usermanageComponents/User";
 
+const adminToken = window.localStorage.getItem('adminToken');
+
 export default class usermanagePage extends Component {
     render() {
         return (

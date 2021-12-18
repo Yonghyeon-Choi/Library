@@ -4,15 +4,13 @@ import imageService from "../../services/image.service";
 import usermanageService from "../../services/usermanage.service";
 import "../GlobalStyles.css";
 
-const borrowBookList = (props) => {
+const BorrowBookList = (props) => {
+    let user = window.localStorage.getItem("user");
+    user = JSON.parse(user);
+    const userBorrows = user.brws;
+
     const [images, setImages] = useState([]);
     const [books, setBooks] = useState([]);
-
-    useEffect(() => {
-        retrieveBooks();
-        retrieveImages();
-        retieveBorrows();
-    }, []);
 
     const retrieveBooks = () => {
         bookService.getAll()
@@ -36,9 +34,8 @@ const borrowBookList = (props) => {
             });
     };
 
-    const user = JSON.parse(window.localStorage.getItem("user"));
-    const userBorrows = user.brws;
     let brws = [];
+
     const getBook = (id) => {
         let title = "";
         for(let i = 0; i < books.length; i++){
@@ -53,6 +50,12 @@ const borrowBookList = (props) => {
             getBook(userBorrows[i].bookid);
         }
     };
+
+    useEffect(() => {
+        retrieveBooks();
+        retrieveImages();
+        retieveBorrows();
+    }, []);
 
     const imageView = (book) => {
         const isbn = book.isbn;
@@ -158,4 +161,4 @@ const borrowBookList = (props) => {
     );
 };
 
-export default borrowBookList;
+export default BorrowBookList;

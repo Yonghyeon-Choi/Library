@@ -13,7 +13,7 @@ import Home from "./components/publicComponents/BooksList";
 import BoardAdmin from "./pages/01admin.page";
 import BoardUsermanage from "./pages/02usermanage.page";
 import BoardUser from "./pages/03user.page";
-import BoardBorrow from "./components/usermanageComponents/borrowBookList";
+import BoardBorrow from "./components/usermanageComponents/BorrowBookList";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";

@@ -3,8 +3,6 @@ import usermanageService from "../../services/usermanage.service";
 import "../GlobalStyles.css";
 
 const UsersList = (props) => {
-    const adminToken = window.localStorage.getItem('adminToken');
-
     const [searchName, setSearchName] = useState("");
     const [users, setUsers] = useState([]);
     const usersRef = useRef();
@@ -30,8 +28,8 @@ const UsersList = (props) => {
         setSearchName(searchName);
     };
 
-    const openUser = (rowIndex) => {
-        const id = usersRef.current[rowIndex].id;
+    const openUser = (id) => {
+        // const id = usersRef.current[rowIndex].id;
 
         props.history.push("/usermanage/" + id);
     };
@@ -105,7 +103,7 @@ const UsersList = (props) => {
                                     <button
                                         type="button"
                                         className="editBtnStyle right-margin"
-                                        onClick={() => openUser(index)}>
+                                        onClick={() => openUser(user.id)}>
                                         관리
                                     </button>
                                 </td>

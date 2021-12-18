@@ -48,6 +48,23 @@ const UsersList = (props) => {
         if(e.key === "Enter") findByName();
     };
 
+    const getBook = (id) => {
+        const initialBookState = {
+            id: null,
+            title: "",
+        };
+        const [book, setBook] = useState(initialBookState);
+        bookService.get(id)
+            .then(response => {
+                setBook(response.data);
+                // console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+        return book.title
+    };
+
     const KST = (utc) => {
         const KST = new Date(utc);
 
@@ -109,7 +126,7 @@ const UsersList = (props) => {
                                 <td width={"25%"}>{user.email}</td>
                                 <td width={"47%"}>{user.brws && user.brws.map((book, bindex)=>(
                                     <div key={bindex}>
-                                        <b>도서명</b>&nbsp;{book.bookid}<br/>
+                                        <b>도서명</b>&nbsp;{getBook(book.bookid)}<br/>
                                         <b>대출일</b>&nbsp;{KST(book.brwtime)}<br/><br/>
                                     </div>
                                 ))}</td>

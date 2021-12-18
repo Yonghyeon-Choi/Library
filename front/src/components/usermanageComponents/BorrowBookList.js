@@ -118,7 +118,7 @@ const BorrowBookList = (props) => {
     const getBook = id => {
         bookService.get(id)
             .then(response => {
-                setCurrentBorrow(response.data);
+                setCurrentBook(response.data);
                 // console.log(response.data);
             })
             .catch(e => {

@@ -104,6 +104,14 @@ const Book = (props) => {
             brws: currentBook.brws,
         };
 
+        usermanageService.borrow(userId, userdata)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+
         bookService.borrow(currentBook.id, bookdata)
             .then(response => {
                 console.log(response.data);
@@ -112,14 +120,6 @@ const Book = (props) => {
             .catch(e => {
                 console.log(e);
             });
-
-        usermanageService.borrow(userId, userdata)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });;
     };
 
     const moveUser = () => {

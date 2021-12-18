@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import usermanageService from "../../services/usermanage.service";
+import moment from "moment-timezone";
 import "../GlobalStyles.css";
 
 const UsersList = (props) => {
@@ -46,6 +47,11 @@ const UsersList = (props) => {
 
     const onKeyPress = (e) => {
         if(e.key === "Enter") findByName();
+    };
+
+    const KST = (utc) => {
+        const kst = moment(utc, "YYYY-MM-DD HH:mm:ss");
+        return kst["_d"];
     };
 
     return (
@@ -95,7 +101,7 @@ const UsersList = (props) => {
                                 <td width={"47%"}>{user.brws && user.brws.map((book, bindex)=>(
                                     <div key={bindex}>
                                         <b>도서명</b>&nbsp;{book.bookname}<br/>
-                                        <b>대출일</b>&nbsp;{book.brwtime}
+                                        <b>대출일</b>&nbsp;{KST(book.brwtime)}
                                     </div>
                                 ))}</td>
                                 <td width={"13%"} className={"right-align"}>

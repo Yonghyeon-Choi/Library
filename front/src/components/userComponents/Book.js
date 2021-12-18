@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
 import usermanageService from "../../services/usermanage.service";
-import moment from "moment-timezone";
 import "../GlobalStyles.css";
 
 const Book = (props) => {

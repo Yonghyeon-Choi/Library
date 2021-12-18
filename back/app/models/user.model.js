@@ -15,7 +15,6 @@ const User = mongoose.model(
     ],
     brws: [
         {
-            id: String,
             isbn: String,
             title: String,
             author: String,

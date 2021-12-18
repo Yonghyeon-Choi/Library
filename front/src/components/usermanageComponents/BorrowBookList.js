@@ -206,6 +206,14 @@ const BorrowBookList = (props) => {
                                 <td/>
                                 <td/>
                             </tr>
+                            <tr>
+                                <td/>
+                                <td className={"right-align"}><b>대출일</b></td>
+                                <td/>
+                                <td>{KST(book.brwtime)}</td>
+                                <td/>
+                                <td/>
+                            </tr>
                             </tbody>
                         </table>
                         <br/>

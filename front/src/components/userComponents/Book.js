@@ -160,7 +160,6 @@ const Book = (props) => {
 
     return (
         <div>
-            {now}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

@@ -5,7 +5,7 @@ import usermanageService from "../../services/usermanage.service";
 import "../GlobalStyles.css";
 
 const Book = (props) => {
-    const user = window.localStorage.getItem('user');
+    const user = localStorage.getItem('user');
     const userid = user.id;
     const initialBookState = {
         id: null,

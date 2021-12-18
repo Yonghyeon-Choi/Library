@@ -53,13 +53,13 @@ const UsersList = (props) => {
         const KST = new Date(utc);
         KST.setHours(KST.getHours()+9);
 
-        let year = today.getFullYear();
-        let month = ('0' + (today.getMonth() + 1)).slice(-2);
-        let day = ('0' + today.getDate()).slice(-2);
+        let year = KST.getFullYear();
+        let month = ('0' + (KST.getMonth() + 1)).slice(-2);
+        let day = ('0' + KST.getDate()).slice(-2);
         let dateString = year + '년 ' + month  + '월 ' + day +"일  ";
-        let hours = ('0' + today.getHours()).slice(-2);
-        let minutes = ('0' + today.getMinutes()).slice(-2);
-        let seconds = ('0' + today.getSeconds()).slice(-2);
+        let hours = ('0' + KST.getHours()).slice(-2);
+        let minutes = ('0' + KST.getMinutes()).slice(-2);
+        let seconds = ('0' + KST.getSeconds()).slice(-2);
         let timeString = hours + '시 ' + minutes  + '분 ' + seconds + "초";
         return dateString + timeString;
     };

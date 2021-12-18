@@ -59,8 +59,7 @@ const BorrowBookList = (props) => {
 
     let userBrws = [];
 
-    const retieveBorrows = (event) => {
-        event.preventDefault();
+    const retieveBorrows = () => {
         for(let i = 0; i < currentUser.brws.length; i++){
             for(let j = 0; j < books.length; j++){
                 if(currentUser.brws[i].bookid === books[j].id){
@@ -71,7 +70,7 @@ const BorrowBookList = (props) => {
         console.log(userBrws);
     };
 
-    retieveBorrows(currentUser);
+    retieveBorrows();
 
     const imageView = (book) => {
         const isbn = book.isbn;

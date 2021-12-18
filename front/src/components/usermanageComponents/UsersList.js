@@ -52,77 +52,71 @@ const UsersList = (props) => {
     };
 
     return (
-        <div>
-        {adminToken ? (
-            <div className="card">
-                <div style={{width: "100%"}}>{/*className="col-md-8"*/}
-                    <div className="input-group mb-3">
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="이름"
-                            value={searchName}
-                            onChange={onChangeSearchName}
-                            onKeyPress={onKeyPress}
-                        />
-                        <div className="input-group-append">
-                            <button
-                                className="btn btn-outline-secondary form-control"
-                                type="button"
-                                onClick={findByName}
-                            >
-                                검색
-                            </button>
-                        </div>
+        <div className="card">
+            <div style={{width: "100%"}}>{/*className="col-md-8"*/}
+                <div className="input-group mb-3">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="이름"
+                        value={searchName}
+                        onChange={onChangeSearchName}
+                        onKeyPress={onKeyPress}
+                    />
+                    <div className="input-group-append">
+                        <button
+                            className="btn btn-outline-secondary form-control"
+                            type="button"
+                            onClick={findByName}
+                        >
+                            검색
+                        </button>
                     </div>
                 </div>
-                <div style={{width: "100%"}}>
-                    <h5>사용자 목록</h5>
-                    <hr/>
-                    <table width={"100%"} style={{fontSize: "11px"}}>
-                        <thead>
-                        <tr>
-                            <th width={"15%"}>이름</th>
-                            <th width={"25%"}>이메일</th>
-                            <th width={"47%"}>대출 도서</th>
-                            <th width={"13%"}/>
-                        </tr>
-                        </thead>
-                    </table>
-                    <br/>
-                    {users && users.map((user, index) => (
-                        <div key={index}>
-                            <table width={"100%"} style={{fontSize: "11px"}}>
-                                <tbody>
-                                <tr>
-                                    <td width={"15%"}>{user.username}</td>
-                                    <td width={"25%"}>{user.email}</td>
-                                    <td width={"47%"}>{user.brws && user.brws.map((book, index)=>(
-                                        <div key={index}>
-                                            <b>도서명</b>&nbsp;{book.bookname}
-                                            <b>대출일</b>&nbsp;{book.brwtime}
-                                        </div>
-                                    ))}</td>
-                                    <td width={"13%"} className={"right-align"}>
-                                        <button
-                                            type="button"
-                                            className="editBtnStyle right-margin"
-                                            onClick={() => openUser(index)}>
-                                            관리
-                                        </button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <br/>
-                        </div>
-                    ))}
-
-                </div>
             </div>
-        ):(
-            props.history.push("/login")
-        )}
+            <div style={{width: "100%"}}>
+                <h5>사용자 목록</h5>
+                <hr/>
+                <table width={"100%"} style={{fontSize: "11px"}}>
+                    <thead>
+                    <tr>
+                        <th width={"15%"}>이름</th>
+                        <th width={"25%"}>이메일</th>
+                        <th width={"47%"}>대출 도서</th>
+                        <th width={"13%"}/>
+                    </tr>
+                    </thead>
+                </table>
+                <br/>
+                {users && users.map((user, index) => (
+                    <div key={index}>
+                        <table width={"100%"} style={{fontSize: "11px"}}>
+                            <tbody>
+                            <tr>
+                                <td width={"15%"}>{user.username}</td>
+                                <td width={"25%"}>{user.email}</td>
+                                <td width={"47%"}>{user.brws && user.brws.map((book, index)=>(
+                                    <div key={index}>
+                                        <b>도서명</b>&nbsp;{book.bookname}
+                                        <b>대출일</b>&nbsp;{book.brwtime}
+                                    </div>
+                                ))}</td>
+                                <td width={"13%"} className={"right-align"}>
+                                    <button
+                                        type="button"
+                                        className="editBtnStyle right-margin"
+                                        onClick={() => openUser(index)}>
+                                        관리
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                    </div>
+                ))}
+
+            </div>
         </div>
     );
 };

@@ -55,7 +55,6 @@ const BorrowBookList = (props) => {
         getUser(userid);
         retrieveBooks();
         retrieveImages();
-
     }, []);
 
     let userBrws = [];
@@ -70,8 +69,9 @@ const BorrowBookList = (props) => {
         }
         console.log(userBrws);
     };
-
-    retieveBorrows();
+    useEffect(() => {
+        retieveBorrows();
+    }, [currentUser]);
 
     const imageView = (book) => {
         const isbn = book.isbn;
@@ -146,6 +146,14 @@ const BorrowBookList = (props) => {
             brws: currentBook.brws,
         };
 
+        bookService.borrow(currentBook.id, bookdata)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+
         usermanageService.borrow(userId, userdata)
             .then(response => {
                 console.log(response.data);
@@ -154,14 +162,7 @@ const BorrowBookList = (props) => {
                 console.log(e);
             });
 
-        bookService.borrow(currentBook.id, bookdata)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-        window.location.reload();
+        // window.location.reload();
     };
 
     return (

@@ -182,7 +182,7 @@ const BorrowBookList = (props) => {
                         <table width={"100%"} style={{fontSize: "11px"}}>
                             <tbody>
                             <tr>
-                                <td width={"15%"} rowSpan={5}>{imageView(book)}</td>
+                                <td width={"15%"} rowSpan={6}>{imageView(book)}</td>
                                 <td width={"5%"}/>
                                 <td width={"10%"} className={"right-align"}><b>제목</b></td>
                                 <td width={"5%"}/>
@@ -234,7 +234,7 @@ const BorrowBookList = (props) => {
                                 <td/>
                                 <td className={"right-align"}><b>반납예정</b></td>
                                 <td/>
-                                <td>{KST(book.brwtime)}</td>
+                                <td>{returnKST(book.brwtime)}</td>
                                 <td/>
                                 <td/>
                             </tr>

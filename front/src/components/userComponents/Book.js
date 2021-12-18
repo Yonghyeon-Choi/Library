@@ -236,7 +236,7 @@ const Book = (props) => {
                         className="addBtnStyle"
                         onClick={updateContent}
                     >
-                        수정
+                        대출
                     </button>
                     &nbsp;&nbsp;
                     <button

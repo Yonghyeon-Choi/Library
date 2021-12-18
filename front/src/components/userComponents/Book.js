@@ -68,10 +68,7 @@ const Book = (props) => {
         retrieveImages();
         getUser();
     }, [props.match.params.id]);
-
-
-
-
+    
     const updateContent = (event) => {
         event.preventDefault();
 
@@ -134,8 +131,6 @@ const Book = (props) => {
 
     return (
         <div>
-            {typeof(user)}
-            {Object.values(user)}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

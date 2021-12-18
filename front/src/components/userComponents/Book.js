@@ -68,10 +68,11 @@ const Book = (props) => {
         retrieveImages();
         getUser();
     }, [props.match.params.id]);
-    const curr = new Date();
-    const utc = curr.getTime() + (curr.getTimezoneOffset() * 60 * 1000);
-    const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
-    const kr_curr = new Date(utc + (KR_TIME_DIFF));
+    var cur_date = new Date();
+    var utc = cur_date.getTime() + (cur_date.getTimezoneOffset() * 60 * 1000);
+    var time_diff = 9 * 60 * 60 * 1000;
+    var cur_date_korea = new Date(utc + (time_diff));
+
     const borrowContent = (event) => {
         event.preventDefault();
 
@@ -166,8 +167,9 @@ const Book = (props) => {
 
     return (
         <div>
-            {curr.toISOString()}
-            {kr_curr.toISOString()}
+            {cur_date.toISOString()}
+            <br/>
+            {cur_date_korea.toISOString()}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

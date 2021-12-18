@@ -5,10 +5,28 @@ import "../GlobalStyles.css";
 
 const BorrowBookList = (props) => {
     const user = JSON.parse(window.localStorage.getItem("user"));
-    const userBorrows = user.brws;
+    const userid = user.id;
 
+    const initialUserState = {
+        id: null,
+        username: "",
+        email: "",
+        brws: [],
+    };
     const [images, setImages] = useState([]);
     const [books, setBooks] = useState([]);
+    const [currentUser, setCurrentUser] = useState(initialUserState);
+
+    const getUser = id => {
+        usermanageService.get(id)
+            .then(response => {
+                setCurrentUser(response.data);
+                // console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
 
     const retrieveBooks = () => {
         bookService.getAll()
@@ -33,6 +51,7 @@ const BorrowBookList = (props) => {
     };
 
     useEffect(() => {
+        getUser(userid);
         retrieveBooks();
         retrieveImages();
     }, []);
@@ -40,9 +59,9 @@ const BorrowBookList = (props) => {
     let brws = [];
 
     const retieveBorrows = () => {
-        for(let i = 0; i < userBorrows.length; i++){
+        for(let i = 0; i < currentUser.brws.length; i++){
             for(let j = 0; j < books.length; j++){
-                if(userBorrows[i].bookid === books[j].id){
+                if(currentUser.brws[i].bookid === books[j].id){
                     brws.push(books[i]);
                 }
             }

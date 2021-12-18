@@ -130,13 +130,13 @@ exports.borrow = (req, res) => {
         .then(data => {
             if (!data) {
                 res.status(404).send({
-                    message: `Cannot update User with id=${id}. Maybe User was not found!`
+                    message: `Cannot update Book with id=${id}. Maybe Book was not found!`
                 });
-            } else res.send({ message: "User was updated successfully." });
+            } else res.send({ message: "Book was updated successfully." });
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error updating User with id=" + id
+                message: "Error updating Book with id=" + id
             });
         });
 };

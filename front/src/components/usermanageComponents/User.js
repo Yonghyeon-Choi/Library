@@ -43,7 +43,7 @@ const User = (props) => {
             {currentUser ? (
                 <div className="edit-form">
                     <h5>사용자 관리</h5>
-                    <br/>
+                    <hr/>
                     <form>
                         <div className="form-group">
                             <label htmlFor="name">이름</label>

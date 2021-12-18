@@ -23,10 +23,8 @@ const findByName = username => {
 const BookService = {
     getAll,
     get,
-    update,
     borrow,
     remove,
-    removeAll,
     findByName
 };
 

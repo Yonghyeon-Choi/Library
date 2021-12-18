@@ -127,7 +127,7 @@ const BorrowBookList = (props) => {
     };
 
     const returnBook = (book) => {
-        let currentBook = {};
+        let currentBook = book;
         let user = currentUser;
 
         for(let i = 0; i < user.brws.length; i++){

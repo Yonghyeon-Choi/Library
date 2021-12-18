@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
 import usermanageService from "../../services/usermanage.service";
+import moment from "moment-timezone";
 import "../GlobalStyles.css";
 
 const Book = (props) => {
@@ -169,7 +170,7 @@ const Book = (props) => {
         <div>
             {cur_date.toISOString()}
             <br/>
-            {cur_date_korea.toISOString()}
+            {moment.tz(cur_date, 'Asia/Seoul').toISOString()}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

@@ -67,6 +67,7 @@ const User = (props) => {
                             <label htmlFor="email">이메일</label>
                             {currentUser.email}
                         </div>
+                        <hr/>
                         <div className="form-group">
                             <label htmlFor="brws">대출 도서</label>
                             {currentUser.brws && currentUser.brws.map((book, index)=>(

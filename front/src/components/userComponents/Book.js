@@ -134,7 +134,7 @@ const Book = (props) => {
 
     return (
         <div>
-            {Object.values(user)}
+            {user.id}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

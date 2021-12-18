@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
 import usermanageService from "../../services/usermanage.service";
@@ -57,6 +57,35 @@ const borrowBookList = (props) => {
         retieveBorrows()
     }, []);
 
+    const imageView = (book) => {
+        const isbn = book.isbn;
+        let name = "";
+        let url = "";
+        let exist = false;
+
+        for(let i = 0; i < images.length; i++){
+            if(images[i]['name'].includes(isbn)){
+                name = images[i]['name'];
+                url = images[i]['url'];
+                exist = true;
+                break;
+            }
+        }
+        if(exist) {
+            return (
+                <div style={{height: "100px", width: "70px"}}
+                     className={"image-card right-align vert-center-align left-margin"}>
+                    <img src={url} alt={name} height={"100px"} width={"70px"}/>
+                </div>
+            );
+        }else{
+            return (
+                <div style={{height: "100px", width: "70px"}}
+                     className={"image-card right-align vert-center-align left-margin"}/>
+            );
+        }
+    };
+
     const KST = (utc) => {
         const KST = new Date(utc);
 
@@ -92,7 +121,8 @@ const borrowBookList = (props) => {
                                     <button
                                         type="button"
                                         className="editBtnStyle right-margin"
-                                        onClick={() => openBook(index)}>
+                                        // onClick={() => openBook(index)}
+                                    >
                                         >>
                                     </button>
                                 </td>

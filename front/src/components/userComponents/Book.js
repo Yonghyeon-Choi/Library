@@ -103,7 +103,7 @@ const Book = (props) => {
         let name = "";
         let url = "";
         let exist = false;
-
+        
         for(let i = 0; i < images.length; i++){
             if(images[i]['name'].includes(isbn)){
                 name = images[i]['name'];
@@ -133,7 +133,7 @@ const Book = (props) => {
 
     return (
         <div>
-            {userid}
+            {user.id}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

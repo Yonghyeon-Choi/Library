@@ -101,31 +101,6 @@ const BorrowBookList = (props) => {
         return dateString + timeString;
     };
 
-    const initialBookState = {
-        id: null,
-        title: "",
-        isbn: "",
-        author: "",
-        publisher: "",
-        pubdate: "",
-        cnt: 0,
-        brw: 0,
-        brws: [],
-        description: ""
-    };
-    const [currentBorrow, setCurrentBorrow] = useState(initialBookState);
-
-    const getBook = id => {
-        bookService.get(id)
-            .then(response => {
-                setCurrentBorrow(response.data);
-                // console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    };
-
     const returnBook = (book) => {
         let currentBook = book;
         let user = currentUser;
@@ -137,7 +112,13 @@ const BorrowBookList = (props) => {
         }
         console.log(user.brws);
 
-        getBook(book.id);
+        let currentBorrow = {};
+        for(let i = 0; i< books.length; i++){
+            if(books[i].id === currentBook.id){
+                currentBorrow = books[i];
+            }
+        }
+
         console.log(currentBorrow.brws);
 
         // let userdata = {

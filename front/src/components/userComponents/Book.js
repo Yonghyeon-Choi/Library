@@ -69,20 +69,42 @@ const Book = (props) => {
         getUser();
     }, [props.match.params.id]);
 
-    const updateContent = (event) => {
+    const borrowContent = (event) => {
         event.preventDefault();
 
         let now = new Date();
-        let bookid = currentBook.id;
+        let userId = userid;
+        let bookId = currentBook.id;
 
+        let userBrws = currentUser.brws;
+        let bookBrws = currentBook.brws;
 
-        let data = {
+        userBrws.push({
+            bookid : bookId,
+            brwtime : now
+        })
+
+        bookBrws.push({
+            userid : userId,
+            brwtime : now
+        })
+
+        setCurrentUser({ ...currentUser, [brws]: userBrws});
+        setCurrentBook({ ...currentBook, [brws]: bookBrws});
+        setCurrentBook({ ...currentBook, [brw]: currentBook.brw + 1 });
+
+        let userdata = {
+            id: currentUser.id,
+            brws: currentUser.brws,
+        };
+
+        let bookdata = {
             id: currentBook.id,
             brw: currentBook.brw,
             brws: currentBook.brws,
         };
 
-        bookService.borrow(currentBook.id, data)
+        bookService.borrow(currentBook.id, bookdata)
             .then(response => {
                 console.log(response.data);
                 setMessage("The book was borrowed successfully!");
@@ -90,6 +112,14 @@ const Book = (props) => {
             .catch(e => {
                 console.log(e);
             });
+
+        usermanageService.borrow(userId, userdata)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });;
     };
 
     const moveUser = () => {
@@ -239,7 +269,7 @@ const Book = (props) => {
                         <button
                             type="submit"
                             className="addBtnStyle"
-                            onClick={updateContent}
+                            onClick={borrowContent}
                         >
                             대출
                         </button>

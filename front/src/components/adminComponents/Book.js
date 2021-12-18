@@ -44,11 +44,8 @@ const Book = (props) => {
 
     useEffect(() => {
         getBook(props.match.params.id);
-    }, [props.match.params.id]);
-
-    useEffect(() => {
         retrieveImages();
-    }, []);
+    }, [props.match.params.id]);
 
     const handleInputChange = event => {
         event.preventDefault();

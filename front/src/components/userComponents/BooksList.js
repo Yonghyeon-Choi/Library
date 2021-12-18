@@ -135,7 +135,7 @@ const BooksList = (props) => {
                                         type="button"
                                         className="editBtnStyle right-margin"
                                         onClick={() => openBook(index)}>
-                                        >>
+                                        자세히
                                     </button>
                                 </td>
                             </tr>

@@ -168,7 +168,7 @@ const Book = (props) => {
         <div>
             {cur_date.toISOString()}
             <br/>
-            {.toISOString()}
+            {cur_date_korea.toISOString()}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

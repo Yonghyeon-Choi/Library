@@ -10,15 +10,11 @@ const BooksList = (props) => {
     const booksRef = useRef();
     booksRef.current = books;
 
-    useEffect(() => {
-        retrieveBooks();
-        retrieveImages();
-    }, []);
-
     const retrieveBooks = () => {
         bookService.getAll()
             .then(response => {
                 setBooks(response.data);
+                // console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -29,11 +25,17 @@ const BooksList = (props) => {
         imageService.getFiles()
             .then(response => {
                 setImages(response.data);
+                // console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
             });
     };
+
+    useEffect(() => {
+        retrieveBooks();
+        retrieveImages();
+    }, []);
 
     const onChangeSearchTitle = e => {
         e.preventDefault();

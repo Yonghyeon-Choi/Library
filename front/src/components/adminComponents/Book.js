@@ -24,6 +24,7 @@ const Book = (props) => {
         bookService.get(id)
             .then(response => {
                 setCurrentBook(response.data);
+                // console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -34,6 +35,7 @@ const Book = (props) => {
         imageService.getFiles()
             .then(response => {
                 setImages(response.data);
+                // console.log(response.data);
             })
             .catch(e => {
                 console.log(e);

@@ -119,19 +119,19 @@ const BorrowBookList = (props) => {
         }
         console.log(currentBook.brws);
 
-        let userId = userid;
-        let bookId = currentBook.id;
-
-        let userdata = {
-            id: currentUser.id,
-            brws: userBrws,
-        };
-
-        let bookdata = {
-            id: currentBook.id,
-            brw: currentBook.brw - 1,
-            brws: currentBook.brws,
-        };
+        // let userId = userid;
+        // let bookId = currentBook.id;
+        //
+        // let userdata = {
+        //     id: currentUser.id,
+        //     brws: userBrws,
+        // };
+        //
+        // let bookdata = {
+        //     id: currentBook.id,
+        //     brw: currentBook.brw - 1,
+        //     brws: currentBook.brws,
+        // };
 
         // bookService.borrow(currentBook.id, bookdata)
         //     .then(response => {

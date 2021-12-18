@@ -89,9 +89,9 @@ const Book = (props) => {
             brwtime : now
         })
 
-        setCurrentUser({ ...currentUser, ["brws"]: userBrws});
-        setCurrentBook({ ...currentBook, ["brws"]: bookBrws});
-        setCurrentBook({ ...currentBook, ["brw"]: currentBook.brw + 1 });
+        setCurrentUser({ ...currentUser, brws: userBrws});
+        setCurrentBook({ ...currentBook, brws: bookBrws});
+        setCurrentBook({ ...currentBook, brw: currentBook.brw + 1 });
 
         let userdata = {
             id: currentUser.id,

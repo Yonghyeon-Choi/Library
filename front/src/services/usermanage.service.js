@@ -8,20 +8,12 @@ const get = id => {
     return http.get(`/usermanage/${id}`);
 };
 
-const update = (id, data) => {
-    return http.put(`/usermanage/${id}`, data);
-};
-
 const borrow = (id, data) => {
     return http.put(`/usermanage/borrow/${id}`, data);
 };
 
 const remove = id => {
     return http.delete(`/usermanage/${id}`);
-};
-
-const removeAll = () => {
-    return http.delete(`/usermanage`);
 };
 
 const findByName = username => {

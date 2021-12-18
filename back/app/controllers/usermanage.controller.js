@@ -35,31 +35,6 @@ exports.findOne = (req, res) => {
         });
 };
 
-// Update a User by the id in the request
-exports.update = (req, res) => {
-    if (!req.body) {
-        return res.status(400).send({
-            message: "Data to update can not be empty!"
-        });
-    }
-
-    const id = req.params.id;
-
-    User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
-        .then(data => {
-            if (!data) {
-                res.status(404).send({
-                    message: `Cannot update User with id=${id}. Maybe User was not found!`
-                });
-            } else res.send({ message: "User was updated successfully." });
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error updating User with id=" + id
-            });
-        });
-};
-
 // Borrow Book.
 exports.borrow = (req, res) => {
     if (!req.body) {
@@ -104,22 +79,6 @@ exports.delete = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message: "Could not delete User with id=" + id
-            });
-        });
-};
-
-// Delete all Users from the database.
-exports.deleteAll = (req, res) => {
-    User.deleteMany({})
-        .then(data => {
-            res.send({
-                message: `${data.deletedCount} Users were deleted successfully!`
-            });
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while removing all Users."
             });
         });
 };

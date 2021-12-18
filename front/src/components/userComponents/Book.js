@@ -6,14 +6,8 @@ import "../GlobalStyles.css";
 const Book = (props) => {
     const initialBookState = {
         id: null,
-        title: "",
-        isbn: "",
-        author: "",
-        publisher: "",
-        pubdate: "",
-        cnt: "",
-        brw: "",
-        description: ""
+        brw: 0,
+        brws: [],
     };
     const [currentBook, setCurrentBook] = useState(initialBookState);
     const [message, setMessage] = useState("");
@@ -48,40 +42,42 @@ const Book = (props) => {
         retrieveImages();
     }, []);
 
-    // const updatePublished = status => {
-    //     var data = {
-    //         id: currentTutorial.id,
-    //         title: currentTutorial.title,
-    //         description: currentTutorial.description,
-    //         published: status
-    //     };
-    //
-    //     TutorialDataService.update(currentTutorial.id, data)
-    //         .then(response => {
-    //             setCurrentTutorial({ ...currentTutorial, published: status });
-    //             console.log(response.data);
-    //         })
-    //         .catch(e => {
-    //             console.log(e);
-    //         });
-    // };
+    const [currentUser, setCurrentUser] = useState(initialUserState);
+    let user = window.localStorage.getItem('user');
+    let userid = user.id;
 
-    const updateContent = () => {
-        var data = {
+    const getUser = id => {
+        usermanageService.get(id)
+            .then(response => {
+                setCurrentUser(response.data);
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
+    useEffect(() => {
+        getUser(userid);
+    }, []);
+
+    const updateContent = (event) => {
+        event.preventDefault();
+
+        let now = new Date();
+        let bookid = currentBook.id;
+
+
+        let data = {
             id: currentBook.id,
-            title: currentBook.title,
-            isbn: currentBook.isbn,
-            author: currentBook.author,
-            publisher: currentBook.publisher,
-            pubdate: currentBook.pubdate,
-            cnt: currentBook.cnt,
-            description: currentBook.description
+            brw: currentBook.brw,
+            brws: currentBook.brws,
         };
 
-        bookService.update(currentBook.id, data)
+        bookService.borrow(currentBook.id, data)
             .then(response => {
                 console.log(response.data);
-                setMessage("The book was updated successfully!");
+                setMessage("The book was borrowed successfully!");
             })
             .catch(e => {
                 console.log(e);

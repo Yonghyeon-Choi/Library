@@ -10,7 +10,7 @@ module.exports = mongoose => {
             brw: Number,
             brws: [
                 {
-                    username: String,
+                    userid: String,
                     brwtime: Date
                 }
             ],

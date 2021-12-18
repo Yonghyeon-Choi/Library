@@ -11,8 +11,8 @@ const Book = (props) => {
         author: "",
         publisher: "",
         pubdate: "",
-        cnt: "",
-        brw: "",
+        cnt: 0,
+        brw: 0,
         description: ""
     };
     const [currentBook, setCurrentBook] = useState(initialBookState);
@@ -54,26 +54,8 @@ const Book = (props) => {
         setCurrentBook({ ...currentBook, [name]: value });
     };
 
-    // const updatePublished = status => {
-    //     var data = {
-    //         id: currentTutorial.id,
-    //         title: currentTutorial.title,
-    //         description: currentTutorial.description,
-    //         published: status
-    //     };
-    //
-    //     TutorialDataService.update(currentTutorial.id, data)
-    //         .then(response => {
-    //             setCurrentTutorial({ ...currentTutorial, published: status });
-    //             console.log(response.data);
-    //         })
-    //         .catch(e => {
-    //             console.log(e);
-    //         });
-    // };
-
     const updateContent = () => {
-        var data = {
+        let data = {
             id: currentBook.id,
             title: currentBook.title,
             isbn: currentBook.isbn,

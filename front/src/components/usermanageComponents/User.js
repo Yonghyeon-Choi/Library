@@ -45,38 +45,21 @@ const User = (props) => {
                     <h5>사용자 관리</h5>
                     <form>
                         <div className="form-group">
-                            <label htmlFor="title">제목</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="title"
-                                name="title"
-                                value={currentBook.title}
-                                onChange={handleInputChange}
-                            />
+                            <label htmlFor="name">이름</label>
+                            {currentUser.username}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="isbn">ISBN</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="ISBN"
-                                name="ISBN"
-                                value={currentBook.isbn}
-                                onChange={handleInputChange}
-                            />
+                            <label htmlFor="email">이메일</label>
+                            {currentUser.email}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="brw">대출 중</label>
-                            <input
-                                type="number"
-                                className="form-control"
-                                id="brw"
-                                name="brw"
-                                value={currentBook.brw}
-                                onChange={handleInputChange}
-                                disabled
-                            />
+                            <label htmlFor="brws">대출 도서</label>
+                            {currentUser.brws && currentUser.brws.map((book, index)=>(
+                                <div key={index}>
+                                    <b>도서명</b>&nbsp;{book.bookname}
+                                    <b>대출일</b>&nbsp;{book.brwtime}
+                                </div>
+                            ))}
                         </div>
                     </form>
                     <button className="delBtnStyle right-align" onClick={removeUser}>

@@ -12,11 +12,11 @@ export default class usermanagePage extends Component {
             <div className="container">
                 {adminToken ? (
                     <>
-                    <Link to={"/usermanage"}/>
-                    <Switch>
-                        <Route exact path={"/usermanage"} component={userList}/>
-                        <Route exact path={"/usermanage/:id"} component={oneUser} />
-                    </Switch>
+                        <Link to={"/usermanage"}/>
+                        <Switch>
+                            <Route exact path={"/usermanage"} component={userList}/>
+                            <Route exact path={"/usermanage/:id"} component={oneUser} />
+                        </Switch>
                     </>
                 ) : (
                     <Redirect to={"/login"}/>

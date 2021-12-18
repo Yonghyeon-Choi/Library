@@ -41,10 +41,6 @@ const BooksList = (props) => {
         setSearchTitle(searchTitle);
     };
 
-    const addBook = () => {
-        props.history.push("/admin/add");
-    };
-
     const openBook = (rowIndex) => {
         const id = booksRef.current[rowIndex].id;
 
@@ -119,24 +115,7 @@ const BooksList = (props) => {
                 </div>
             </div>
             <div style={{width: "100%"}}>
-                <table width={"100%"}>
-                    <tbody>
-                    <tr>
-                        <td width={"85%"}>
-                            <h5>책 목록</h5>
-                        </td>
-                        <td width={"15%"} className={"right-align"}>
-                            <button
-                                className="addBtnStyle"
-                                type="button"
-                                onClick={addBook}
-                            >
-                                등록
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <h5>책 목록</h5>
                 <hr/>
                 {books && books.map((book, index) => (
                     <div key={index}>
@@ -154,7 +133,7 @@ const BooksList = (props) => {
                                         type="button"
                                         className="editBtnStyle right-margin"
                                         onClick={() => openBook(index)}>
-                                        수정
+                                        >>
                                     </button>
                                 </td>
                             </tr>

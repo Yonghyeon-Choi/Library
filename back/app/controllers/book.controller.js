@@ -126,7 +126,7 @@ exports.borrow = (req, res) => {
 
     const id = req.params.id;
 
-    User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    Book.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
         .then(data => {
             if (!data) {
                 res.status(404).send({

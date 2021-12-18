@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import bookService from "../../services/book.service";
 import usermanageService from "../../services/usermanage.service";
 import "../GlobalStyles.css";
 
@@ -8,19 +7,6 @@ const UsersList = (props) => {
     const [users, setUsers] = useState([]);
     const usersRef = useRef();
     usersRef.current = users;
-
-    const [books, setBooks] = useState([]);
-
-    const retrieveBooks = () => {
-        bookService.getAll()
-            .then(response => {
-                setBooks(response.data);
-                // console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    };
 
     const retrieveUsers = () => {
         usermanageService.getAll()
@@ -35,7 +21,6 @@ const UsersList = (props) => {
 
     useEffect(() => {
         retrieveUsers();
-        retrieveBooks();
     }, []);
 
     const onChangeSearchName = e => {

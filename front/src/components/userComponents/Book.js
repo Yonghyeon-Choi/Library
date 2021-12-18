@@ -94,19 +94,8 @@ const Book = (props) => {
             });
     };
 
-    const removeBook = () => {
-        bookService.remove(currentBook.id)
-            .then(response => {
-                console.log(response.data);
-                props.history.push("/admin");
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    };
-
-    const moveAdmin = () => {
-        props.history.push("/admin");
+    const moveUser = () => {
+        props.history.push("/user");
     };
 
     const imageView = (book) => {
@@ -146,7 +135,7 @@ const Book = (props) => {
         <div>
             {currentBook ? (
                 <div className="edit-form">
-                    <h5>도서 정보 수정</h5>
+                    <h5>도서 정보</h5>
                     <hr/>
                     <form>
                         {imageView(currentBook)}
@@ -242,32 +231,20 @@ const Book = (props) => {
                         </div>
                     </form>
                     <hr/>
-                    <table width={"100%"}>
-                        <tbody>
-                            <tr>
-                                <td className={"left-align"}>
-                                    <button
-                                        type="submit"
-                                        className="addBtnStyle"
-                                        onClick={updateContent}
-                                    >
-                                        수정
-                                    </button>
-                                    &nbsp;&nbsp;
-                                    <button
-                                        type="button"
-                                        onClick={moveAdmin}
-                                        className="addBtnStyle">
-                                        목록
-                                    </button>
-                                </td>
-                                <td className={"right-align"}>
-                                    <button className="delBtnStyle" onClick={removeBook}>
-                                        삭제
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
+                    <button
+                        type="submit"
+                        className="addBtnStyle"
+                        onClick={updateContent}
+                    >
+                        수정
+                    </button>
+                    &nbsp;&nbsp;
+                    <button
+                        type="button"
+                        onClick={moveUser}
+                        className="addBtnStyle">
+                        목록
+                    </button>
                     </table>
                     <p>{message}</p>
                 </div>

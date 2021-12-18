@@ -153,7 +153,7 @@ const BorrowBookList = (props) => {
         //         console.log(e);
         //     });
 
-        window.location.reload();
+        // window.location.reload();
     };
 
     return (

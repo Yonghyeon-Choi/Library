@@ -112,22 +112,12 @@ const BorrowBookList = (props) => {
         }
         console.log(user.brws);
 
-        let borrowBook = {};
-        bookService.get(currentBook.id)
-            .then(response => {
-                borrowBook = response.data;
-                // console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-
-        for(let i = 0; i < borrowBook.brws.length; i++){
-            if(borrowBook.brws[i].userid === userid){
-                borrowBook.brws.splice(i, i+1);
-            }
-        }
-        console.log(borrowBook.brws);
+        // for(let i = 0; i < currentBook .brws.length; i++){
+        //     if(currentBook .brws[i].userid === userid){
+        //         currentBook .brws.splice(i, i+1);
+        //     }
+        // }
+        console.log(currentBook .brws);
 
         // let userId = userid;
         // let bookId = currentBook.id;

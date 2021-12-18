@@ -112,8 +112,8 @@ const UsersList = (props) => {
                                     <div key={bindex}>
                                         <b>도서명</b>&nbsp;{book.bookid}<br/>
                                         <b>대출일</b>&nbsp;{KST(book.brwtime)}
+                                        <br/>
                                     </div>
-                                    <br/>
                                 ))}</td>
                                 <td width={"13%"} className={"right-align"}>
                                     <button

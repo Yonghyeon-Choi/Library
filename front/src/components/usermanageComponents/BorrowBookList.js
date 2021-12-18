@@ -101,8 +101,32 @@ const BorrowBookList = (props) => {
         return dateString + timeString;
     };
 
+    const initialBookState = {
+        id: null,
+        title: "",
+        isbn: "",
+        author: "",
+        publisher: "",
+        pubdate: "",
+        cnt: 0,
+        brw: 0,
+        brws: [],
+        description: ""
+    };
+    const [currentBook, setCurrentBook] = useState(initialBookState);
+
+    const getBook = id => {
+        bookService.get(id)
+            .then(response => {
+                setCurrentBorrow(response.data);
+                // console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
     const returnBook = (book) => {
-        let currentBook = book;
         let user = currentUser;
 
         for(let i = 0; i < user.brws.length; i++){
@@ -112,20 +136,21 @@ const BorrowBookList = (props) => {
         }
         console.log(user.brws);
 
-        // for(let i = 0; i < currentBook .brws.length; i++){
-        //     if(currentBook .brws[i].userid === userid){
-        //         currentBook .brws.splice(i, i+1);
-        //     }
-        // }
-        console.log(currentBook .brws);
+        getBook(book.id);
+        console.log(currentBook.brws);
 
-        // let userId = userid;
-        // let bookId = currentBook.id;
-        //
         // let userdata = {
-        //     id: currentUser.id,
-        //     brws: userBrws,
+        //     id: user.id,
+        //     brws: user.brws,
         // };
+        //
+        // usermanageService.borrow(user.id, userdata)
+        //     .then(response => {
+        //         console.log(response.data);
+        //     })
+        //     .catch(e => {
+        //         console.log(e);
+        //     });
         //
         // let bookdata = {
         //     id: currentBook.id,
@@ -141,13 +166,7 @@ const BorrowBookList = (props) => {
         //         console.log(e);
         //     });
         //
-        // usermanageService.borrow(userId, userdata)
-        //     .then(response => {
-        //         console.log(response.data);
-        //     })
-        //     .catch(e => {
-        //         console.log(e);
-        //     });
+
 
         // window.location.reload();
     };

@@ -58,17 +58,17 @@ const BorrowBookList = (props) => {
 
     }, []);
 
-    let brws = [];
+    let userBrws = [];
 
     const retieveBorrows = () => {
         for(let i = 0; i < currentUser.brws.length; i++){
             for(let j = 0; j < books.length; j++){
                 if(currentUser.brws[i].bookid === books[j].id){
-                    brws.push(books[j]);
+                    userBrws.push(books[j]);
                 }
             }
         }
-        console.log(brws);
+        console.log(userBrws);
     };
 
     retieveBorrows();
@@ -117,54 +117,51 @@ const BorrowBookList = (props) => {
         return dateString + timeString;
     };
 
-    const returnBook = (id) => {
-        //
-        // let userId = userid;
-        // let bookId = currentBook.id;
-        //
-        // let userBrws = currentUser.brws;
-        // let bookBrws = currentBook.brws;
-        //
-        // userBrws.push({
-        //     bookid : bookId,
-        //     brwtime : now
-        // })
-        //
-        // bookBrws.push({
-        //     userid : userId,
-        //     brwtime : now
-        // })
-        //
-        // setCurrentUser({ ...currentUser, brws: userBrws});
-        // setCurrentBook({ ...currentBook, brws: bookBrws});
-        //
-        // let userdata = {
-        //     id: currentUser.id,
-        //     brws: currentUser.brws,
-        // };
-        //
-        // let bookdata = {
-        //     id: currentBook.id,
-        //     brw: currentBook.brw - 1,
-        //     brws: currentBook.brws,
-        // };
-        //
-        // usermanageService.borrow(userId, userdata)
-        //     .then(response => {
-        //         console.log(response.data);
-        //     })
-        //     .catch(e => {
-        //         console.log(e);
-        //     });
-        //
-        // bookService.borrow(currentBook.id, bookdata)
-        //     .then(response => {
-        //         console.log(response.data);
-        //         setMessage("대출이 완료 되었습니다.");
-        //     })
-        //     .catch(e => {
-        //         console.log(e);
-        //     });
+    const returnBook = (book) => {
+        const currentBook = book;
+
+        for(let i = 0; i < userBrws.length; i++){
+            if(userBrws[i].id === book.id){
+                userBrws.splice(i, i+1);
+            }
+        }
+
+        for(let i = 0; i < currentBook.brws.length; i++){
+            if(currentBook.brws[i].userid === userid){
+                currentBook.brws.splice(i, i+1);
+            }
+        }
+
+        let userId = userid;
+        let bookId = currentBook.id;
+
+        let userdata = {
+            id: currentUser.id,
+            brws: userBrws,
+        };
+
+        let bookdata = {
+            id: currentBook.id,
+            brw: currentBook.brw - 1,
+            brws: currentBook.brws,
+        };
+
+        usermanageService.borrow(userId, userdata)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+
+        bookService.borrow(currentBook.id, bookdata)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+        location.reload();
     };
 
     return (
@@ -172,7 +169,7 @@ const BorrowBookList = (props) => {
             <div style={{width: "100%"}}>
                 <h5>대출 도서</h5>
                 <hr/>
-                {brws && brws.map((book, index) => (
+                {userBrws && userBrws.map((book, index) => (
                     <div key={index}>
                         <table width={"100%"} style={{fontSize: "11px"}}>
                             <tbody>
@@ -187,7 +184,7 @@ const BorrowBookList = (props) => {
                                     <button
                                         type="button"
                                         className="editBtnStyle right-margin"
-                                        onClick={() => returnBook(book._id)}
+                                        onClick={() => returnBook(book)}
                                     >
                                         반납
                                     </button>

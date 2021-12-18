@@ -120,8 +120,8 @@ const BooksList = (props) => {
                             <tr>
                                 <td width={"15%"} rowSpan={5}>{imageView(book)}</td>
                                 <td width={"5%"}/>
-                                <td width={"10%"} className={"right-align"}><b>제목</b></td>
-                                <td width={"5%"}/>
+                                <td width={"13%"} className={"right-align"}><b>제목</b></td>
+                                <td width={"2%"}/>
                                 <td width={"65%"}><b>{book.title}</b></td>
                             </tr>
                             <tr>

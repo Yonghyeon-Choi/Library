@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import bookService from "../../services/book.service";
 import imageService from "../../services/image.service";
+import usermanageService from "../../services/usermanage.service";
 import "../GlobalStyles.css";
 
 const Book = (props) => {
@@ -42,6 +43,12 @@ const Book = (props) => {
         retrieveImages();
     }, []);
 
+    const initialUserState = {
+        id: null,
+        username: "",
+        email: "",
+        brws: [],
+    };
     const [currentUser, setCurrentUser] = useState(initialUserState);
     let user = window.localStorage.getItem('user');
     let userid = user.id;

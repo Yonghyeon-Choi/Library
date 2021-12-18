@@ -70,9 +70,7 @@ const Book = (props) => {
         getUser();
     }, [props.match.params.id]);
     var cur_date = new Date();
-    var utc = cur_date.getTime() + (cur_date.getTimezoneOffset() * 60 * 1000);
-    var time_diff = 9 * 60 * 60 * 1000;
-    var cur_date_korea = new Date(utc + (time_diff));
+    var cur_date_korea = new Date(cur_date + (3600000*9));
 
     const borrowContent = (event) => {
         event.preventDefault();
@@ -170,7 +168,7 @@ const Book = (props) => {
         <div>
             {cur_date.toISOString()}
             <br/>
-            {moment.tz(cur_date, 'Asia/Seoul').toISOString()}
+            {.toISOString()}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

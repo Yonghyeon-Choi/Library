@@ -55,6 +55,7 @@ const BorrowBookList = (props) => {
         getUser(userid);
         retrieveBooks();
         retrieveImages();
+        retieveBorrows();
     }, []);
 
     let brws = [];
@@ -68,8 +69,6 @@ const BorrowBookList = (props) => {
             }
         }
     };
-
-    retieveBorrows();
 
     const imageView = (book) => {
         const isbn = book.isbn;

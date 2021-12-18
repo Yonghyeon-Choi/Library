@@ -48,12 +48,6 @@ const Book = (props) => {
         retrieveImages();
     }, []);
 
-    const handleInputChange = event => {
-        event.preventDefault();
-        const { name, value } = event.target;
-        setCurrentBook({ ...currentBook, [name]: value });
-    };
-
     // const updatePublished = status => {
     //     var data = {
     //         id: currentTutorial.id,
@@ -147,7 +141,7 @@ const Book = (props) => {
                                 id="title"
                                 name="title"
                                 value={currentBook.title}
-                                onChange={handleInputChange}
+                                disabled
                             />
                         </div>
                         <div className="form-group">
@@ -158,7 +152,7 @@ const Book = (props) => {
                                 id="isbn"
                                 name="isbn"
                                 value={currentBook.isbn}
-                                onChange={handleInputChange}
+                                disabled
                             />
                         </div>
                         <div className="form-group">
@@ -169,7 +163,7 @@ const Book = (props) => {
                                 id="author"
                                 name="author"
                                 value={currentBook.author}
-                                onChange={handleInputChange}
+                                disabled
                             />
                         </div>
                         <div className="form-group">
@@ -180,7 +174,7 @@ const Book = (props) => {
                                 id="publisher"
                                 name="publisher"
                                 value={currentBook.publisher}
-                                onChange={handleInputChange}
+                                disabled
                             />
                         </div>
                         <div className="form-group">
@@ -191,8 +185,7 @@ const Book = (props) => {
                                 id="pubdate"
                                 name="pubdate"
                                 value={currentBook.pubdate}
-                                onChange={handleInputChange}
-                                placeholder={"YYYYMMDD"}
+                                disabled
                             />
                         </div>
                         <div className="form-group">
@@ -202,8 +195,8 @@ const Book = (props) => {
                                 id="description"
                                 name="description"
                                 value={currentBook.description}
-                                onChange={handleInputChange}
                                 rows={"5"}
+                                disabled
                             />
                         </div>
                         <div className="form-group">
@@ -214,7 +207,7 @@ const Book = (props) => {
                                 id="cnt"
                                 name="cnt"
                                 value={currentBook.cnt}
-                                onChange={handleInputChange}
+                                disabled
                             />
                         </div>
                         <div className="form-group">
@@ -225,7 +218,6 @@ const Book = (props) => {
                                 id="brw"
                                 name="brw"
                                 value={currentBook.brw}
-                                onChange={handleInputChange}
                                 disabled
                             />
                         </div>

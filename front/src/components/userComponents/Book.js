@@ -68,7 +68,7 @@ const Book = (props) => {
         retrieveImages();
         getUser();
     }, [props.match.params.id]);
-
+    const curr = new Date().toISOString();
     const borrowContent = (event) => {
         event.preventDefault();
 
@@ -166,6 +166,7 @@ const Book = (props) => {
 
     return (
         <div>
+            {curr}
             {currentBook ? (
                 <div className="edit-form">
                     <h5>도서 정보</h5>

@@ -12,12 +12,14 @@ export default class adminPage extends Component {
     return (
         <div className="container">
             {adminToken ? (
+                <>
                 <Link to={"/admin"}/>
                 <Switch>
                     <Route exact path={"/admin"} component={bookList}/>
                     <Route exact path={"/admin/add"} component={addBook} />
                     <Route exact path={"/admin/:id"} component={oneBook} />
                 </Switch>
+                </>
             ) : (
                 props.history.push("/login")
             )}

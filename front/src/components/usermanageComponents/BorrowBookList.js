@@ -69,9 +69,10 @@ const BorrowBookList = (props) => {
         }
         console.log(userBrws);
     };
+
     useEffect(() => {
         retieveBorrows();
-    }, [currentUser]);
+    }, [currentUser.brws]);
 
     const imageView = (book) => {
         const isbn = book.isbn;

@@ -37,24 +37,18 @@ const Book = (props) => {
 
     useEffect(() => {
         getBook(props.match.params.id);
+        retrieveImages();
+        getUser();
     }, [props.match.params.id]);
 
-    useEffect(() => {
-        retrieveImages();
-    }, []);
-
-    const initialUserState = {
-        id: null,
-        username: "",
-        email: "",
-        brws: [],
-    };
+    const initialUserState = {id: null,};
     const [currentUser, setCurrentUser] = useState(initialUserState);
-    let user = window.localStorage.getItem('user');
-    let userid = user.id;
 
-    const getUser = id => {
-        usermanageService.get(id)
+
+    const getUser = () => {
+        let user = window.localStorage.getItem('user');
+        let userid = user.id;
+        usermanageService.get(userid)
             .then(response => {
                 setCurrentUser(response.data);
                 console.log(response.data);
@@ -63,10 +57,6 @@ const Book = (props) => {
                 console.log(e);
             });
     };
-
-    useEffect(() => {
-        getUser(userid);
-    }, []);
 
     const updateContent = (event) => {
         event.preventDefault();

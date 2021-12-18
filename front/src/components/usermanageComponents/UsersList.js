@@ -50,7 +50,7 @@ const UsersList = (props) => {
 
     const KST = (utc) => {
         const KST = new Date(utc);
-        KST.setHours(KST.getHours()+9);
+        // KST.setHours(KST.getHours()+9);
 
         let year = KST.getFullYear();
         let month = ('0' + (KST.getMonth() + 1)).slice(-2);

@@ -63,7 +63,7 @@ const BorrowBookList = (props) => {
         for(let i = 0; i < currentUser.brws.length; i++){
             for(let j = 0; j < books.length; j++){
                 if(currentUser.brws[i].bookid === books[j].id){
-                    brws.push(books[i]);
+                    brws.push(books[j]);
                 }
             }
         }

@@ -113,9 +113,14 @@ const BorrowBookList = (props) => {
         console.log(user.brws);
 
         let currentBorrow = {};
-        for(let i = 0; i< books.length; i++){
+        for(let i = 0; i < books.length; i++){
             if(books[i].id === currentBook.id){
                 currentBorrow = books[i];
+            }
+        }
+        for(let i = 0; i < currentBorrow.brws.length; i++){
+            if(currentBorrow.brws[i].userid === userid){
+                currentBorrow.brws.splice(i, i+1);
             }
         }
 

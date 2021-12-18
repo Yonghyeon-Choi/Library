@@ -245,7 +245,6 @@ const Book = (props) => {
                         className="addBtnStyle">
                         목록
                     </button>
-                    </table>
                     <p>{message}</p>
                 </div>
             ) : (

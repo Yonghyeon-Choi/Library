@@ -240,6 +240,7 @@ const Book = (props) => {
                             />
                         </div>
                     </form>
+                    <hr/>
                     <table width={"100%"}>
                         <tbody>
                             <tr>

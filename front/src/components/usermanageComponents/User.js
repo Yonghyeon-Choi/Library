@@ -63,6 +63,7 @@ const User = (props) => {
                             ))}
                         </div>
                     </form>
+                    <hr/>
                     <div className="right-align">
                         <button className="delBtnStyle" onClick={removeUser}>
                             회원 삭제

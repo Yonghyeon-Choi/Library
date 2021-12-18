@@ -178,6 +178,7 @@ const BookAdd = () => {
                             </label>
                         </div>
                     </form>
+                    <hr/>
                     <button onClick={saveBook} className="addBtnStyle">
                         등록
                     </button>

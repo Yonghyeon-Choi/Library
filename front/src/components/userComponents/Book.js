@@ -90,6 +90,7 @@ const Book = (props) => {
         let bookBrws = currentBook.brws;
 
         userBrws.push({
+            id: currentBorrow.id,
             title: currentBorrow.title,
             isbn: currentBorrow.isbn,
             author: currentBorrow.author,

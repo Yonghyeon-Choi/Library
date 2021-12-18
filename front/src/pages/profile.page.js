@@ -14,7 +14,7 @@ class Profile extends Component {
                     padding: "30px",
                 }}
             >
-                {currentUser &&
+                {currentUser ? (
                     <div className="row">
                         <table className="table table-borderless">
                             <tbody>
@@ -63,6 +63,9 @@ class Profile extends Component {
                             </tbody>
                         </table>
                     </div>
+                ) : (
+                    props.history.push("/login")
+                )
                 }
             </div>
         );

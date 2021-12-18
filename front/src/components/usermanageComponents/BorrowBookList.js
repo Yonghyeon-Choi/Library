@@ -49,7 +49,7 @@ const BorrowBookList = (props) => {
         }
     };
 
-
+    retieveBorrows();
 
     const imageView = (book) => {
         const isbn = book.isbn;

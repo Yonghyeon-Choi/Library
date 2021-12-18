@@ -21,7 +21,7 @@ export default class adminPage extends Component {
                 </Switch>
                 </>
             ) : (
-                <Link to={"/login")}/>
+                <Link to={"/login"}/>
             )}
 
         </div>

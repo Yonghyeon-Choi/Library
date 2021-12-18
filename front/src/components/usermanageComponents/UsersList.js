@@ -38,8 +38,6 @@ const UsersList = (props) => {
         retrieveBooks();
     }, []);
 
-
-
     const onChangeSearchName = e => {
         e.preventDefault();
         const searchName = e.target.value;

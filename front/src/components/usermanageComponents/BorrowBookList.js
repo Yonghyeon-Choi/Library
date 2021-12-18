@@ -22,7 +22,7 @@ const BorrowBookList = (props) => {
         usermanageService.get(id)
             .then(response => {
                 setCurrentUser(response.data);
-                // console.log(response.data);
+                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -33,7 +33,7 @@ const BorrowBookList = (props) => {
         bookService.getAll()
             .then(response => {
                 setBooks(response.data);
-                console.log(response.data);
+                //console.log(response.data);
             })
             .catch(e => {
                 console.log(e);

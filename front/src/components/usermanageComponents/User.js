@@ -4,7 +4,7 @@ import "../GlobalStyles.css";
 
 const User = (props) => {
     const initialUserState = {
-        id: null,
+        _id: null,
         username: "",
         email: "",
         brws: [],
@@ -27,7 +27,7 @@ const User = (props) => {
     }, [props.match.params.id]);
 
     const removeUser = () => {
-        usermanageService.remove(currentUser.id)
+        usermanageService.remove(currentUser._id)
             .then(response => {
                 // console.log(response.data);
                 props.history.push("/usermanage");

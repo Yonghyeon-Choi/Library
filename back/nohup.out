@@ -1,0 +1,28 @@
+Unknown command: "starty"
+
+Did you mean one of these?
+    npm star # Mark your favorite packages
+    npm stars # View packages marked as favorites
+    npm start # Start a package
+
+To see a list of supported npm commands, run:
+  npm help
+
+> back-end@1.0.0 start
+> node server.js
+
+Server is running on port 8080.
+Successfully connect to MongoDB.
+Killed
+
+> back-end@1.0.0 start
+> node server.js
+
+Server is running on port 8080.
+Successfully connect to MongoDB.
+{
+  _id: 627a3260c4f9fd00a0c50537,
+  token: 'a5ceb57a-13f0-471e-8c1b-87d18f1103f7',
+  user: 61a35cd2ee3bef1b50db8174,
+  expiryDate: 2022-05-11T09:37:36.834Z
+}

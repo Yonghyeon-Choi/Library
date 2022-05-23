@@ -1,1 +1,1 @@
-export const serverURL = "http://203.237.183.70:7163";
+export const serverURL = "http://203.237.183.45:7163";

@@ -1,6 +1,6 @@
 const uploadFile = require("../middlewares/upload");
 const fs = require("fs");
-const baseUrl = "http://203.237.183.70:7163/api/images/";
+const baseUrl = "http://203.237.183.45:7163/api/images/";
 
 const upload = async (req, res) => {
     try {

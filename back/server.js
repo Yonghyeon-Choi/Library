@@ -6,7 +6,7 @@ const app = express();
 global.__basedir = __dirname;
 
 let corsOptions = {
-  origin: "http://203.237.183.70:7165"
+  origin: "http://203.237.183.45:7165"
 };
 app.use(cors(corsOptions));
 app.use(express.json());
